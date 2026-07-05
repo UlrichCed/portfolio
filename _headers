@@ -13,3 +13,7 @@
   Cross-Origin-Resource-Policy: same-origin
   Cross-Origin-Embedder-Policy: require-corp
   X-Permitted-Cross-Domain-Policies: none
+
+# Cache long pour les images (stables) → visites répétées plus rapides
+/assets/*
+  Cache-Control: public, max-age=2592000, immutable
