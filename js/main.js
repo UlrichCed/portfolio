@@ -28,13 +28,38 @@
     });
   }
 
-  /* ---- En-tête : bordure au défilement ---- */
+  /* ---- En-tête : bordure au défilement + bouton « haut de page » ---- */
   const header = document.querySelector(".site-header");
+  const toTop = document.getElementById("to-top");
   function onScroll() {
     if (header) header.classList.toggle("scrolled", window.scrollY > 8);
+    if (toTop) toTop.classList.toggle("show", window.scrollY > 600);
   }
   onScroll();
   window.addEventListener("scroll", onScroll, { passive: true });
+  if (toTop) {
+    toTop.addEventListener("click", function () {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
+
+  /* ---- Navigation active au défilement (scrollspy) ---- */
+  const navLinks = Array.prototype.slice.call(document.querySelectorAll(".nav-menu a[href^='#']"));
+  const sections = navLinks
+    .map(function (a) { return document.getElementById(a.getAttribute("href").slice(1)); })
+    .filter(Boolean);
+  if ("IntersectionObserver" in window && sections.length) {
+    const spy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        const id = entry.target.id;
+        navLinks.forEach(function (a) {
+          a.classList.toggle("active", a.getAttribute("href") === "#" + id);
+        });
+      });
+    }, { rootMargin: "-45% 0px -50% 0px" });
+    sections.forEach(function (s) { spy.observe(s); });
+  }
 
   /* ---- Animations d'apparition ---- */
   const reveals = document.querySelectorAll(".reveal");
