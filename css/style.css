@@ -574,7 +574,9 @@ section[id] { scroll-margin-top: 84px; }
 
 .emblem-photo::after {
   content: ""; position: absolute; inset: 0; z-index: 2; border-radius: inherit;
-  background: url("../assets/cyber-lock.jpg") center / cover no-repeat;
+  background:
+    linear-gradient(180deg, transparent 52%, rgba(8,8,10,.6)),
+    url("../assets/profil.jpg") center top / cover no-repeat;
 }
 .emblem-photo .emblem-tag { z-index: 3; }
 .emblem-fallback { z-index: 1; }
