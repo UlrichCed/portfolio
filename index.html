@@ -53,10 +53,11 @@
   </script>
 </head>
 <body>
+  <span id="top" aria-hidden="true"></span>
   <a class="skip-link" href="#main">Aller au contenu</a>
 
   <!-- ============ EN-TÊTE / NAVIGATION ============ -->
-  <header class="site-header" id="top">
+  <header class="site-header">
     <div class="container header-inner">
       <a href="#top" class="brand" aria-label="Accueil">
         <span class="brand-mark" aria-hidden="true">
@@ -92,6 +93,7 @@
 
     <!-- ============ HERO ============ -->
     <section class="hero">
+      <div class="hero-photo" aria-hidden="true"></div>
       <div class="hero-bg" aria-hidden="true"></div>
       <div class="hero-scan" aria-hidden="true"></div>
       <div class="container hero-inner">
@@ -124,9 +126,9 @@
     <section id="about" class="section">
       <div class="container about-grid">
         <div class="about-media reveal">
-          <div class="emblem" role="img" aria-label="Emblème">
+          <div class="emblem emblem-photo" role="img" aria-label="Cybersécurité offensive">
             <div class="emblem-grid" aria-hidden="true"></div>
-            <svg class="emblem-mark" viewBox="0 0 200 200" aria-hidden="true">
+            <svg class="emblem-mark emblem-fallback" viewBox="0 0 200 200" aria-hidden="true">
               <g class="emblem-spin">
                 <circle cx="100" cy="100" r="82" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".35" stroke-dasharray="6 10"/>
                 <circle cx="100" cy="100" r="58" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".55"/>

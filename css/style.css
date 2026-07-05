@@ -556,6 +556,27 @@ html.js .reveal.in { opacity: 1; transform: none; }
 .footer-inner a { color: var(--text-soft); }
 .footer-inner a:hover { color: var(--red); }
 
+/* ---- Ancrages sous le header collant ---- */
+section[id] { scroll-margin-top: 84px; }
+
+/* ---- Images d'ambiance (repli sombre si le fichier est absent) ---- */
+/* Déposez vos images dans /assets : hero-hacker.jpg et cyber-lock.jpg */
+.hero-photo {
+  position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background: url("../assets/hero-hacker.jpg") right center / cover no-repeat;
+  opacity: .42;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, transparent 32%, #000 88%);
+  mask-image: linear-gradient(90deg, transparent 0%, transparent 32%, #000 88%);
+}
+@media (max-width: 720px) { .hero-photo { opacity: .22; } }
+
+.emblem-photo::after {
+  content: ""; position: absolute; inset: 0; z-index: 2; border-radius: inherit;
+  background: url("../assets/cyber-lock.jpg") center / cover no-repeat;
+}
+.emblem-photo .emblem-tag { z-index: 3; }
+.emblem-fallback { z-index: 1; }
+
 /* ---- Page Mentions légales ---- */
 .legal { max-width: 760px; }
 .legal h1 { margin-bottom: 2rem; }
