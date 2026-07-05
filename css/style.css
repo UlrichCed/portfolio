@@ -563,12 +563,14 @@ section[id] { scroll-margin-top: 84px; }
 /* Déposez vos images dans /assets : hero-hacker.jpg et cyber-lock.jpg */
 .hero-photo {
   position: absolute; inset: 0; z-index: 0; pointer-events: none;
-  background: url("../assets/hero-hacker.jpg") right center / cover no-repeat;
-  opacity: .42;
-  -webkit-mask-image: linear-gradient(90deg, transparent 0%, transparent 32%, #000 88%);
-  mask-image: linear-gradient(90deg, transparent 0%, transparent 32%, #000 88%);
+  background:
+    linear-gradient(90deg, var(--bg) 12%, rgba(8,8,10,.55) 42%, rgba(8,8,10,0) 78%),
+    url("../assets/hero-hacker.jpg") right center / cover no-repeat;
+  opacity: .5;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, transparent 30%, #000 80%);
+  mask-image: linear-gradient(90deg, transparent 0%, transparent 30%, #000 80%);
 }
-@media (max-width: 720px) { .hero-photo { opacity: .22; } }
+@media (max-width: 720px) { .hero-photo { opacity: .28; } }
 
 .emblem-photo::after {
   content: ""; position: absolute; inset: 0; z-index: 2; border-radius: inherit;
