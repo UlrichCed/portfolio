@@ -386,6 +386,13 @@ svg { display: block; }
 }
 .pull-en.big { font-size: clamp(1.15rem, 3vw, 1.7rem); margin-top: .4rem; }
 
+/* ---- Sous-accroche du hero ---- */
+.hero-sub {
+  font-family: var(--font-mono); color: var(--red); font-weight: 600;
+  font-size: clamp(1rem, 2.6vw, 1.35rem); letter-spacing: .01em;
+  margin: -.6rem 0 1.5rem;
+}
+
 /* ---- Emblème : rotation lente ---- */
 .emblem-spin { transform-origin: 100px 100px; animation: spin 40s linear infinite; }
 @keyframes spin { to { transform: rotate(360deg); } }

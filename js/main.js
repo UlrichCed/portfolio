@@ -61,10 +61,10 @@
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (typed && !reduceMotion) {
     const phrases = [
-      "I break in.",
-      "I escalate.",
-      "I pivot.",
-      "I exfiltrate — in a lab.",
+      "I test your defenses.",
+      "I find the gaps.",
+      "I map the threat.",
+      "I prove the risk.",
       "I report everything.",
       "You get stronger."
     ];
