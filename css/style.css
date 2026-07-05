@@ -559,13 +559,35 @@ html.js .reveal.in { opacity: 1; transform: none; }
 /* ---- Ancrages sous le header collant ---- */
 section[id] { scroll-margin-top: 84px; }
 
-/* ---- Bandeau CTA avec image d'ambiance (repli sombre si le fichier manque) ---- */
+/* ---- Fond image du hero (derrière « WE STRIKE FIRST ») ---- */
+.hero-photo {
+  position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background:
+    linear-gradient(90deg, var(--bg) 12%, rgba(8,8,10,.55) 42%, rgba(8,8,10,0) 78%),
+    url("../assets/hero-hacker.jpg") right center / cover no-repeat;
+  opacity: .5;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, transparent 30%, #000 80%);
+  mask-image: linear-gradient(90deg, transparent 0%, transparent 30%, #000 80%);
+}
+@media (max-width: 720px) { .hero-photo { opacity: .28; } }
+
+/* ---- Bandeau CTA (dégradé rouge, sans image pour ne pas dupliquer le hero) ---- */
 .cta-band { position: relative; overflow: hidden; padding: clamp(3.5rem, 8vw, 5.5rem) 0; border-block: 1px solid var(--border); background: var(--bg-alt); }
 .cta-band-media {
   position: absolute; inset: 0; z-index: 0; pointer-events: none;
   background:
-    linear-gradient(90deg, var(--bg) 8%, rgba(8,8,10,.72) 45%, rgba(8,8,10,.55) 100%),
-    url("../assets/hero-hacker.jpg") center 30% / cover no-repeat;
+    radial-gradient(72% 130% at 82% 0%, color-mix(in srgb, var(--red) 26%, transparent), transparent 62%),
+    radial-gradient(55% 90% at 0% 100%, color-mix(in srgb, var(--red-deep) 18%, transparent), transparent 72%);
+}
+.cta-band-media::after {
+  content: ""; position: absolute; inset: 0;
+  background-image:
+    linear-gradient(color-mix(in srgb, var(--red) 10%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--red) 10%, transparent) 1px, transparent 1px);
+  background-size: 46px 46px;
+  -webkit-mask-image: radial-gradient(70% 100% at 80% 20%, #000, transparent 75%);
+  mask-image: radial-gradient(70% 100% at 80% 20%, #000, transparent 75%);
+  opacity: .5;
 }
 .cta-band-inner { position: relative; z-index: 1; max-width: 760px; }
 .cta-title { font-size: clamp(1.7rem, 4.5vw, 2.6rem); font-weight: 800; margin: .3rem 0 .8rem; }
