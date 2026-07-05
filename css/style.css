@@ -503,9 +503,15 @@ html.js .reveal.in { opacity: 1; transform: none; }
   font-size: 3.4rem; line-height: 1; color: var(--red); opacity: .28; font-family: Georgia, serif;
 }
 .quote blockquote { margin: 0 0 1.1rem; color: var(--text); font-size: 1rem; line-height: 1.6; }
-.quote figcaption { display: flex; flex-direction: column; gap: .1rem; border-top: 1px solid var(--border); padding-top: .9rem; }
-.q-role { font-weight: 700; color: var(--text); font-size: .92rem; }
-.q-org { font-family: var(--font-mono); font-size: .78rem; color: var(--text-faint); }
+.quote figcaption { display: flex; align-items: center; gap: .8rem; border-top: 1px solid var(--border); padding-top: .9rem; }
+.q-avatar {
+  flex-shrink: 0; width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center;
+  font-family: var(--font-mono); font-weight: 700; font-size: .85rem; color: var(--red);
+  background: var(--red-soft); border: 1px solid var(--border-red);
+}
+.q-id { display: flex; flex-direction: column; gap: .05rem; }
+.q-name { font-weight: 700; color: var(--text); font-size: .92rem; }
+.q-org { font-size: .8rem; color: var(--text-faint); }
 
 /* ---- FAQ (accordéon natif) ---- */
 .faq { display: grid; gap: .8rem; max-width: 820px; }
@@ -540,8 +546,10 @@ html.js .reveal.in { opacity: 1; transform: none; }
 
 /* ---- Pied de page enrichi ---- */
 .footer-top-row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1.5rem; padding-bottom: 1.6rem; margin-bottom: 1.4rem; border-bottom: 1px solid var(--border); }
-.footer-brand .brand-name { font-weight: 800; letter-spacing: .04em; }
-.footer-tag { margin: .4rem 0 0; font-family: var(--font-mono); font-size: .82rem; color: var(--red); }
+.footer-logo { display: inline-flex; align-items: center; gap: .55rem; }
+.footer-mark { color: var(--red); display: inline-flex; filter: drop-shadow(0 0 8px var(--red-glow)); }
+.footer-brand .brand-name { font-weight: 800; letter-spacing: .04em; color: var(--text); }
+.footer-tag { margin: .5rem 0 0; font-family: var(--font-mono); font-size: .82rem; color: var(--red); }
 .footer-nav { display: flex; flex-wrap: wrap; gap: .4rem 1.1rem; align-items: center; }
 .footer-nav a { color: var(--text-soft); font-size: .88rem; }
 .footer-nav a:hover { color: var(--red); }
