@@ -91,7 +91,7 @@
 
   /* ---- Formulaire de contact : ouvre le client mail (aucun backend) ---- */
   const form = document.getElementById("contact-form");
-  const DEST = "ulrichcedricwangrawa@gmail.com";
+  const DEST = "holyspyware@proton.me";
   if (form) {
     form.addEventListener("submit", function (e) {
       e.preventDefault();
