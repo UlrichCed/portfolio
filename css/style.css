@@ -463,6 +463,11 @@ svg { display: block; }
 .method h3 { font-size: 1.05rem; margin-bottom: .5rem; }
 .method p { color: var(--text-soft); font-size: .92rem; margin: 0; }
 
+/* ---- Notes secondaires (arsenal / contact) ---- */
+.skills-note { color: var(--text-faint); font-size: .88rem; margin-top: 1.6rem; font-style: italic; }
+.contact-plain { color: var(--text); font-weight: 500; }
+.contact-note { color: var(--text-faint); font-size: .85rem; margin-top: 1.2rem; }
+
 /* ---- Tag secondaire (contact) ---- */
 .tag-soft {
   display: inline-block; margin-left: .5rem; font-family: var(--font-mono); font-size: .68rem;
