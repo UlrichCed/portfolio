@@ -2,14 +2,16 @@
 
 Site vitrine pour présenter mon profil et mes services en **cybersécurité offensive**
 et **cyber renseignement**.
-100 % statique (HTML / CSS / JavaScript), sans dépendance externe, sans backend.
+Site statique (HTML / CSS / JavaScript), sans dépendance côté client, avec une
+fonction serverless Cloudflare pour l'envoi du formulaire de contact.
 
 ## ✨ Points clés
 
 - **Design rouge & noir, sombre et imposant** — pensé pour un profil offensif.
 - **Responsive** — s'adapte au mobile, à la tablette et au bureau.
-- **Sécurisé par conception** — aucune ressource externe (surface d'attaque minimale),
-  politique de sécurité du contenu (CSP), en-têtes HTTP durcis, formulaire sans serveur.
+- **Sécurisé par conception** — aucune ressource tierce côté client (CSP stricte),
+  en-têtes HTTP durcis ; le formulaire passe par une fonction serverless (clé API
+  côté serveur, anti-spam, validation).
 - **Rapide** — police système, aucun framework, un seul fichier CSS + un seul fichier JS.
 
 ## 📁 Structure
@@ -18,8 +20,11 @@ et **cyber renseignement**.
 portfolio/
 ├── index.html        # Toute la structure et le contenu
 ├── css/style.css     # Le design et le thème
-├── js/main.js        # Thème, menu, animations, formulaire
+├── js/main.js        # Menu, animations, envoi du formulaire
+├── functions/
+│   └── api/contact.js  # Fonction Cloudflare : envoi de l'email (Resend)
 ├── _headers          # En-têtes de sécurité (Netlify / Cloudflare)
+├── SECURITY.md       # Politique de divulgation
 ├── robots.txt
 └── README.md
 ```
@@ -50,7 +55,7 @@ Tout le texte est en clair dans `index.html`. À adapter en priorité :
 - **Opérations (services)** : les cartes de la section `#services`.
 - **Arsenal (compétences)** : section `#skills`.
 - **Terrain (projets)** : section `#projects` (ajoute tes vraies opérations anonymisées + résultats chiffrés).
-- **Contact** : email déjà renseigné ; ajoute ton lien **LinkedIn** et vérifie le lien GitHub.
+- **Contact** : adresse Proton renseignée dans `index.html` et `js/main.js`.
 - **Couleur d'accent (rouge)** : variables `--red` / `--red-bright` en haut de `css/style.css`.
 
 ## 🔒 Sécurité mise en place
@@ -63,7 +68,32 @@ Tout le texte est en clair dans `index.html`. À adapter en priorité :
 | `nosniff`, Referrer-Policy, Permissions-Policy | `_headers` |
 | Zéro ressource tierce (CDN, polices, trackers) | par conception |
 | Liens externes en `rel="noopener noreferrer"` | `index.html` |
-| Formulaire sans backend (mailto) | `js/main.js` |
+| Formulaire : fonction serverless + anti-spam (pot de miel), clé API secrète | `functions/api/contact.js` |
+| Le navigateur ne contacte que le site lui-même (`connect-src 'self'`) | par conception |
+
+## 📬 Formulaire de contact (envoi réel vers Proton)
+
+Le formulaire est traité par une **fonction Cloudflare Pages** (`functions/api/contact.js`)
+qui envoie l'email via **Resend**. Le navigateur n'appelle que `/api/contact`
+(même origine) → la CSP reste stricte, et la clé API n'est jamais exposée.
+
+**Mise en service (une fois) :**
+
+1. Crée un compte gratuit sur **https://resend.com** en t'inscrivant avec
+   **holyspyware@proton.me** (indispensable pour recevoir les messages sans
+   domaine vérifié).
+2. Dans Resend → **API Keys** → crée une clé.
+3. Dans **Cloudflare** → ton projet Pages → **Settings → Environment variables**,
+   ajoute (en *Secret* pour la clé) :
+   - `RESEND_API_KEY` = ta clé Resend
+   - `CONTACT_TO` = `holyspyware@proton.me` *(optionnel, valeur par défaut)*
+   - `CONTACT_FROM` = `onboarding@resend.dev` *(optionnel ; à changer pour une
+     adresse de ton domaine une fois un domaine vérifié dans Resend)*
+4. **Redéploie** (Deployments → Create deployment).
+
+> Tant que `RESEND_API_KEY` n'est pas défini, le formulaire **bascule
+> automatiquement sur le repli `mailto`** (ouverture du client mail) — le site
+> reste donc fonctionnel en attendant.
 
 ## 🌍 Déployer gratuitement
 

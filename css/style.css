@@ -278,6 +278,14 @@ svg { display: block; }
 .field input:focus, .field textarea:focus { outline: none; border-color: var(--red); box-shadow: 0 0 0 3px var(--red-soft); }
 .form-hint { font-size: .8rem; color: var(--text-faint); margin: .9rem 0 0; text-align: center; }
 
+/* Pot de miel anti-spam : hors écran, invisible pour les humains */
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+/* Messages d'état du formulaire */
+.form-status { font-size: .9rem; margin: .9rem 0 0; text-align: center; min-height: 1.2em; }
+.form-status.is-ok { color: #34d399; }
+.form-status.is-err { color: var(--red-bright); }
+
 /* ---------------- Pied de page ---------------- */
 .site-footer { border-top: 1px solid var(--border); padding: 2.2rem 0; background: var(--bg-alt); }
 .footer-inner { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; }

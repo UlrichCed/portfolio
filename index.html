@@ -390,8 +390,13 @@
             <label for="cf-message">Votre besoin</label>
             <textarea id="cf-message" name="message" rows="5" required maxlength="2000"></textarea>
           </div>
-          <button type="submit" class="btn btn-primary btn-block">Envoyer ma demande</button>
-          <p class="form-hint">Ce formulaire ouvre votre logiciel de messagerie — aucune donnée n'est stockée ni envoyée à un serveur tiers.</p>
+          <!-- Pot de miel anti-spam : invisible, doit rester vide -->
+          <div class="hp" aria-hidden="true">
+            <label>Ne pas remplir<input type="text" name="website" tabindex="-1" autocomplete="off" /></label>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block" id="cf-submit">Envoyer ma demande</button>
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+          <p class="form-hint">Vos informations servent uniquement à vous répondre — aucun partage à un tiers, aucun stockage au-delà de l'email.</p>
         </form>
       </div>
     </section>

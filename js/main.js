@@ -89,31 +89,76 @@
     typed.textContent = "Recon. Exploit. Report. Protect.";
   }
 
-  /* ---- Formulaire de contact : ouvre le client mail (aucun backend) ---- */
+  /* ---- Formulaire de contact ---- */
+  /* Envoi vers la fonction Cloudflare /api/contact (email réel dans la boîte
+     Proton). Si la fonction est indisponible ou non configurée, repli
+     automatique sur le client mail du visiteur (mailto). */
   const form = document.getElementById("contact-form");
   const DEST = "holyspyware@proton.me";
   if (form) {
+    const statusEl = document.getElementById("form-status");
+    const btn = document.getElementById("cf-submit");
+
+    function setStatus(msg, kind) {
+      if (!statusEl) return;
+      statusEl.textContent = msg || "";
+      statusEl.className = "form-status" + (kind ? " is-" + kind : "");
+    }
+
+    function mailtoFallback(name, email, message) {
+      const subject = "Prise de contact — " + name;
+      const body =
+        "Nom / Organisation : " + name + "\n" +
+        "Email : " + email + "\n\n" + message;
+      // encodeURIComponent neutralise toute injection dans l'URL mailto
+      window.location.href =
+        "mailto:" + DEST +
+        "?subject=" + encodeURIComponent(subject) +
+        "&body=" + encodeURIComponent(body);
+    }
+
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       if (!form.reportValidity()) return;
+      // Pot de miel : si rempli, c'est un bot → on ne fait rien.
+      if (form.elements.website && form.elements.website.value) return;
 
       const name = (form.elements.name.value || "").trim();
       const email = (form.elements.email.value || "").trim();
       const message = (form.elements.message.value || "").trim();
 
-      const subject = "Prise de contact — " + name;
-      const body =
-        "Nom / Organisation : " + name + "\n" +
-        "Email : " + email + "\n\n" +
-        message;
+      const label = btn ? btn.textContent : "";
+      if (btn) { btn.disabled = true; btn.textContent = "Envoi en cours…"; }
+      setStatus("", "");
 
-      // encodeURIComponent neutralise toute injection dans l'URL mailto
-      const href =
-        "mailto:" + DEST +
-        "?subject=" + encodeURIComponent(subject) +
-        "&body=" + encodeURIComponent(body);
-
-      window.location.href = href;
+      fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name: name, email: email, message: message, website: "" })
+      })
+        .then(function (res) {
+          return res.json().catch(function () { return {}; }).then(function (out) {
+            return { ok: res.ok, out: out };
+          });
+        })
+        .then(function (r) {
+          if (r.ok && r.out && r.out.ok) {
+            form.reset();
+            setStatus("Message envoyé. Je vous réponds sous 48 h.", "ok");
+          } else if (r.out && r.out.error === "not_configured") {
+            // Backend pas encore configuré → repli mailto
+            mailtoFallback(name, email, message);
+          } else {
+            setStatus("Envoi impossible pour l'instant. Écrivez-moi à " + DEST, "err");
+          }
+        })
+        .catch(function () {
+          // Fonction indisponible (ex. ouverture du fichier en local) → repli mailto
+          mailtoFallback(name, email, message);
+        })
+        .then(function () {
+          if (btn) { btn.disabled = false; btn.textContent = label; }
+        });
     });
   }
 })();
