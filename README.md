@@ -1,4 +1,4 @@
-# Site personnel — Ulrich C. Wangrawa
+# Site personnel
 
 Site vitrine pour présenter mon profil et mes services en **cybersécurité offensive**
 et **cyber renseignement**.
