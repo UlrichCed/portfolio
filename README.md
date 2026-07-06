@@ -103,3 +103,33 @@ qui envoie l'email via **Resend**. Le navigateur n'appelle que `/api/contact`
   (les en-têtes HTTP ne sont pas configurables, mais l'essentiel est couvert).
 
 Pense à activer **HTTPS** chez ton hébergeur (gratuit et automatique chez les trois).
+
+## ⚠️ Sécurité du déploiement Cloudflare Pages (important)
+
+Si le projet Cloudflare Pages est connecté **directement à ce dépôt Git** avec
+**Build output directory: `/`** (la racine), Cloudflare publie **tout le contenu
+du dossier tel quel — y compris le dossier `.git/`**. N'importe qui peut alors
+télécharger tout l'historique Git du site (`/.git/config`, `/.git/HEAD`…) avec des
+outils comme `GitDumper`. Ce dépôt étant déjà public, l'impact réel est limité,
+mais il faut quand même corriger ça :
+
+**Filet de sécurité déjà en place** : `_redirects` bloque `/.git/*` et
+`/functions/*` (404). Insuffisant seul si `.git` est malgré tout publié — voir
+la vraie correction ci-dessous.
+
+**Vraie correction — dans Cloudflare Pages → Settings → Builds & deployments :**
+- **Build command** :
+  ```bash
+  mkdir -p dist && cp -r . dist/ && rm -rf dist/.git dist/dist dist/node_modules
+  ```
+- **Build output directory** : `dist` (au lieu de `/`)
+- Redéploie ensuite (Deployments → Create deployment / Retry).
+
+Cette commande copie le site dans un dossier séparé **sans** `.git`, donc il
+n'est jamais publié — peu importe la configuration de Cloudflare.
+
+**Pour vérifier toi-même que c'est corrigé :**
+```bash
+curl -i https://TON-SITE.pages.dev/.git/config
+# Doit renvoyer 404 — si tu vois 200 et du texte "[remote \"origin\"]", relance le déploiement.
+```

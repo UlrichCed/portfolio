@@ -731,3 +731,7 @@ section[id] { scroll-margin-top: 84px; }
   border-bottom: 1px solid transparent; transition: border-color .2s, color .2s;
 }
 .method-link:hover { color: var(--red-bright); border-bottom-color: currentColor; }
+
+/* ---- Page 404 ---- */
+.error-page { text-align: center; padding-top: 2rem; max-width: 560px; margin-inline: auto; }
+.error-page p { color: var(--text-soft); margin: 1rem 0 2rem; }
