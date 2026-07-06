@@ -13,56 +13,61 @@
   <link rel="icon" type="image/png" href="assets/redfox-favicon.png" />
 </head>
 <body>
-  <header class="site-header" id="top">
+  <span id="top" aria-hidden="true"></span>
+  <header class="site-header">
     <div class="container header-inner">
-      <a href="index.html" class="brand" aria-label="Accueil — RedFox">
+      <a href="index.html#top" class="brand" aria-label="Accueil — RedFox">
         <img src="assets/redfox-logo.png" alt="RedFox" class="brand-logo-full" width="141" height="36" />
       </a>
       <nav class="nav" aria-label="Navigation">
         <ul class="nav-menu">
-          <li><a href="index.html" class="nav-cta">← Retour au site</a></li>
+          <li><a href="index.html" class="nav-cta" data-en="← Back to site">← Retour au site</a></li>
         </ul>
       </nav>
+      <div class="lang-toggle" role="group" aria-label="Langue / Language">
+        <button type="button" class="lang-btn is-active" data-lang="fr">FR</button>
+        <button type="button" class="lang-btn" data-lang="en">EN</button>
+      </div>
     </div>
   </header>
 
   <main id="main" class="section">
     <div class="container legal">
-      <p class="section-eyebrow">// Informations légales</p>
-      <h1 class="section-title">Mentions légales &amp; Confidentialité</h1>
+      <p class="section-eyebrow" data-en="// Legal information">// Informations légales</p>
+      <h1 class="section-title" data-en="Legal Notice &amp; Privacy Policy">Mentions légales &amp; Confidentialité</h1>
 
-      <h2>Éditeur du site</h2>
-      <p>Ce site est édité par <strong>RedFox</strong> — UlCed&nbsp;W, consultant indépendant en cybersécurité.<br />
+      <h2 data-en="Site publisher">Éditeur du site</h2>
+      <p data-en="This site is published by &lt;strong&gt;RedFox&lt;/strong&gt; — UlCed&nbsp;W, independent cybersecurity consultant.&lt;br /&gt;Contact: &lt;a href=&quot;mailto:holyspyware@proton.me&quot;&gt;holyspyware@proton.me&lt;/a&gt;.">Ce site est édité par <strong>RedFox</strong> — UlCed&nbsp;W, consultant indépendant en cybersécurité.<br />
       Contact&nbsp;: <a href="mailto:holyspyware@proton.me">holyspyware@proton.me</a>.</p>
 
-      <h2>Hébergement</h2>
-      <p>Le site est hébergé par <strong>Cloudflare, Inc.</strong> — 101 Townsend St, San Francisco, CA 94107, États-Unis — <a href="https://www.cloudflare.com" rel="noopener noreferrer">cloudflare.com</a>.</p>
+      <h2 data-en="Hosting">Hébergement</h2>
+      <p data-en="The site is hosted by &lt;strong&gt;Cloudflare, Inc.&lt;/strong&gt; — 101 Townsend St, San Francisco, CA 94107, USA — &lt;a href=&quot;https://www.cloudflare.com&quot; rel=&quot;noopener noreferrer&quot;&gt;cloudflare.com&lt;/a&gt;.">Le site est hébergé par <strong>Cloudflare, Inc.</strong> — 101 Townsend St, San Francisco, CA 94107, États-Unis — <a href="https://www.cloudflare.com" rel="noopener noreferrer">cloudflare.com</a>.</p>
 
-      <h2>Propriété intellectuelle</h2>
-      <p>L'ensemble des contenus de ce site (textes, design, code) est la propriété de l'éditeur, sauf mention contraire. Toute reproduction sans autorisation est interdite.</p>
+      <h2 data-en="Intellectual property">Propriété intellectuelle</h2>
+      <p data-en="All content on this site (text, design, code) is the property of the publisher, unless stated otherwise. Any reproduction without authorization is prohibited.">L'ensemble des contenus de ce site (textes, design, code) est la propriété de l'éditeur, sauf mention contraire. Toute reproduction sans autorisation est interdite.</p>
 
-      <h2>Données personnelles</h2>
-      <p>Les informations que vous transmettez via le formulaire de contact (nom, email, message) sont utilisées <strong>uniquement pour répondre à votre demande</strong>. Elles sont acheminées par email et <strong>ne sont ni revendues, ni partagées avec un tiers à des fins commerciales</strong>.</p>
+      <h2 data-en="Personal data">Données personnelles</h2>
+      <p data-en="The information you submit via the contact form (name, email, message) is used &lt;strong&gt;solely to respond to your request&lt;/strong&gt;. It is delivered by email and &lt;strong&gt;never resold or shared with any third party for commercial purposes&lt;/strong&gt;.">Les informations que vous transmettez via le formulaire de contact (nom, email, message) sont utilisées <strong>uniquement pour répondre à votre demande</strong>. Elles sont acheminées par email et <strong>ne sont ni revendues, ni partagées avec un tiers à des fins commerciales</strong>.</p>
       <ul class="values">
-        <li>Aucun cookie, aucun traceur, aucune publicité sur ce site.</li>
-        <li>Aucune base de données&nbsp;: le formulaire envoie simplement un email.</li>
-        <li>Vous pouvez demander l'accès, la rectification ou la suppression de vos données en écrivant à <a href="mailto:holyspyware@proton.me">holyspyware@proton.me</a>.</li>
+        <li data-en="No cookies, no trackers, no advertising on this site.">Aucun cookie, aucun traceur, aucune publicité sur ce site.</li>
+        <li data-en="No database: the form simply sends an email.">Aucune base de données&nbsp;: le formulaire envoie simplement un email.</li>
+        <li data-en="You can request access to, correction of, or deletion of your data by writing to &lt;a href=&quot;mailto:holyspyware@proton.me&quot;&gt;holyspyware@proton.me&lt;/a&gt;.">Vous pouvez demander l'accès, la rectification ou la suppression de vos données en écrivant à <a href="mailto:holyspyware@proton.me">holyspyware@proton.me</a>.</li>
       </ul>
 
-      <h2>Cadre des prestations</h2>
-      <p>Les services présentés (tests d'intrusion, red teaming, investigation numérique, etc.) sont réalisés <strong>exclusivement dans un cadre légal</strong>, sur autorisation écrite et signée du titulaire des droits, et encadrés par un contrat définissant le périmètre. Aucune action n'est menée sans ce cadre.</p>
+      <h2 data-en="Scope of services">Cadre des prestations</h2>
+      <p data-en="The services presented (penetration testing, red teaming, digital investigation, etc.) are carried out &lt;strong&gt;exclusively within a legal framework&lt;/strong&gt;, under written and signed authorization from the rights holder, and governed by a contract defining the scope. No action is taken outside this framework.">Les services présentés (tests d'intrusion, red teaming, investigation numérique, etc.) sont réalisés <strong>exclusivement dans un cadre légal</strong>, sur autorisation écrite et signée du titulaire des droits, et encadrés par un contrat définissant le périmètre. Aucune action n'est menée sans ce cadre.</p>
 
-      <h2>Droit applicable</h2>
-      <p>Le droit applicable et la juridiction compétente sont précisés dans le contrat de mission conclu avec chaque client.</p>
+      <h2 data-en="Applicable law">Droit applicable</h2>
+      <p data-en="The applicable law and competent jurisdiction are specified in the mission contract concluded with each client.">Le droit applicable et la juridiction compétente sont précisés dans le contrat de mission conclu avec chaque client.</p>
 
-      <p class="legal-updated">Dernière mise à jour&nbsp;: 2026.</p>
+      <p class="legal-updated" data-en="Last updated: 2026.">Dernière mise à jour&nbsp;: 2026.</p>
     </div>
   </main>
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p>© <span id="year"></span> RedFox · UlCed W · Offensive Security &amp; Cyber Intelligence</p>
-      <a href="index.html" class="footer-top">← Accueil</a>
+      <p data-en="© &lt;span id=&quot;year&quot;&gt;&lt;/span&gt; RedFox · UlCed W · Offensive Security &amp; Cyber Intelligence">© <span id="year"></span> RedFox · UlCed W · Offensive Security &amp; Cyber Intelligence</p>
+      <a href="index.html" class="footer-top" data-en="← Home">← Accueil</a>
     </div>
   </footer>
 

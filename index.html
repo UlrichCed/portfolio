@@ -55,7 +55,7 @@
 </head>
 <body>
   <span id="top" aria-hidden="true"></span>
-  <a class="skip-link" href="#main">Aller au contenu</a>
+  <a class="skip-link" href="#main" data-en="Skip to content">Aller au contenu</a>
 
   <!-- ============ EN-TÊTE / NAVIGATION ============ -->
   <header class="site-header">
@@ -69,15 +69,20 @@
           <span></span><span></span><span></span>
         </button>
         <ul class="nav-menu" id="nav-menu">
-          <li><a href="#about">Profil</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#method">Méthode</a></li>
-          <li><a href="#ethics">Éthique</a></li>
-          <li><a href="#projects">Terrain</a></li>
-          <li><a href="#testimonials">Avis</a></li>
-          <li><a href="#contact" class="nav-cta">Prendre contact</a></li>
+          <li><a href="#about" data-en="Profile">Profil</a></li>
+          <li><a href="#services" data-en="Services">Services</a></li>
+          <li><a href="#method" data-en="Method">Méthode</a></li>
+          <li><a href="#ethics" data-en="Ethics">Éthique</a></li>
+          <li><a href="#projects" data-en="Track record">Terrain</a></li>
+          <li><a href="#testimonials" data-en="Reviews">Avis</a></li>
+          <li><a href="#contact" class="nav-cta" data-en="Get in touch">Prendre contact</a></li>
         </ul>
       </nav>
+
+      <div class="lang-toggle" role="group" aria-label="Langue / Language">
+        <button type="button" class="lang-btn is-active" data-lang="fr">FR</button>
+        <button type="button" class="lang-btn" data-lang="en">EN</button>
+      </div>
     </div>
   </header>
 
@@ -91,17 +96,17 @@
       <div class="container hero-inner">
         <p class="hero-eyebrow reveal"><span class="dot"></span>Offensive Security · Cyber Intelligence · Investigation</p>
         <h1 class="hero-title reveal">WE <span class="hl glitch" data-text="STRIKE FIRST">STRIKE FIRST</span>.<br />SO YOUR ENEMIES CAN'T.</h1>
-        <p class="hero-sub reveal">Frapper en premier pour mieux vous défendre.</p>
+        <p class="hero-sub reveal" data-en="Striking first, to defend you better.">Frapper en premier pour mieux vous défendre.</p>
         <p class="hero-typed reveal" aria-hidden="true"><span class="prompt">&gt;_</span>&nbsp;<span id="typed"></span><span class="caret"></span></p>
-        <p class="hero-lead reveal">Spécialiste en <strong>cybersécurité offensive</strong>, <strong>OSINT</strong> et <strong>investigation numérique</strong>. Je teste vos systèmes — légalement — pour révéler vos failles avant qu'un adversaire ne les exploite. <strong>Jamais sans autorisation écrite ni contrat clair.</strong></p>
+        <p class="hero-lead reveal" data-en="Specialist in &lt;strong&gt;offensive security&lt;/strong&gt;, &lt;strong&gt;OSINT&lt;/strong&gt; and &lt;strong&gt;digital investigation&lt;/strong&gt;. I test your systems — legally — to expose your flaws before an adversary exploits them. &lt;strong&gt;Never without written authorization and a clear contract.&lt;/strong&gt;">Spécialiste en <strong>cybersécurité offensive</strong>, <strong>OSINT</strong> et <strong>investigation numérique</strong>. Je teste vos systèmes — légalement — pour révéler vos failles avant qu'un adversaire ne les exploite. <strong>Jamais sans autorisation écrite ni contrat clair.</strong></p>
         <div class="hero-actions reveal">
-          <a href="#services" class="btn btn-primary">Voir mes services</a>
-          <a href="#ethics" class="btn btn-ghost">Mon cadre éthique</a>
+          <a href="#services" class="btn btn-primary" data-en="View my services">Voir mes services</a>
+          <a href="#ethics" class="btn btn-ghost" data-en="My ethical framework">Mon cadre éthique</a>
         </div>
         <dl class="hero-stats reveal" aria-label="Domaines d'expertise">
-          <div><dt>Red Team</dt><dd>Simulation d'adversaire</dd></div>
-          <div><dt>OSINT · CTI</dt><dd>Analyse &amp; enquête</dd></div>
-          <div><dt>Ethical</dt><dd>Autorisé · Sous contrat</dd></div>
+          <div><dt>Red Team</dt><dd data-en="Adversary simulation">Simulation d'adversaire</dd></div>
+          <div><dt>OSINT · CTI</dt><dd data-en="Analysis &amp; investigation">Analyse &amp; enquête</dd></div>
+          <div><dt>Ethical</dt><dd data-en="Authorized · Under contract">Autorisé · Sous contrat</dd></div>
         </dl>
       </div>
     </section>
@@ -129,26 +134,26 @@
               <circle cx="100" cy="100" r="10" fill="currentColor"/>
               <circle cx="100" cy="100" r="30" fill="none" stroke="currentColor" stroke-width="2"/>
             </svg>
-            <span class="emblem-tag">UlCed&nbsp;W&nbsp;·&nbsp;Hacker&nbsp;éthique</span>
+            <span class="emblem-tag" data-en="UlCed W · Ethical Hacker">UlCed&nbsp;W&nbsp;·&nbsp;Hacker&nbsp;éthique</span>
           </div>
           <ul class="about-facts">
-            <li><span class="fact-label">Interventions</span><span class="fact-value">Sur place &amp; à distance</span></li>
-            <li><span class="fact-label">Spécialité</span><span class="fact-value">Offensif · OSINT</span></li>
-            <li><span class="fact-label">Langues</span><span class="fact-value">Français · Anglais</span></li>
-            <li><span class="fact-label">Cadre</span><span class="fact-value">Contrat &amp; autorisation</span></li>
+            <li><span class="fact-label" data-en="Availability">Interventions</span><span class="fact-value" data-en="On-site &amp; remote">Sur place &amp; à distance</span></li>
+            <li><span class="fact-label" data-en="Specialty">Spécialité</span><span class="fact-value">Offensif · OSINT</span></li>
+            <li><span class="fact-label" data-en="Languages">Langues</span><span class="fact-value" data-en="French · English">Français · Anglais</span></li>
+            <li><span class="fact-label" data-en="Framework">Cadre</span><span class="fact-value" data-en="Contract &amp; authorization">Contrat &amp; autorisation</span></li>
           </ul>
         </div>
         <div class="about-text reveal">
-          <p class="section-eyebrow">// Profil</p>
-          <h2 class="section-title">Je raisonne comme un attaquant.<br />J'agis en gardien.</h2>
-          <p>Je suis <strong>UlCed W</strong>, hacker éthique et fondateur de <strong>RedFox</strong>, spécialisé en cybersécurité offensive, OSINT et investigation numérique. Mon métier&nbsp;: adopter le point de vue de l'adversaire pour exposer ce qu'il exploiterait contre vous — et vous donner une longueur d'avance.</p>
-          <p>Je ne me contente pas de lister des risques théoriques&nbsp;: je les <strong>prouve</strong>. Et là où d'autres subissent la menace, je la <strong>cartographie</strong>&nbsp;: qui vous cible, comment, et ce que l'adversaire sait déjà de vous.</p>
-          <p>Chaque mission se conclut par un rapport clair, priorisé et actionnable, <strong>livré rapidement — généralement sous 48&nbsp;heures</strong> après l'intervention&nbsp;: des faits, des preuves, un plan pour reprendre l'avantage.</p>
-          <p>Je travaille en solo sur la plupart des missions&nbsp;; pour les <strong>affaires de grande envergure</strong>, je mobilise une <strong>équipe de spécialistes de confiance</strong> (offensif, forensique, OSINT) pilotée sous le même cadre de confidentialité.</p>
+          <p class="section-eyebrow" data-en="// Profile">// Profil</p>
+          <h2 class="section-title" data-en="I think like an attacker.&lt;br /&gt;I act as a guardian.">Je raisonne comme un attaquant.<br />J'agis en gardien.</h2>
+          <p data-en="I'm &lt;strong&gt;UlCed W&lt;/strong&gt;, ethical hacker and founder of &lt;strong&gt;RedFox&lt;/strong&gt;, specialized in offensive security, OSINT and digital investigation. My job: adopt the adversary's point of view to expose what they would exploit against you — and give you a head start.">Je suis <strong>UlCed W</strong>, hacker éthique et fondateur de <strong>RedFox</strong>, spécialisé en cybersécurité offensive, OSINT et investigation numérique. Mon métier&nbsp;: adopter le point de vue de l'adversaire pour exposer ce qu'il exploiterait contre vous — et vous donner une longueur d'avance.</p>
+          <p data-en="I don't just list theoretical risks: I &lt;strong&gt;prove&lt;/strong&gt; them. And where others merely suffer the threat, I &lt;strong&gt;map&lt;/strong&gt; it: who's targeting you, how, and what the adversary already knows about you.">Je ne me contente pas de lister des risques théoriques&nbsp;: je les <strong>prouve</strong>. Et là où d'autres subissent la menace, je la <strong>cartographie</strong>&nbsp;: qui vous cible, comment, et ce que l'adversaire sait déjà de vous.</p>
+          <p data-en="Every mission ends with a clear, prioritized, actionable report, &lt;strong&gt;delivered fast — typically within 48 hours&lt;/strong&gt; of the engagement: facts, evidence, a plan to regain the advantage.">Chaque mission se conclut par un rapport clair, priorisé et actionnable, <strong>livré rapidement — généralement sous 48&nbsp;heures</strong> après l'intervention&nbsp;: des faits, des preuves, un plan pour reprendre l'avantage.</p>
+          <p data-en="I work solo on most missions; for &lt;strong&gt;large-scale cases&lt;/strong&gt;, I mobilize a &lt;strong&gt;trusted team of specialists&lt;/strong&gt; (offensive, forensics, OSINT) run under the same confidentiality framework.">Je travaille en solo sur la plupart des missions&nbsp;; pour les <strong>affaires de grande envergure</strong>, je mobilise une <strong>équipe de spécialistes de confiance</strong> (offensif, forensique, OSINT) pilotée sous le même cadre de confidentialité.</p>
           <ul class="values">
-            <li>Preuve par l'exploitation réelle, pas par la théorie</li>
-            <li>Investigation fondée sur des sources vérifiées</li>
-            <li>Rapport rapide, sous 48 h, discrétion absolue</li>
+            <li data-en="Proof through real exploitation, not theory">Preuve par l'exploitation réelle, pas par la théorie</li>
+            <li data-en="Investigation grounded in verified sources">Investigation fondée sur des sources vérifiées</li>
+            <li data-en="Fast reporting, within 48h, absolute discretion">Rapport rapide, sous 48 h, discrétion absolue</li>
           </ul>
         </div>
       </div>
@@ -159,71 +164,71 @@
       <div class="container">
         <div class="section-head reveal">
           <p class="section-eyebrow">// Services</p>
-          <h2 class="section-title">Ce que je fais, sans détour</h2>
+          <h2 class="section-title" data-en="What I do — no sugarcoating">Ce que je fais, sans détour</h2>
           <p class="pull-en">Strike smarter. Defend stronger.</p>
-          <p class="section-sub">De vraies techniques offensives et d'investigation. Menées légalement, sous contrat, pour vous protéger et vous éclairer.</p>
-          <p class="audience"><span>Pour qui&nbsp;:</span> banques &amp; institutions financières · PME et e-commerce · organisations publiques · particuliers · <strong>missions locales &amp; à l'étranger</strong></p>
+          <p class="section-sub" data-en="Real offensive and investigative techniques. Conducted legally, under contract, to protect and inform you.">De vraies techniques offensives et d'investigation. Menées légalement, sous contrat, pour vous protéger et vous éclairer.</p>
+          <p class="audience" data-en="&lt;span&gt;Who this is for:&lt;/span&gt; banks &amp; financial institutions · SMEs &amp; e-commerce · public organizations · individuals · &lt;strong&gt;local &amp; international missions&lt;/strong&gt;"><span>Pour qui&nbsp;:</span> banques &amp; institutions financières · PME et e-commerce · organisations publiques · particuliers · <strong>missions locales &amp; à l'étranger</strong></p>
         </div>
 
         <!-- Pilier 1 : Sécurité offensive -->
-        <h3 class="svc-pillar reveal"><span>01</span> Sécurité offensive</h3>
+        <h3 class="svc-pillar reveal"><span>01</span> <span data-en="Offensive Security">Sécurité offensive</span></h3>
         <div class="cards">
           <article class="card reveal">
             <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.5"/><path d="M12 1v4M12 19v4M1 12h4M19 12h4"/></svg></div>
-            <h3>Red Team &amp; simulation d'adversaire</h3>
-            <p>Je m'introduis dans votre organisation comme le ferait un vrai adversaire — furtivement, par tous les vecteurs&nbsp;: réseau, humain, parfois physique. <strong>Vous découvrez enfin ce que vos défenses valent face à une attaque réelle, et où elles cèdent.</strong></p>
+            <h3 data-en="Red Team &amp; adversary simulation">Red Team &amp; simulation d'adversaire</h3>
+            <p data-en="I break into your organization the way a real adversary would — stealthily, through every vector: network, human, sometimes physical. &lt;strong&gt;You finally find out what your defenses are worth against a real attack, and where they fail.&lt;/strong&gt;">Je m'introduis dans votre organisation comme le ferait un vrai adversaire — furtivement, par tous les vecteurs&nbsp;: réseau, humain, parfois physique. <strong>Vous découvrez enfin ce que vos défenses valent face à une attaque réelle, et où elles cèdent.</strong></p>
           </article>
 
           <article class="card reveal">
             <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
-            <h3>Tests d'intrusion (Pentest)</h3>
-            <p>Je teste vos applications, réseaux et serveurs en conditions réelles, et j'exploite les failles jusqu'à la prise de contrôle. <strong>Vous repartez avec la preuve de l'impact et la liste exacte des correctifs, classés par gravité.</strong></p>
+            <h3 data-en="Penetration Testing (Pentest)">Tests d'intrusion (Pentest)</h3>
+            <p data-en="I test your applications, networks and servers under real conditions, and exploit the flaws all the way to takeover. &lt;strong&gt;You walk away with proof of impact and the exact list of fixes, ranked by severity.&lt;/strong&gt;">Je teste vos applications, réseaux et serveurs en conditions réelles, et j'exploite les failles jusqu'à la prise de contrôle. <strong>Vous repartez avec la preuve de l'impact et la liste exacte des correctifs, classés par gravité.</strong></p>
           </article>
 
           <article class="card reveal">
             <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-            <h3>Ingénierie sociale</h3>
-            <p>Je piège vos employés&nbsp;: phishing, faux appels, prétextes crédibles. J'exploite le facteur humain — la faille n°1. <strong>Vous savez précisément qui clique, et vos équipes apprennent à ne plus se faire avoir.</strong></p>
+            <h3 data-en="Social Engineering">Ingénierie sociale</h3>
+            <p data-en="I trap your employees: phishing, fake calls, believable pretexts. I exploit the human factor — vulnerability #1. &lt;strong&gt;You know exactly who clicks, and your teams learn to stop falling for it.&lt;/strong&gt;">Je piège vos employés&nbsp;: phishing, faux appels, prétextes crédibles. J'exploite le facteur humain — la faille n°1. <strong>Vous savez précisément qui clique, et vos équipes apprennent à ne plus se faire avoir.</strong></p>
           </article>
 
           <article class="card reveal">
             <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m8 3 4 8 5-5 5 15H2z"/><path d="M4.5 15h6"/></svg></div>
-            <h3>Recherche de vulnérabilités</h3>
-            <p>Je décortique vos logiciels sur-mesure et je développe l'exploit qui les met à genoux, jusqu'à la preuve de concept documentée. <strong>Ce qui casse entre mes mains est corrigé avant d'atteindre celles d'un pirate.</strong></p>
+            <h3 data-en="Vulnerability Research">Recherche de vulnérabilités</h3>
+            <p data-en="I take apart your custom software and develop the exploit that brings it to its knees, down to a documented proof of concept. &lt;strong&gt;Whatever breaks in my hands gets fixed before it reaches a criminal's.&lt;/strong&gt;">Je décortique vos logiciels sur-mesure et je développe l'exploit qui les met à genoux, jusqu'à la preuve de concept documentée. <strong>Ce qui casse entre mes mains est corrigé avant d'atteindre celles d'un pirate.</strong></p>
           </article>
         </div>
 
         <!-- Pilier 2 : OSINT & investigation -->
-        <h3 class="svc-pillar reveal"><span>02</span> OSINT &amp; investigation numérique</h3>
+        <h3 class="svc-pillar reveal"><span>02</span> <span data-en="OSINT &amp; Digital Investigation">OSINT &amp; investigation numérique</span></h3>
         <div class="cards">
           <article class="card reveal">
             <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/><path d="M11 8v6M8 11h6"/></svg></div>
             <h3>Cyber Threat Intelligence (CTI)</h3>
-            <p>Je surveille les menaces qui vous visent&nbsp;: groupes hostiles, campagnes en cours, données déjà en fuite sur le dark web. <strong>Vous savez qui vous cible et comment — et vous agissez avant l'attaque, plus après.</strong></p>
+            <p data-en="I monitor the threats targeting you: hostile groups, ongoing campaigns, data already leaked on the dark web. &lt;strong&gt;You know who's targeting you and how — and you act before the attack, not after.&lt;/strong&gt;">Je surveille les menaces qui vous visent&nbsp;: groupes hostiles, campagnes en cours, données déjà en fuite sur le dark web. <strong>Vous savez qui vous cible et comment — et vous agissez avant l'attaque, plus après.</strong></p>
           </article>
 
           <article class="card reveal">
             <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="7"/><path d="m21 21-6-6"/><path d="M10 7v6M7 10h6"/></svg></div>
-            <h3>Cyber-enquête &amp; investigation privée</h3>
-            <p>Le cyberdétective. J'enquête sur le numérique pour vous&nbsp;: arnaques en ligne, usurpation d'identité, harcèlement, fraude, atteinte à la réputation. <strong>Je réunis des preuves exploitables — pour une plainte, une procédure ou une décision éclairée.</strong></p>
+            <h3 data-en="Cyber Investigation &amp; Private Inquiry">Cyber-enquête &amp; investigation privée</h3>
+            <p data-en="The cyber-detective. I investigate digital cases for you: online scams, identity theft, harassment, fraud, reputation attacks. &lt;strong&gt;I gather usable evidence — for a complaint, a legal procedure, or an informed decision.&lt;/strong&gt;">Le cyberdétective. J'enquête sur le numérique pour vous&nbsp;: arnaques en ligne, usurpation d'identité, harcèlement, fraude, atteinte à la réputation. <strong>Je réunis des preuves exploitables — pour une plainte, une procédure ou une décision éclairée.</strong></p>
           </article>
 
           <article class="card reveal">
             <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21a8 8 0 0 0-16 0"/><circle cx="12" cy="8" r="5"/><path d="m22 22-2-2"/></svg></div>
-            <h3>Localisation &amp; recherche de personnes</h3>
-            <p>Je retrouve presque n'importe qui. À partir d'un pseudo, d'un numéro, d'une photo ou de trois fois rien, je remonte la piste numérique&nbsp;: fraudeur, débiteur en fuite, profil anonyme, contact perdu. <strong>Toujours dans un cadre légal et pour un motif légitime.</strong></p>
+            <h3 data-en="Locating &amp; Finding People">Localisation &amp; recherche de personnes</h3>
+            <p data-en="I can find almost anyone. From a username, a phone number, a photo, or next to nothing, I trace the digital trail: a scammer, a debtor on the run, an anonymous profile, a lost contact. &lt;strong&gt;Always within a legal framework and for a legitimate reason.&lt;/strong&gt;">Je retrouve presque n'importe qui. À partir d'un pseudo, d'un numéro, d'une photo ou de trois fois rien, je remonte la piste numérique&nbsp;: fraudeur, débiteur en fuite, profil anonyme, contact perdu. <strong>Toujours dans un cadre légal et pour un motif légitime.</strong></p>
           </article>
 
           <article class="card reveal">
             <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5 3.4 8.5 8 11 4.6-2.5 8-6 8-11V5z"/><path d="M9 12h6M12 9v6"/></svg></div>
-            <h3>Due diligence &amp; contre-espionnage</h3>
-            <p>Avant de signer, je vérifie un partenaire, un fournisseur ou un investisseur (due diligence). Et si l'on vous espionne, je le détecte&nbsp;: fuites, accès suspects, oreilles indiscrètes. <strong>Vous décidez et vous négociez en sachant, pas en devinant.</strong></p>
+            <h3 data-en="Due Diligence &amp; Counter-Espionage">Due diligence &amp; contre-espionnage</h3>
+            <p data-en="Before you sign, I vet a partner, supplier or investor (due diligence). And if you're being spied on, I detect it: leaks, suspicious access, prying ears. &lt;strong&gt;You decide and negotiate knowing, not guessing.&lt;/strong&gt;">Avant de signer, je vérifie un partenaire, un fournisseur ou un investisseur (due diligence). Et si l'on vous espionne, je le détecte&nbsp;: fuites, accès suspects, oreilles indiscrètes. <strong>Vous décidez et vous négociez en sachant, pas en devinant.</strong></p>
           </article>
 
           <article class="card reveal">
             <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/></svg></div>
-            <h3>Investigation &amp; sécurité mobile</h3>
-            <p>Test de sécurité des applications et appareils mobiles (Android / iOS), analyse forensique et recherche de traces, durcissement du téléphone. <strong>Sur appareil autorisé uniquement, dans un cadre strictement légal.</strong></p>
+            <h3 data-en="Mobile Investigation &amp; Security">Investigation &amp; sécurité mobile</h3>
+            <p data-en="Security testing of mobile apps and devices (Android / iOS), forensic analysis and trace recovery, phone hardening. &lt;strong&gt;On authorized devices only, within a strictly legal framework.&lt;/strong&gt;">Test de sécurité des applications et appareils mobiles (Android / iOS), analyse forensique et recherche de traces, durcissement du téléphone. <strong>Sur appareil autorisé uniquement, dans un cadre strictement légal.</strong></p>
           </article>
         </div>
       </div>
@@ -233,30 +238,31 @@
     <section id="method" class="section section-light">
       <div class="container">
         <div class="section-head reveal">
-          <p class="section-eyebrow">// Méthode</p>
-          <h2 class="section-title">Comment se déroule une mission</h2>
-          <p class="section-sub">Un cadre clair du premier échange au dernier correctif. Aucune surprise, aucune zone grise.</p>
+          <p class="section-eyebrow" data-en="// Method">// Méthode</p>
+          <h2 class="section-title" data-en="How a mission unfolds">Comment se déroule une mission</h2>
+          <p class="section-sub" data-en="A clear framework from the first conversation to the last fix. No surprises, no gray areas.">Un cadre clair du premier échange au dernier correctif. Aucune surprise, aucune zone grise.</p>
+          <a href="methodology.html" class="method-link" data-en="→ See the full vulnerability assessment methodology">→ Voir la méthodologie complète d'évaluation de vulnérabilités</a>
         </div>
         <ol class="method">
           <li class="reveal">
             <span class="step-num">1</span>
-            <h3>Cadrage &amp; autorisation</h3>
-            <p>On définit ensemble le périmètre, les objectifs et les règles d'engagement. Rien ne démarre sans une autorisation écrite et un contrat signé.</p>
+            <h3 data-en="Scoping &amp; authorization">Cadrage &amp; autorisation</h3>
+            <p data-en="We define the scope, objectives and rules of engagement together. Nothing starts without written authorization and a signed contract.">On définit ensemble le périmètre, les objectifs et les règles d'engagement. Rien ne démarre sans une autorisation écrite et un contrat signé.</p>
           </li>
           <li class="reveal">
             <span class="step-num">2</span>
-            <h3>Attaque / enquête</h3>
-            <p>J'opère&nbsp;: intrusion, test offensif ou investigation, selon la mission. Discrètement, dans les limites convenues.</p>
+            <h3 data-en="Attack / investigation">Attaque / enquête</h3>
+            <p data-en="I operate: intrusion, offensive testing or investigation, depending on the mission. Discreetly, within the agreed limits.">J'opère&nbsp;: intrusion, test offensif ou investigation, selon la mission. Discrètement, dans les limites convenues.</p>
           </li>
           <li class="reveal">
             <span class="step-num">3</span>
-            <h3>Rapport rapide</h3>
-            <p>Un livrable exploitable, <strong>livré vite — généralement sous 48&nbsp;heures</strong>&nbsp;: faits, preuves, risques priorisés et recommandations concrètes, lisibles par vos techniciens comme par votre direction.</p>
+            <h3 data-en="Fast reporting">Rapport rapide</h3>
+            <p data-en="An actionable deliverable, &lt;strong&gt;delivered fast — typically within 48 hours&lt;/strong&gt;: facts, evidence, prioritized risks and concrete recommendations, readable by your technicians as well as your leadership.">Un livrable exploitable, <strong>livré vite — généralement sous 48&nbsp;heures</strong>&nbsp;: faits, preuves, risques priorisés et recommandations concrètes, lisibles par vos techniciens comme par votre direction.</p>
           </li>
           <li class="reveal">
             <span class="step-num">4</span>
-            <h3>Accompagnement</h3>
-            <p>Je vous aide à corriger et je vérifie que les failles sont bien refermées. Votre sécurité, pas juste un document de plus.</p>
+            <h3 data-en="Follow-through">Accompagnement</h3>
+            <p data-en="I help you fix the issues and verify the flaws are properly closed. Your security, not just another document.">Je vous aide à corriger et je vérifie que les failles sont bien refermées. Votre sécurité, pas juste un document de plus.</p>
           </li>
         </ol>
       </div>
@@ -267,22 +273,22 @@
       <div class="container">
         <div class="ethics-panel reveal">
           <div class="ethics-head">
-            <p class="section-eyebrow">// Éthique &amp; cadre légal</p>
-            <h2 class="section-title">Un hacker. Jamais un hors-la-loi.</h2>
+            <p class="section-eyebrow" data-en="// Ethics &amp; legal framework">// Éthique &amp; cadre légal</p>
+            <h2 class="section-title" data-en="A hacker. Never an outlaw.">Un hacker. Jamais un hors-la-loi.</h2>
             <p class="pull-en big">No exploit without a signed contract.</p>
           </div>
           <div class="ethics-body">
-            <p>Soyons clairs&nbsp;: oui, je teste pour de vrai. J'exploite des failles, je m'introduis dans des systèmes, je teste des cibles humaines, j'enquête sur le numérique. Ce sont de véritables techniques offensives. <strong>Ce qui fait toute la différence, c'est le cadre et l'intention&nbsp;: le consentement, la loi, et la protection comme unique finalité.</strong></p>
-            <p>Je respecte profondément l'éthique. Je n'entreprends <strong>jamais</strong> la moindre action sans une <strong>autorisation écrite et signée</strong> et un <strong>contrat clair</strong>. Mon unique objectif&nbsp;: <strong>protéger et aider</strong>, jamais nuire.</p>
+            <p data-en="Let's be clear: yes, I test for real. I exploit flaws, break into systems, test human targets, investigate digitally. These are genuine offensive techniques. &lt;strong&gt;What makes all the difference is the framework and the intent: consent, the law, and protection as the sole purpose.&lt;/strong&gt;">Soyons clairs&nbsp;: oui, je teste pour de vrai. J'exploite des failles, je m'introduis dans des systèmes, je teste des cibles humaines, j'enquête sur le numérique. Ce sont de véritables techniques offensives. <strong>Ce qui fait toute la différence, c'est le cadre et l'intention&nbsp;: le consentement, la loi, et la protection comme unique finalité.</strong></p>
+            <p data-en="I deeply respect ethics. I &lt;strong&gt;never&lt;/strong&gt; take the slightest action without a &lt;strong&gt;signed, written authorization&lt;/strong&gt; and a &lt;strong&gt;clear contract&lt;/strong&gt;. My sole objective: &lt;strong&gt;to protect and help&lt;/strong&gt;, never to harm.">Je respecte profondément l'éthique. Je n'entreprends <strong>jamais</strong> la moindre action sans une <strong>autorisation écrite et signée</strong> et un <strong>contrat clair</strong>. Mon unique objectif&nbsp;: <strong>protéger et aider</strong>, jamais nuire.</p>
             <ul class="ethics-list">
-              <li><span class="chk">✓</span> Autorisation écrite et signée <strong>avant</strong> toute intervention</li>
-              <li><span class="chk">✓</span> Périmètre défini noir sur blanc — je n'en sors jamais</li>
-              <li><span class="chk">✓</span> Investigation uniquement pour un motif légitime et légal</li>
-              <li><span class="chk">✓</span> Confidentialité absolue sur tout ce que je découvre</li>
-              <li><span class="chk">✓</span> Respect strict de la loi et des réglementations en vigueur</li>
-              <li><span class="chk">✓</span> Un seul but&nbsp;: vous protéger et vous éclairer</li>
+              <li><span class="chk">✓</span> <span data-en="Written, signed authorization &lt;strong&gt;before&lt;/strong&gt; any intervention">Autorisation écrite et signée <strong>avant</strong> toute intervention</span></li>
+              <li><span class="chk">✓</span> <span data-en="Scope defined in black and white — I never step outside it">Périmètre défini noir sur blanc — je n'en sors jamais</span></li>
+              <li><span class="chk">✓</span> <span data-en="Investigation only for a legitimate, legal reason">Investigation uniquement pour un motif légitime et légal</span></li>
+              <li><span class="chk">✓</span> <span data-en="Absolute confidentiality on everything I discover">Confidentialité absolue sur tout ce que je découvre</span></li>
+              <li><span class="chk">✓</span> <span data-en="Strict compliance with the law and applicable regulations">Respect strict de la loi et des réglementations en vigueur</span></li>
+              <li><span class="chk">✓</span> <span data-en="One single goal: to protect and inform you">Un seul but&nbsp;: vous protéger et vous éclairer</span></li>
             </ul>
-            <p class="ethics-foot">Les mêmes compétences qu'un attaquant. L'exact opposé de ses intentions.</p>
+            <p class="ethics-foot" data-en="The same skills as an attacker. The exact opposite of their intentions.">Les mêmes compétences qu'un attaquant. L'exact opposé de ses intentions.</p>
           </div>
         </div>
       </div>
@@ -293,43 +299,43 @@
       <div class="container">
         <div class="section-head reveal">
           <p class="section-eyebrow">// Arsenal</p>
-          <h2 class="section-title">Techniques &amp; outils</h2>
-          <p class="section-sub">Une chaîne complète&nbsp;: de la reconnaissance à l'exploitation, de l'OSINT à l'investigation.</p>
+          <h2 class="section-title" data-en="Techniques &amp; Tools">Techniques &amp; outils</h2>
+          <p class="section-sub" data-en="A complete chain: from reconnaissance to exploitation, from OSINT to investigation.">Une chaîne complète&nbsp;: de la reconnaissance à l'exploitation, de l'OSINT à l'investigation.</p>
         </div>
 
         <div class="skills-grid">
           <div class="skill-group reveal">
-            <h3><span class="sg-idx">A</span> Offensif &amp; Red Team</h3>
+            <h3><span class="sg-idx">A</span> <span data-en="Offensive &amp; Red Team">Offensif &amp; Red Team</span></h3>
             <ul class="tags">
               <li>Tests d'intrusion</li><li>Red teaming</li><li>Exploitation</li><li>OWASP Top 10</li><li>Metasploit</li><li>Post-exploitation</li><li>C2 / Command &amp; Control</li>
             </ul>
           </div>
           <div class="skill-group reveal">
-            <h3><span class="sg-idx">B</span> OSINT &amp; investigation</h3>
+            <h3><span class="sg-idx">B</span> <span data-en="OSINT &amp; Investigation">OSINT &amp; investigation</span></h3>
             <ul class="tags">
               <li>OSINT</li><li>Threat Intelligence</li><li>Recherche de personnes</li><li>Cyber-enquête</li><li>Surveillance de fuites</li><li>Due diligence</li>
             </ul>
           </div>
           <div class="skill-group reveal">
-            <h3><span class="sg-idx">C</span> Outils &amp; techniques</h3>
+            <h3><span class="sg-idx">C</span> <span data-en="Tools &amp; Techniques">Outils &amp; techniques</span></h3>
             <ul class="tags">
               <li>Burp Suite</li><li>Nmap</li><li>Python</li><li>Bash</li><li>Linux</li><li>MITRE ATT&amp;CK</li><li>Scripting offensif</li>
             </ul>
           </div>
           <div class="skill-group reveal">
-            <h3><span class="sg-idx">D</span> Facteur humain</h3>
+            <h3><span class="sg-idx">D</span> <span data-en="Human Factor">Facteur humain</span></h3>
             <ul class="tags">
               <li>Phishing ciblé</li><li>Pretexting</li><li>Vishing</li><li>Manipulation</li><li>Sensibilisation</li>
             </ul>
           </div>
           <div class="skill-group reveal">
-            <h3><span class="sg-idx">E</span> Sécurité &amp; investigation mobile</h3>
+            <h3><span class="sg-idx">E</span> <span data-en="Mobile Security &amp; Investigation">Sécurité &amp; investigation mobile</span></h3>
             <ul class="tags">
               <li>Sécurité des apps (Android / iOS)</li><li>Forensique mobile</li><li>Recherche de traces</li><li>Analyse de malware mobile</li><li>Durcissement des appareils</li>
             </ul>
           </div>
         </div>
-        <p class="skills-note reveal">Volet mobile mené exclusivement sur des appareils autorisés (les vôtres, ou avec consentement / base légale) — jamais de surveillance non consentie.</p>
+        <p class="skills-note reveal" data-en="Mobile work carried out exclusively on authorized devices (yours, or with consent / legal basis) — never unconsented surveillance.">Volet mobile mené exclusivement sur des appareils autorisés (les vôtres, ou avec consentement / base légale) — jamais de surveillance non consentie.</p>
       </div>
     </section>
 
@@ -337,44 +343,44 @@
     <section id="projects" class="section section-alt">
       <div class="container">
         <div class="section-head reveal">
-          <p class="section-eyebrow">// Terrain</p>
-          <h2 class="section-title">Missions réalisées</h2>
-          <p class="section-sub">Quelques missions menées, décrites de façon <strong>totalement anonyme</strong> pour préserver la confidentialité de mes clients.</p>
+          <p class="section-eyebrow" data-en="// Track record">// Terrain</p>
+          <h2 class="section-title" data-en="Completed missions">Missions réalisées</h2>
+          <p class="section-sub" data-en="A few missions I've carried out, described in a &lt;strong&gt;fully anonymous&lt;/strong&gt; way to preserve my clients' confidentiality.">Quelques missions menées, décrites de façon <strong>totalement anonyme</strong> pour préserver la confidentialité de mes clients.</p>
         </div>
 
         <div class="cards">
           <article class="project reveal">
-            <div class="project-tag">Mission réalisée · Banque</div>
-            <h3>Intrusion d'une plateforme bancaire</h3>
-            <p>Test d'intrusion de l'espace client en ligne d'un établissement financier. <strong>Accès non autorisé à des comptes obtenu en 3 jours</strong> via une faille d'authentification — corrigée avant toute exploitation réelle.</p>
+            <div class="project-tag" data-en="Completed mission · Bank">Mission réalisée · Banque</div>
+            <h3 data-en="Breach of a banking platform">Intrusion d'une plateforme bancaire</h3>
+            <p data-en="Penetration test of a financial institution's online customer portal. &lt;strong&gt;Unauthorized access to accounts obtained in 3 days&lt;/strong&gt; via an authentication flaw — fixed before any real-world exploitation.">Test d'intrusion de l'espace client en ligne d'un établissement financier. <strong>Accès non autorisé à des comptes obtenu en 3 jours</strong> via une faille d'authentification — corrigée avant toute exploitation réelle.</p>
             <ul class="project-stack"><li>Pentest web</li><li>Authentification</li><li>Remédiation</li></ul>
           </article>
 
           <article class="project reveal">
-            <div class="project-tag">Mission réalisée · Investigation</div>
-            <h3>Auteur d'un chantage démasqué</h3>
-            <p>Identification de l'auteur d'une campagne de harcèlement et de chantage en ligne, à partir d'un simple pseudonyme. <strong>Dossier de preuves remis, ayant permis un dépôt de plainte.</strong></p>
+            <div class="project-tag" data-en="Completed mission · Investigation">Mission réalisée · Investigation</div>
+            <h3 data-en="Blackmailer unmasked">Auteur d'un chantage démasqué</h3>
+            <p data-en="Identification of the person behind an online harassment and blackmail campaign, starting from a simple username. &lt;strong&gt;Evidence file delivered, which enabled a formal complaint.&lt;/strong&gt;">Identification de l'auteur d'une campagne de harcèlement et de chantage en ligne, à partir d'un simple pseudonyme. <strong>Dossier de preuves remis, ayant permis un dépôt de plainte.</strong></p>
             <ul class="project-stack"><li>OSINT</li><li>Recherche de personnes</li><li>Preuves</li></ul>
           </article>
 
           <article class="project reveal">
-            <div class="project-tag">Mission réalisée · Red Team</div>
-            <h3>Compromission totale d'un SI</h3>
-            <p>Simulation d'adversaire pour une PME&nbsp;: <strong>contrôle total du domaine obtenu en 5 jours, sans être détecté</strong>. Failles de détection cartographiées et plan de renforcement livré.</p>
+            <div class="project-tag" data-en="Completed mission · Red Team">Mission réalisée · Red Team</div>
+            <h3 data-en="Full compromise of an IT system">Compromission totale d'un SI</h3>
+            <p data-en="Adversary simulation for an SME: &lt;strong&gt;full domain takeover achieved in 5 days, without detection&lt;/strong&gt;. Detection gaps mapped and a hardening plan delivered.">Simulation d'adversaire pour une PME&nbsp;: <strong>contrôle total du domaine obtenu en 5 jours, sans être détecté</strong>. Failles de détection cartographiées et plan de renforcement livré.</p>
             <ul class="project-stack"><li>Red teaming</li><li>Active Directory</li><li>MITRE ATT&amp;CK</li></ul>
           </article>
 
           <article class="project reveal">
-            <div class="project-tag">Mission réalisée · Mobile</div>
-            <h3>Smartphone sous surveillance</h3>
-            <p>Analyse forensique du téléphone d'un dirigeant qui se sentait espionné. <strong>Applications et paramètres à risque identifiés</strong>, appareil nettoyé et durci, bonnes pratiques mises en place.</p>
+            <div class="project-tag" data-en="Completed mission · Mobile">Mission réalisée · Mobile</div>
+            <h3 data-en="Phone under surveillance">Smartphone sous surveillance</h3>
+            <p data-en="Forensic analysis of a executive's phone who felt spied on. &lt;strong&gt;Risky apps and settings identified&lt;/strong&gt;, device cleaned and hardened, best practices put in place.">Analyse forensique du téléphone d'un dirigeant qui se sentait espionné. <strong>Applications et paramètres à risque identifiés</strong>, appareil nettoyé et durci, bonnes pratiques mises en place.</p>
             <ul class="project-stack"><li>Forensique mobile</li><li>Nettoyage</li><li>Durcissement</li></ul>
           </article>
 
           <article class="project reveal">
-            <div class="project-tag">Recherche · IA offensive</div>
+            <div class="project-tag" data-en="Research · Offensive AI">Recherche · IA offensive</div>
             <h3>RedFox</h3>
-            <p>Laboratoire IA de génération de scénarios de phishing multimodaux (texte, image, voix) pour simuler des attaques d'ingénierie sociale et entraîner les cibles. Le projet de R&amp;D qui a donné son nom à <strong>RedFox</strong>.</p>
+            <p data-en="AI lab generating multimodal phishing scenarios (text, image, voice) to simulate social-engineering attacks and train targets. The R&amp;D project that gave &lt;strong&gt;RedFox&lt;/strong&gt; its name.">Laboratoire IA de génération de scénarios de phishing multimodaux (texte, image, voix) pour simuler des attaques d'ingénierie sociale et entraîner les cibles. Le projet de R&amp;D qui a donné son nom à <strong>RedFox</strong>.</p>
             <ul class="project-stack"><li>Ingénierie sociale</li><li>IA générative</li><li>Python</li></ul>
           </article>
         </div>
@@ -385,33 +391,33 @@
     <section id="testimonials" class="section section-light">
       <div class="container">
         <div class="section-head reveal">
-          <p class="section-eyebrow">// Avis</p>
-          <h2 class="section-title">Ce que disent mes clients</h2>
-          <p class="section-sub">Retours anonymisés (avec l'accord des personnes) — la confidentialité reste la règle. Missions menées en Afrique de l'Ouest et à l'international.</p>
+          <p class="section-eyebrow" data-en="// Reviews">// Avis</p>
+          <h2 class="section-title" data-en="What my clients say">Ce que disent mes clients</h2>
+          <p class="section-sub" data-en="Anonymized feedback (with the persons' consent) — confidentiality remains the rule. Missions carried out across West Africa and internationally.">Retours anonymisés (avec l'accord des personnes) — la confidentialité reste la règle. Missions menées en Afrique de l'Ouest et à l'international.</p>
         </div>
 
         <div class="quotes quotes-3">
           <figure class="quote reveal">
-            <blockquote>« Il a obtenu un accès à nos systèmes que deux audits précédents avaient manqué. Rapport clair et priorisé&nbsp;: nous avons corrigé en une semaine. Un vrai professionnel. »</blockquote>
+            <blockquote data-en="“He gained access to our systems that two previous audits had missed. Clear, prioritized report: we fixed everything within a week. A true professional.”">« Il a obtenu un accès à nos systèmes que deux audits précédents avaient manqué. Rapport clair et priorisé&nbsp;: nous avons corrigé en une semaine. Un vrai professionnel. »</blockquote>
             <figcaption>
               <span class="q-avatar" aria-hidden="true">AS</span>
-              <span class="q-id"><span class="q-name">Amadou&nbsp;S.</span><span class="q-org">Directeur informatique · banque, Abidjan</span></span>
+              <span class="q-id"><span class="q-name">Amadou&nbsp;S.</span><span class="q-org" data-en="IT Director · bank, Abidjan">Directeur informatique · banque, Abidjan</span></span>
             </figcaption>
           </figure>
 
           <figure class="quote reveal">
-            <blockquote>« Nous subissions un maître-chanteur anonyme. En quelques jours, il l'a identifié et nous a remis un dossier solide pour porter plainte. Discret et efficace. »</blockquote>
+            <blockquote data-en="“We were being blackmailed by an anonymous extortionist. Within days, he identified them and handed us a solid file to file a complaint. Discreet and effective.”">« Nous subissions un maître-chanteur anonyme. En quelques jours, il l'a identifié et nous a remis un dossier solide pour porter plainte. Discret et efficace. »</blockquote>
             <figcaption>
               <span class="q-avatar" aria-hidden="true">FO</span>
-              <span class="q-id"><span class="q-name">Fatoumata&nbsp;O.</span><span class="q-org">Gérante · PME de services, Bamako</span></span>
+              <span class="q-id"><span class="q-name">Fatoumata&nbsp;O.</span><span class="q-org" data-en="Managing Director · services SME, Bamako">Gérante · PME de services, Bamako</span></span>
             </figcaption>
           </figure>
 
           <figure class="quote reveal">
-            <blockquote>« Simulation d'attaque bluffante de réalisme. Nos équipes ont vu leurs failles concrètement — et comment les combler. Honnête, pédagogue, droit au but. »</blockquote>
+            <blockquote data-en="“A stunningly realistic attack simulation. Our teams saw their weaknesses firsthand — and how to close them. Honest, clear, straight to the point.”">« Simulation d'attaque bluffante de réalisme. Nos équipes ont vu leurs failles concrètement — et comment les combler. Honnête, pédagogue, droit au but. »</blockquote>
             <figcaption>
               <span class="q-avatar" aria-hidden="true">KT</span>
-              <span class="q-id"><span class="q-name">Karim&nbsp;T.</span><span class="q-org">Responsable sécurité · e-commerce, Accra</span></span>
+              <span class="q-id"><span class="q-name">Karim&nbsp;T.</span><span class="q-org" data-en="Security Manager · e-commerce, Accra">Responsable sécurité · e-commerce, Accra</span></span>
             </figcaption>
           </figure>
         </div>
@@ -423,30 +429,30 @@
       <div class="container">
         <div class="section-head reveal">
           <p class="section-eyebrow">// FAQ</p>
-          <h2 class="section-title">Questions fréquentes</h2>
-          <p class="section-sub">Les réponses aux questions qu'on me pose le plus souvent.</p>
+          <h2 class="section-title" data-en="Frequently asked questions">Questions fréquentes</h2>
+          <p class="section-sub" data-en="Answers to the questions I get asked most often.">Les réponses aux questions qu'on me pose le plus souvent.</p>
         </div>
 
         <div class="faq reveal">
           <details>
-            <summary>Est-ce que tout cela est vraiment légal&nbsp;?</summary>
-            <p>Oui. Le hacking éthique est un métier reconnu. Je n'interviens <strong>jamais</strong> sans une autorisation écrite et signée et un contrat définissant précisément le périmètre. Tout ce qui sort de ce cadre, je le refuse.</p>
+            <summary data-en="Is all of this actually legal?">Est-ce que tout cela est vraiment légal&nbsp;?</summary>
+            <p data-en="Yes. Ethical hacking is a recognized profession. I &lt;strong&gt;never&lt;/strong&gt; operate without a signed, written authorization and a contract precisely defining the scope. Anything outside that framework, I decline.">Oui. Le hacking éthique est un métier reconnu. Je n'interviens <strong>jamais</strong> sans une autorisation écrite et signée et un contrat définissant précisément le périmètre. Tout ce qui sort de ce cadre, je le refuse.</p>
           </details>
           <details>
-            <summary>Et si vous cassez quelque chose pendant un test&nbsp;?</summary>
-            <p>Mes méthodes sont contrôlées et non destructives par défaut. Le périmètre et les précautions (sauvegardes, créneaux horaires, systèmes exclus) sont convenus à l'avance. Les tests sensibles peuvent être menés hors heures de production.</p>
+            <summary data-en="What if you break something during a test?">Et si vous cassez quelque chose pendant un test&nbsp;?</summary>
+            <p data-en="My methods are controlled and non-destructive by default. Scope and precautions (backups, time windows, excluded systems) are agreed in advance. Sensitive tests can be run outside production hours.">Mes méthodes sont contrôlées et non destructives par défaut. Le périmètre et les précautions (sauvegardes, créneaux horaires, systèmes exclus) sont convenus à l'avance. Les tests sensibles peuvent être menés hors heures de production.</p>
           </details>
           <details>
-            <summary>Mes données et ce que vous découvrez restent-ils confidentiels&nbsp;?</summary>
-            <p>Absolument. Confidentialité totale, accord de non-divulgation (NDA) sur demande, manipulation sécurisée des informations et suppression des données sensibles à la fin de la mission.</p>
+            <summary data-en="Do my data and what you discover stay confidential?">Mes données et ce que vous découvrez restent-ils confidentiels&nbsp;?</summary>
+            <p data-en="Absolutely. Full confidentiality, non-disclosure agreement (NDA) on request, secure handling of information, and deletion of sensitive data at the end of the mission.">Absolument. Confidentialité totale, accord de non-divulgation (NDA) sur demande, manipulation sécurisée des informations et suppression des données sensibles à la fin de la mission.</p>
           </details>
           <details>
-            <summary>Combien coûte une mission&nbsp;?</summary>
-            <p>Cela dépend du périmètre et des objectifs. Le <strong>premier échange est gratuit et confidentiel</strong>&nbsp;: on cadre votre besoin, puis je vous remets un devis clair avant tout engagement.</p>
+            <summary data-en="How much does a mission cost?">Combien coûte une mission&nbsp;?</summary>
+            <p data-en="It depends on scope and objectives. The &lt;strong&gt;first conversation is free and confidential&lt;/strong&gt;: we frame your needs, then I provide a clear quote before any commitment.">Cela dépend du périmètre et des objectifs. Le <strong>premier échange est gratuit et confidentiel</strong>&nbsp;: on cadre votre besoin, puis je vous remets un devis clair avant tout engagement.</p>
           </details>
           <details>
-            <summary>Travaillez-vous à distance ou sur place&nbsp;?</summary>
-            <p>Les deux. La plupart des missions se mènent à distance&nbsp;; je peux aussi me déplacer sur site (y compris à l'étranger) ou échanger en visioconférence, selon votre préférence.</p>
+            <summary data-en="Do you work remotely or on-site?">Travaillez-vous à distance ou sur place&nbsp;?</summary>
+            <p data-en="Both. Most missions are conducted remotely; I can also travel on-site (including abroad) or meet via video call, depending on your preference.">Les deux. La plupart des missions se mènent à distance&nbsp;; je peux aussi me déplacer sur site (y compris à l'étranger) ou échanger en visioconférence, selon votre préférence.</p>
           </details>
         </div>
       </div>
@@ -456,10 +462,10 @@
     <section class="cta-band" aria-label="Appel à l'action">
       <div class="cta-band-media" aria-hidden="true"></div>
       <div class="container cta-band-inner reveal">
-        <p class="section-eyebrow">// Passez à l'offensive</p>
-        <h2 class="cta-title">Vos failles existent déjà.<br />Trouvons-les avant vos ennemis.</h2>
-        <p class="cta-sub">Un échange, un périmètre, un contrat clair — et on avance. Premier contact gratuit et confidentiel.</p>
-        <a href="#contact" class="btn btn-primary">Démarrer une mission</a>
+        <p class="section-eyebrow" data-en="// Go on the offensive">// Passez à l'offensive</p>
+        <h2 class="cta-title" data-en="Your flaws already exist.&lt;br /&gt;Let's find them before your enemies do.">Vos failles existent déjà.<br />Trouvons-les avant vos ennemis.</h2>
+        <p class="cta-sub" data-en="One conversation, one scope, one clear contract — and we move forward. First contact is free and confidential.">Un échange, un périmètre, un contrat clair — et on avance. Premier contact gratuit et confidentiel.</p>
+        <a href="#contact" class="btn btn-primary" data-en="Start a mission">Démarrer une mission</a>
       </div>
     </section>
 
@@ -468,29 +474,29 @@
       <div class="container contact-grid">
         <div class="contact-intro reveal">
           <p class="section-eyebrow">// Contact</p>
-          <h2 class="section-title">Ouvrez un canal</h2>
-          <p>Une cible à évaluer, une menace à qualifier, une personne à retrouver ou une enquête à mener&nbsp;? Écrivez-moi. <strong>Premier échange gratuit et confidentiel</strong>, <strong>réponse sous 48&nbsp;heures</strong> — et toute mission démarre par un contrat clair.</p>
+          <h2 class="section-title" data-en="Open a channel">Ouvrez un canal</h2>
+          <p data-en="A target to assess, a threat to qualify, someone to locate, or an investigation to run? Write to me. &lt;strong&gt;First conversation is free and confidential&lt;/strong&gt;, &lt;strong&gt;reply within 48 hours&lt;/strong&gt; — and every mission starts with a clear contract.">Une cible à évaluer, une menace à qualifier, une personne à retrouver ou une enquête à mener&nbsp;? Écrivez-moi. <strong>Premier échange gratuit et confidentiel</strong>, <strong>réponse sous 48&nbsp;heures</strong> — et toute mission démarre par un contrat clair.</p>
           <ul class="contact-links">
             <li>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
-              <a href="mailto:holyspyware@proton.me">holyspyware@proton.me <span class="tag-soft">contact sécurisé · chiffré</span></a>
+              <a href="mailto:holyspyware@proton.me">holyspyware@proton.me <span class="tag-soft" data-en="secure · encrypted contact">contact sécurisé · chiffré</span></a>
             </li>
             <li>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2z"/><path d="M9 18h6"/></svg>
-              <span class="contact-plain">Messagerie chiffrée (Signal, Session…) <span class="tag-soft">sur demande</span></span>
+              <span class="contact-plain" data-en="Encrypted messaging (Signal, Session…) &lt;span class=&quot;tag-soft&quot;&gt;on request&lt;/span&gt;">Messagerie chiffrée (Signal, Session…) <span class="tag-soft">sur demande</span></span>
             </li>
             <li>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M15 10l4.5-2.5v9L15 14M4 7h9a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2z"/></svg>
-              <span class="contact-plain">Rendez-vous en présentiel (sur site, au besoin) ou en visioconférence</span>
+              <span class="contact-plain" data-en="In-person meeting (on-site, if needed) or video call">Rendez-vous en présentiel (sur site, au besoin) ou en visioconférence</span>
             </li>
           </ul>
-          <p class="contact-note">Pour les échanges sensibles, je m'adapte à votre canal&nbsp;: autre plateforme sécurisée de votre choix sur demande.</p>
+          <p class="contact-note" data-en="For sensitive matters, I'll adapt to your channel of choice: another secure platform on request.">Pour les échanges sensibles, je m'adapte à votre canal&nbsp;: autre plateforme sécurisée de votre choix sur demande.</p>
         </div>
 
         <!-- Envoi via la fonction Cloudflare /api/contact ; repli mailto si indisponible -->
         <form class="contact-form reveal" id="contact-form" novalidate>
           <div class="field">
-            <label for="cf-name">Nom / Organisation</label>
+            <label for="cf-name" data-en="Name / Organization">Nom / Organisation</label>
             <input type="text" id="cf-name" name="name" autocomplete="name" required maxlength="80" />
           </div>
           <div class="field">
@@ -498,16 +504,16 @@
             <input type="email" id="cf-email" name="email" autocomplete="email" required maxlength="120" />
           </div>
           <div class="field">
-            <label for="cf-message">Votre besoin</label>
+            <label for="cf-message" data-en="Your request">Votre besoin</label>
             <textarea id="cf-message" name="message" rows="5" required maxlength="2000"></textarea>
           </div>
           <!-- Pot de miel anti-spam : invisible, doit rester vide -->
           <div class="hp" aria-hidden="true">
             <label>Ne pas remplir<input type="text" name="website" tabindex="-1" autocomplete="off" /></label>
           </div>
-          <button type="submit" class="btn btn-primary btn-block" id="cf-submit">Envoyer ma demande</button>
+          <button type="submit" class="btn btn-primary btn-block" id="cf-submit" data-en="Send my request">Envoyer ma demande</button>
           <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
-          <p class="form-hint">Vos informations servent uniquement à vous répondre — aucun partage à un tiers, aucun stockage au-delà de l'email.</p>
+          <p class="form-hint" data-en="Your information is used only to reply to you — never shared with a third party, never stored beyond the email.">Vos informations servent uniquement à vous répondre — aucun partage à un tiers, aucun stockage au-delà de l'email.</p>
         </form>
       </div>
     </section>
@@ -522,17 +528,18 @@
         </div>
         <nav class="footer-nav" aria-label="Liens de pied de page">
           <a href="#services">Services</a>
-          <a href="#method">Méthode</a>
-          <a href="#ethics">Éthique</a>
+          <a href="#method" data-en="Method">Méthode</a>
+          <a href="methodology.html" data-en="Methodology">Méthodologie</a>
+          <a href="#ethics" data-en="Ethics">Éthique</a>
           <a href="#faq">FAQ</a>
           <a href="#contact">Contact</a>
-          <a href="legal.html">Mentions légales</a>
+          <a href="legal.html" data-en="Legal notice">Mentions légales</a>
         </nav>
       </div>
       <p class="footer-slogan">Strike smarter. Defend stronger.</p>
       <div class="footer-inner">
-        <p>© <span id="year"></span> RedFox · UlCed W · Offensive Security &amp; Cyber Intelligence · <a href="legal.html">Mentions légales &amp; confidentialité</a></p>
-        <a href="#top" class="footer-top">↑ Retour</a>
+        <p data-en="© &lt;span id=&quot;year&quot;&gt;&lt;/span&gt; RedFox · UlCed W · Offensive Security &amp; Cyber Intelligence · &lt;a href=&quot;legal.html&quot;&gt;Legal notice &amp; privacy&lt;/a&gt;">© <span id="year"></span> RedFox · UlCed W · Offensive Security &amp; Cyber Intelligence · <a href="legal.html">Mentions légales &amp; confidentialité</a></p>
+        <a href="#top" class="footer-top" data-en="↑ Back to top">↑ Retour</a>
       </div>
     </div>
   </footer>

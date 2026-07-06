@@ -78,8 +78,41 @@
   }
 
   /* ---- Année du footer ---- */
-  const year = document.getElementById("year");
-  if (year) year.textContent = String(new Date().getFullYear());
+  function setFooterYear() {
+    const year = document.getElementById("year");
+    if (year) year.textContent = String(new Date().getFullYear());
+  }
+  setFooterYear();
+
+  /* ---- Traduction FR / EN ---- */
+  /* Chaque élément traduisible porte un attribut data-en (texte anglais).
+     Au premier changement de langue, le texte français d'origine est mis
+     en cache dans data-fr afin de pouvoir revenir en arrière. Le choix est
+     mémorisé (localStorage) et partagé entre les pages du site. */
+  const LANG_KEY = "redfox-lang";
+
+  function setLanguage(lang) {
+    document.querySelectorAll("[data-en]").forEach(function (el) {
+      if (el.dataset.fr === undefined) el.dataset.fr = el.innerHTML;
+      el.innerHTML = lang === "en" ? el.dataset.en : el.dataset.fr;
+    });
+    document.documentElement.setAttribute("lang", lang === "en" ? "en" : "fr");
+    setFooterYear(); // le span #year est recréé par la traduction du pied de page
+    document.querySelectorAll(".lang-btn").forEach(function (b) {
+      b.classList.toggle("is-active", b.dataset.lang === lang);
+    });
+    try { localStorage.setItem(LANG_KEY, lang); } catch (_) {}
+  }
+
+  const langButtons = document.querySelectorAll(".lang-btn");
+  if (langButtons.length) {
+    langButtons.forEach(function (btn) {
+      btn.addEventListener("click", function () { setLanguage(btn.dataset.lang); });
+    });
+    let savedLang = "fr";
+    try { savedLang = localStorage.getItem(LANG_KEY) || "fr"; } catch (_) {}
+    if (savedLang === "en") setLanguage("en");
+  }
 
   /* ---- Effet « machine à écrire » (hero) ---- */
   const typed = document.getElementById("typed");
