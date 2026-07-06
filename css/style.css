@@ -107,7 +107,9 @@ svg { display: block; }
 .brand:hover { color: var(--text); }
 .brand-mark { color: var(--red); display: inline-flex; filter: drop-shadow(0 0 8px var(--red-glow)); }
 .brand-logo { display: block; height: 34px; width: auto; }
-.footer-mark .brand-logo { height: 30px; }
+.brand-logo-full { display: block; height: 36px; width: auto; filter: drop-shadow(0 0 9px var(--red-glow)); }
+.footer-full-logo { display: block; width: 150px; height: auto; filter: drop-shadow(0 0 12px var(--red-glow)); }
+@media (max-width: 720px) { .brand-logo-full { height: 30px; } }
 .brand-name { font-size: .95rem; letter-spacing: .04em; }
 
 .nav { display: flex; align-items: center; }
