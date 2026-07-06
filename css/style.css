@@ -105,7 +105,9 @@ svg { display: block; }
 
 .brand { display: flex; align-items: center; gap: .7rem; color: var(--text); font-weight: 800; }
 .brand:hover { color: var(--text); }
-.brand-mark { color: var(--red); filter: drop-shadow(0 0 8px var(--red-glow)); }
+.brand-mark { color: var(--red); display: inline-flex; filter: drop-shadow(0 0 8px var(--red-glow)); }
+.brand-logo { display: block; height: 34px; width: auto; }
+.footer-mark .brand-logo { height: 30px; }
 .brand-name { font-size: .95rem; letter-spacing: .04em; }
 
 .nav { display: flex; align-items: center; }
