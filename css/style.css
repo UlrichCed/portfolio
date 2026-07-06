@@ -683,6 +683,26 @@ section[id] { scroll-margin-top: 84px; }
 .tool-item p { color: var(--text-soft); font-size: .9rem; margin: 0; }
 .tools-note { margin-top: 1.4rem; color: var(--text-faint); font-size: .88rem; font-style: italic; }
 
+/* ---- Cas pratiques illustratifs ---- */
+.cases { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 1.4rem; }
+.case-card {
+  background: var(--surface); border: 1px solid var(--border); border-top: 2px solid var(--red);
+  border-radius: var(--radius); padding: 1.6rem; box-shadow: var(--shadow);
+}
+.case-card h3 { font-size: 1.15rem; margin-bottom: .7rem; }
+.case-card p { color: var(--text-soft); font-size: .93rem; margin: 0 0 1rem; }
+.case-card p:last-child { margin-bottom: 0; }
+.case-card strong { color: var(--text); }
+.case-card code { font-family: var(--font-mono); background: var(--surface-2); padding: .05rem .35rem; border-radius: 4px; font-size: .85em; }
+.case-code {
+  background: #050507; border: 1px solid var(--border-red); border-radius: var(--radius-sm);
+  padding: .9rem 1.1rem; margin: 0 0 1rem; overflow-x: auto;
+}
+.case-code code {
+  background: none; padding: 0; font-family: var(--font-mono); font-size: .82rem; line-height: 1.6;
+  color: #7ee787; white-space: pre;
+}
+
 /* Lien contextuel vers la page Méthodologie (section Méthode) */
 .method-link {
   display: inline-block; margin-top: 1.1rem; color: var(--red); font-weight: 600; font-size: .95rem;

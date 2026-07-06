@@ -57,7 +57,7 @@
       <div class="container">
         <p class="section-eyebrow" data-en="// Methodology">// Méthodologie</p>
         <h1 class="section-title" data-en="How I conduct a vulnerability assessment">Comment je mène une évaluation de vulnérabilités</h1>
-        <p class="method-intro" data-en="A vulnerability assessment is the systematic process of identifying, quantifying and prioritizing the security gaps in a system — application, network or organization. Below is the general framework I follow on every engagement, adapted to the scope and the client's context. It's the same logic described in the industry-reference &lt;em&gt;“How to Perform a Vulnerability Assessment: Step by Step”&lt;/em&gt; (Izzmier Izzuddin), applied with RedFox's own tooling and standards.">Une évaluation de vulnérabilités est le processus systématique qui consiste à identifier, quantifier et prioriser les failles de sécurité d'un système&nbsp;: application, réseau ou organisation entière. Voici le cadre général que je suis à chaque mission, adapté au périmètre et au contexte du client. C'est la même logique que celle décrite dans la référence <em>« How to Perform a Vulnerability Assessment: Step by Step »</em> (Izzmier Izzuddin), appliquée avec les outils et standards propres à RedFox.</p>
+        <p class="method-intro" data-en="A vulnerability assessment is the systematic process of identifying, quantifying and prioritizing the security gaps in a system — application, network or organization. Below is the general framework I follow on every engagement, adapted to the scope and the client's context.">Une évaluation de vulnérabilités est le processus systématique qui consiste à identifier, quantifier et prioriser les failles de sécurité d'un système&nbsp;: application, réseau ou organisation entière. Voici le cadre général que je suis à chaque mission, adapté au périmètre et au contexte du client.</p>
       </div>
     </section>
 
@@ -101,6 +101,65 @@
             <p data-en="Patching, secure-coding fixes, configuration hardening — then verification that each flaw is actually closed. I also recommend a cadence of continuous monitoring and periodic re-assessment, since new vulnerabilities appear constantly.">Correctifs, corrections de code sécurisé, durcissement de la configuration — puis vérification que chaque faille est réellement refermée. Je recommande aussi un rythme de surveillance continue et de réévaluations périodiques, car de nouvelles vulnérabilités apparaissent en permanence.</p>
           </li>
         </ol>
+      </div>
+    </section>
+
+    <!-- ============ CAS PRATIQUES ============ -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="section-eyebrow" data-en="// Illustrative case studies">// Cas pratiques illustratifs</p>
+          <h2 class="section-title" data-en="The methodology applied, step by step">La méthodologie appliquée, étape par étape</h2>
+          <p class="section-sub" data-en="Two typical scenarios, to make the 6 phases concrete. Systems, IPs and domains below are illustrative, not real clients.">Deux scénarios typiques, pour rendre les 6 phases concrètes. Les systèmes, IP et domaines ci-dessous sont illustratifs, pas de vrais clients.</p>
+        </div>
+
+        <div class="cases">
+          <article class="case-card reveal">
+            <div class="project-tag" data-en="Illustrative case · Web application">Cas illustratif · Application web</div>
+            <h3 data-en="Assessment of an e-commerce platform">Évaluation d'une plateforme e-commerce</h3>
+            <p data-en="&lt;strong&gt;Scope:&lt;/strong&gt; web server, application server, database. Tools: Nmap, OpenVAS/Nessus, OWASP ZAP / Burp Suite.">
+              <strong>Périmètre&nbsp;:</strong> serveur web, serveur applicatif, base de données. Outils&nbsp;: Nmap, OpenVAS/Nessus, OWASP ZAP / Burp Suite.</p>
+            <pre class="case-code" data-en="&lt;code&gt;$ nmap -sS -p 1-65535 -sV client-app.example
+
+PORT     STATE  SERVICE  VERSION
+22/tcp   open   ssh      OpenSSH 7.4
+80/tcp   open   http     Apache 2.4.29
+443/tcp  open   https    Apache 2.4.29
+3306/tcp open   mysql    MySQL 5.7.21&lt;/code&gt;"><code>$ nmap -sS -p 1-65535 -sV client-app.example
+
+PORT     STATE  SERVICE  VERSION
+22/tcp   open   ssh      OpenSSH 7.4
+80/tcp   open   http     Apache 2.4.29
+443/tcp  open   https    Apache 2.4.29
+3306/tcp open   mysql    MySQL 5.7.21</code></pre>
+            <p data-en="&lt;strong&gt;Findings:&lt;/strong&gt; two remote-code-execution CVEs on an outdated framework component, a &lt;strong&gt;SQL injection&lt;/strong&gt; on the login form (&lt;code&gt;username&lt;/code&gt; parameter), a &lt;strong&gt;stored XSS&lt;/strong&gt; in the search feature, and &lt;strong&gt;no CSRF protection&lt;/strong&gt; on critical actions.">
+              <strong>Constats&nbsp;:</strong> deux CVE d'exécution de code à distance sur un composant de framework obsolète, une <strong>injection SQL</strong> sur le formulaire de connexion (paramètre <code>username</code>), une <strong>XSS stockée</strong> dans la fonction de recherche, et <strong>aucune protection CSRF</strong> sur les actions critiques.</p>
+            <p data-en="&lt;strong&gt;Impact:&lt;/strong&gt; potential full server takeover, unauthorized access to customer accounts and payment data. &lt;strong&gt;Fix:&lt;/strong&gt; update the framework, use prepared statements, encode output, add CSRF tokens — all four closed within the following week.">
+              <strong>Impact&nbsp;:</strong> prise de contrôle possible du serveur, accès non autorisé aux comptes clients et aux données de paiement. <strong>Correctif&nbsp;:</strong> mise à jour du framework, requêtes préparées, encodage des sorties, ajout de jetons CSRF — les quatre refermées en une semaine.</p>
+          </article>
+
+          <article class="case-card reveal">
+            <div class="project-tag" data-en="Illustrative case · Internal network">Cas illustratif · Réseau interne</div>
+            <h3 data-en="Assessment of a corporate network">Évaluation d'un réseau d'entreprise</h3>
+            <p data-en="&lt;strong&gt;Scope:&lt;/strong&gt; workstations, servers, network devices. Tools: Nmap, Nessus, Wireshark, Metasploit (controlled).">
+              <strong>Périmètre&nbsp;:</strong> postes de travail, serveurs, équipements réseau. Outils&nbsp;: Nmap, Nessus, Wireshark, Metasploit (usage contrôlé).</p>
+            <pre class="case-code" data-en="&lt;code&gt;$ nmap -sP 192.168.1.0/24
+$ nmap -sS -p 1-65535 192.168.1.10
+
+PORT     STATE  SERVICE
+22/tcp   open   ssh
+3389/tcp open   ms-wbt-server&lt;/code&gt;"><code>$ nmap -sP 192.168.1.0/24
+$ nmap -sS -p 1-65535 192.168.1.10
+
+PORT     STATE  SERVICE
+22/tcp   open   ssh
+3389/tcp open   ms-wbt-server</code></pre>
+            <p data-en="&lt;strong&gt;Findings:&lt;/strong&gt; unpatched Remote Desktop and SMB services vulnerable to well-known remote-code-execution exploits (the &lt;em&gt;BlueKeep&lt;/em&gt; and &lt;em&gt;EternalBlue&lt;/em&gt; families), plus &lt;strong&gt;cleartext credentials&lt;/strong&gt; observed in captured traffic. A controlled exploitation attempt confirmed remote code execution was actually possible — not just theoretical.">
+              <strong>Constats&nbsp;:</strong> services Bureau à distance et SMB non patchés, vulnérables à des exploits d'exécution de code à distance bien connus (familles <em>BlueKeep</em> et <em>EternalBlue</em>), ainsi que des <strong>identifiants transmis en clair</strong> observés dans le trafic capturé. Une tentative d'exploitation contrôlée a confirmé que l'exécution de code à distance était réellement possible — pas seulement théorique.</p>
+            <p data-en="&lt;strong&gt;Impact:&lt;/strong&gt; a single unpatched workstation could have given an attacker control of the network, with a real ransomware risk. &lt;strong&gt;Fix:&lt;/strong&gt; emergency patching of RDP/SMB, TLS encryption for sensitive traffic, network segmentation to contain any future incident.">
+              <strong>Impact&nbsp;:</strong> un seul poste non patché aurait pu donner à un attaquant le contrôle du réseau, avec un risque réel de rançongiciel. <strong>Correctif&nbsp;:</strong> patch d'urgence RDP/SMB, chiffrement TLS du trafic sensible, segmentation réseau pour contenir tout incident futur.</p>
+          </article>
+        </div>
       </div>
     </section>
 
