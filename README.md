@@ -120,8 +120,10 @@ la vraie correction ci-dessous.
 **Vraie correction — dans Cloudflare Pages → Settings → Builds & deployments :**
 - **Build command** :
   ```bash
-  mkdir -p dist && cp -r . dist/ && rm -rf dist/.git dist/dist dist/node_modules
+  mkdir -p dist && for f in * .[!.]*; do case "$f" in dist|.git) continue;; esac; [ -e "$f" ] && cp -r "$f" dist/; done
   ```
+  (copie tout sauf `.git` et `dist` lui-même — plus sûr que `cp -r . dist/`,
+  qui peut planter en essayant de copier `dist` dans `dist`)
 - **Build output directory** : `dist` (au lieu de `/`)
 - Redéploie ensuite (Deployments → Create deployment / Retry).
 
