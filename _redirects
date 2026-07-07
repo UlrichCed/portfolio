@@ -1,6 +1,0 @@
-# Filet de sécurité : bloque l'accès direct aux dossiers/fichiers sensibles
-# même s'ils se retrouvent par erreur dans le dossier publié.
-# La vraie correction est de ne JAMAIS publier .git (voir README.md,
-# section "Sécurité du déploiement Cloudflare Pages").
-/.git/*        /404.html  404
-/functions/*   /404.html  404
