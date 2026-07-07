@@ -735,3 +735,43 @@ section[id] { scroll-margin-top: 84px; }
 /* ---- Page 404 ---- */
 .error-page { text-align: center; padding-top: 2rem; max-width: 560px; margin-inline: auto; }
 .error-page p { color: var(--text-soft); margin: 1rem 0 2rem; }
+
+/* ---- Hero animé (page Tactique) ---- */
+.method-hero {
+  position: relative; overflow: hidden;
+  padding: clamp(3rem, 8vw, 5rem) 0 clamp(2.2rem, 5vw, 3.5rem);
+}
+.method-hero .section-eyebrow { display: inline-flex; align-items: center; gap: .6rem; }
+.method-hero .section-eyebrow .dot {
+  width: 7px; height: 7px; border-radius: 50%; background: var(--red);
+  box-shadow: 0 0 0 0 var(--red-glow); animation: pulse 2.4s infinite;
+}
+.method-hero .section-title .hl { position: relative; animation: hlpulse 3.4s ease-in-out infinite; }
+.method-hero .section-title:hover .glitch::before { color: #22d3ee; animation: glitchA .5s steps(2) 1; }
+.method-hero .section-title:hover .glitch::after  { color: #ff2d3a; animation: glitchB .5s steps(2) 1; }
+@media (prefers-reduced-motion: reduce) {
+  .method-hero .section-eyebrow .dot, .method-hero .section-title .hl { animation: none; }
+}
+
+/* ---- Terminal « en direct » pour les cas pratiques ---- */
+.term { border-radius: var(--radius-sm); overflow: hidden; margin: 0 0 1rem; border: 1px solid var(--border-red); box-shadow: var(--shadow); }
+.term-bar { display: flex; align-items: center; gap: .4rem; padding: .5rem .7rem; background: #0d0d10; border-bottom: 1px solid var(--border-red); }
+.term-bar span:not(.term-title) { width: 10px; height: 10px; border-radius: 50%; background: var(--border); }
+.term-bar span:nth-child(1) { background: #ff5f56; }
+.term-bar span:nth-child(2) { background: #ffbd2e; }
+.term-bar span:nth-child(3) { background: #27c93f; }
+.term-title { margin-left: .5rem; font-family: var(--font-mono); font-size: .72rem; color: var(--text-faint); letter-spacing: .03em; }
+.term .case-code { border: none; border-radius: 0; margin: 0; }
+.case-code code::after {
+  content: ""; display: inline-block; width: .6ch; height: 1em; margin-left: 2px; vertical-align: -3px;
+  background: var(--red); animation: blink 1.05s steps(1) infinite;
+}
+@media (prefers-reduced-motion: reduce) { .case-code code::after { animation: none; } }
+
+/* ---- Pulsation des numéros d'étape (6 phases) ---- */
+.phases .step-num { animation: stepglow 2.6s ease-in-out infinite; }
+@keyframes stepglow {
+  0%, 100% { box-shadow: 0 0 0 0 var(--red-glow); }
+  50% { box-shadow: 0 0 0 6px transparent, 0 0 16px var(--red-glow); }
+}
+@media (prefers-reduced-motion: reduce) { .phases .step-num { animation: none; } }
