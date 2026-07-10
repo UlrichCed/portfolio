@@ -8,7 +8,7 @@ sans base de données et sans dépendance tierce.
 Si vous découvrez un problème de sécurité sur ce site, merci de le signaler
 de façon responsable, en privé, à&nbsp;:
 
-- **holyspyware@proton.me** (contact chiffré)
+- **ulc3d@proton.me** (contact chiffré)
 
 Merci de **ne pas** ouvrir d'issue publique avant qu'un correctif ne soit
 disponible. Je m'engage à accuser réception sous 48&nbsp;heures.

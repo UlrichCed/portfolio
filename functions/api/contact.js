@@ -7,7 +7,7 @@
  *
  * Variables à définir dans Cloudflare (Settings → Environment variables) :
  *   RESEND_API_KEY  (secret)          — clé API Resend
- *   CONTACT_TO      (optionnel)       — destinataire (défaut : holyspyware@proton.me)
+ *   CONTACT_TO      (optionnel)       — destinataire (défaut : ulc3d@proton.me)
  *   CONTACT_FROM    (optionnel)       — expéditeur (défaut : onboarding@resend.dev)
  */
 
@@ -53,7 +53,7 @@ export async function onRequestPost({ request, env }) {
     // Non configuré : le client basculera sur le repli mailto.
     return json({ ok: false, error: "not_configured" }, 503);
   }
-  const to = env.CONTACT_TO || "holyspyware@proton.me";
+  const to = env.CONTACT_TO || "ulc3d@proton.me";
   const from = env.CONTACT_FROM || "Formulaire du site <onboarding@resend.dev>";
 
   // 5. Envoi via Resend (le corps est en texte : aucune injection d'en-tête possible)

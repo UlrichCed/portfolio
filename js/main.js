@@ -157,7 +157,7 @@
      Proton). Si la fonction est indisponible ou non configurée, repli
      automatique sur le client mail du visiteur (mailto). */
   const form = document.getElementById("contact-form");
-  const DEST = "holyspyware@proton.me";
+  const DEST = "ulc3d@proton.me";
   if (form) {
     const statusEl = document.getElementById("form-status");
     const btn = document.getElementById("cf-submit");

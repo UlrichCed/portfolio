@@ -80,13 +80,13 @@ qui envoie l'email via **Resend**. Le navigateur n'appelle que `/api/contact`
 **Mise en service (une fois) :**
 
 1. Crée un compte gratuit sur **https://resend.com** en t'inscrivant avec
-   **holyspyware@proton.me** (indispensable pour recevoir les messages sans
+   **ulc3d@proton.me** (indispensable pour recevoir les messages sans
    domaine vérifié).
 2. Dans Resend → **API Keys** → crée une clé.
 3. Dans **Cloudflare** → ton projet Pages → **Settings → Environment variables**,
    ajoute (en *Secret* pour la clé) :
    - `RESEND_API_KEY` = ta clé Resend
-   - `CONTACT_TO` = `holyspyware@proton.me` *(optionnel, valeur par défaut)*
+   - `CONTACT_TO` = `ulc3d@proton.me` *(optionnel, valeur par défaut)*
    - `CONTACT_FROM` = `onboarding@resend.dev` *(optionnel ; à changer pour une
      adresse de ton domaine une fois un domaine vérifié dans Resend)*
 4. **Redéploie** (Deployments → Create deployment).
