@@ -372,7 +372,7 @@ html.js .reveal.in { opacity: 1; transform: none; }
 }
 
 /* ============================================================
-   AJOUTS — Vie & mouvement, punchlines EN, panneau éthique
+   AJOUTS : vie & mouvement, punchlines EN, panneau éthique
    ============================================================ */
 
 /* ---- Ligne de balayage (scanline) sur le hero ---- */
@@ -526,7 +526,7 @@ html.js .reveal.in { opacity: 1; transform: none; }
 @media (max-width: 520px) { .method { grid-template-columns: 1fr; } }
 
 /* ============================================================
-   AJOUTS — Témoignages, FAQ, nav active, bouton haut, footer
+   AJOUTS : témoignages, FAQ, nav active, bouton haut, footer
    ============================================================ */
 
 /* ---- Nav : section active (scrollspy) ---- */

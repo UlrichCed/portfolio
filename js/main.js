@@ -1,5 +1,5 @@
 /* ============================================================
-   Portfolio — interactions
+   Portfolio : interactions
    Vanilla JS, aucune dépendance. Thème unique (rouge & noir).
    ============================================================ */
 (function () {
@@ -169,7 +169,7 @@
     }
 
     function mailtoFallback(name, email, message) {
-      const subject = "Prise de contact — " + name;
+      const subject = "Prise de contact : " + name;
       const body =
         "Nom / Organisation : " + name + "\n" +
         "Email : " + email + "\n\n" + message;

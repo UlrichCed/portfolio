@@ -20,7 +20,7 @@ disponible. Je m'engage à accuser réception sous 48&nbsp;heures.
 - **Aucune ressource tierce** (pas de CDN, police, tracker ou analytics) →
   surface d'attaque et chaîne d'approvisionnement minimales.
 - **Aucun script inline**, aucun gestionnaire d'événement inline, aucun
-  `innerHTML`/`eval` — pas de sink XSS côté client.
+  `innerHTML`/`eval` : pas de sink XSS côté client.
 - **Aucune donnée collectée** : pas de cookie, pas de `localStorage`, pas de
   formulaire côté serveur (le contact ouvre le client mail local).
 - **En-têtes HTTP durcis** (`_headers`) : HSTS, `nosniff`, anti-clickjacking,

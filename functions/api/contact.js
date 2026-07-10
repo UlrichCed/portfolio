@@ -1,14 +1,14 @@
 /**
- * Cloudflare Pages Function — traitement du formulaire de contact.
+ * Cloudflare Pages Function : traitement du formulaire de contact.
  * Route : POST /api/contact
  *
  * Envoie le message par email via l'API Resend. La clé API et l'adresse de
  * destination sont des variables d'environnement (jamais exposées au client).
  *
  * Variables à définir dans Cloudflare (Settings → Environment variables) :
- *   RESEND_API_KEY  (secret)          — clé API Resend
- *   CONTACT_TO      (optionnel)       — destinataire (défaut : ulc3d@proton.me)
- *   CONTACT_FROM    (optionnel)       — expéditeur (défaut : onboarding@resend.dev)
+ *   RESEND_API_KEY  (secret)          : clé API Resend
+ *   CONTACT_TO      (optionnel)       : destinataire (défaut : ulc3d@proton.me)
+ *   CONTACT_FROM    (optionnel)       : expéditeur (défaut : onboarding@resend.dev)
  */
 
 const JSON_HEADERS = { "Content-Type": "application/json; charset=utf-8" };
@@ -69,7 +69,7 @@ export async function onRequestPost({ request, env }) {
         from: from,
         to: [to],
         reply_to: email,
-        subject: "Nouveau contact — " + name,
+        subject: "Nouveau contact : " + name,
         text:
           "Nom / Organisation : " + name + "\n" +
           "Email : " + email + "\n\n" +
