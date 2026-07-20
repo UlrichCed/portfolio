@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'self' mailto:; base-uri 'self'; object-src 'none'; frame-src 'none'; child-src 'none'; worker-src 'none'; manifest-src 'self'; upgrade-insecure-requests" />
+  <meta name="referrer" content="no-referrer" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#0a0a0c" />
+
+  <title>Articles · UlCed W</title>
+  <meta name="description" content="Notes techniques sur la sécurité offensive : démarche de test d'intrusion, outils par phase d'audit, retours d'expérience." />
+  <link rel="canonical" href="https://VOTRE-DOMAINE.pages.dev/articles.html" />
+
+  <script src="js/head.js"></script>
+  <link rel="preload" href="css/style.css" as="style" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/png" href="assets/redfox-favicon.png" />
+  <link rel="apple-touch-icon" href="assets/redfox-favicon.png" />
+</head>
+<body>
+  <span id="top" aria-hidden="true"></span>
+  <a class="skip-link" href="#main" data-en="Skip to content">Aller au contenu</a>
+
+  <!-- ============ EN-TÊTE / NAVIGATION ============ -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html#top" class="brand" aria-label="Accueil · RedFox">
+        <img src="assets/redfox-logo.png" alt="RedFox" class="brand-logo-full" width="141" height="36" />
+      </a>
+
+      <nav class="nav" aria-label="Navigation principale">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Ouvrir le menu">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="index.html#about" data-en="Profile">Profil</a></li>
+          <li><a href="index.html#services" data-en="Services">Services</a></li>
+          <li><a href="index.html#method" data-en="Method">Méthode</a></li>
+          <li><a href="index.html#ethics" data-en="Ethics">Éthique</a></li>
+          <li><a href="methodology.html" data-en="Tactics">Tactique</a></li>
+          <li><a href="articles.html" class="active" data-en="Articles">Articles</a></li>
+          <li><a href="index.html#testimonials" data-en="Reviews">Avis</a></li>
+          <li><a href="index.html#contact" class="nav-cta" data-en="Get in touch">Prendre contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="lang-toggle" role="group" aria-label="Langue / Language">
+        <button type="button" class="lang-btn is-active" data-lang="fr">FR</button>
+        <button type="button" class="lang-btn" data-lang="en">EN</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ INTRO (hero animé) ============ -->
+    <section class="section method-hero">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="hero-scan" aria-hidden="true"></div>
+      <div class="container">
+        <p class="section-eyebrow reveal"><span class="dot"></span><span data-en="// Articles">// Articles</span></p>
+        <h1 class="section-title reveal" data-en="Notes from the &lt;span class=&quot;hl glitch&quot; data-text=&quot;FIELD&quot;&gt;field&lt;/span&gt;">Notes prises sur le <span class="hl glitch" data-text="TERRAIN">terrain</span></h1>
+        <p class="method-intro reveal" data-en="Practical, technical write-ups on offensive security: how I approach a penetration test, which tools earn their place in my kit, and what I've learned running real engagements.">Des notes techniques et pratiques sur la sécurité offensive&nbsp;: comment j'aborde un test d'intrusion, quels outils méritent une place dans ma trousse, ce que j'apprends mission après mission.</p>
+      </div>
+    </section>
+
+    <!-- ============ LISTE DES ARTICLES ============ -->
+    <section class="section">
+      <div class="container">
+        <div class="post-list">
+
+          <a class="post-card reveal" href="article-outils-pentest.html">
+            <p class="post-meta">
+              <span class="post-date" data-en="July 20, 2026">20 juillet 2026</span>
+              <span data-en="8 min read">8 min de lecture</span>
+            </p>
+            <h3 data-en="Which tools for an effective penetration test?">Quels outils pour un test d'intrusion efficace&nbsp;?</h3>
+            <p data-en="Reconnaissance, vulnerability scanning, exploitation, post-exploitation: the tools I actually reach for at each stage of an engagement, and why.">Reconnaissance, recherche de vulnérabilités, exploitation, post-exploitation&nbsp;: les outils que j'utilise vraiment à chaque étape d'une mission, et pourquoi.</p>
+            <span class="post-read" data-en="Read the article →">Lire l'article →</span>
+          </a>
+
+          <a class="post-card reveal" href="article-boite-noire-grise-blanche.html">
+            <p class="post-meta">
+              <span class="post-date" data-en="July 20, 2026">20 juillet 2026</span>
+              <span data-en="7 min read">7 min de lecture</span>
+            </p>
+            <h3 data-en="Black box, grey box, white box: how I choose a pentest approach">Boîte noire, grise, blanche&nbsp;: comment je choisis la démarche d'un test d'intrusion</h3>
+            <p data-en="Three approaches, three levels of access, three different budgets. Here's how I decide which one fits your context, mission after mission.">Trois démarches, trois niveaux d'accès, trois budgets différents. Voici comment je tranche, en fonction de votre contexte, mission après mission.</p>
+            <span class="post-read" data-en="Read the article →">Lire l'article →</span>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CTA ============ -->
+    <section class="cta-band" aria-label="Appel à l'action">
+      <div class="cta-band-media" aria-hidden="true"></div>
+      <div class="container cta-band-inner reveal">
+        <p class="section-eyebrow" data-en="// Go on the offensive">// Passez à l'offensive</p>
+        <h2 class="cta-title" data-en="Want to know where your flaws are?">Envie de savoir où sont vos failles&nbsp;?</h2>
+        <p class="cta-sub" data-en="First conversation is free and confidential.">Premier échange gratuit et confidentiel.</p>
+        <a href="index.html#contact" class="btn btn-primary" data-en="Start a mission">Démarrer une mission</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ PIED DE PAGE ============ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-row">
+        <div class="footer-brand">
+          <img src="assets/redfox-logo-full.png" alt="RedFox · Sahel Cybersecurity" class="footer-full-logo" width="150" height="147" />
+        </div>
+        <nav class="footer-nav" aria-label="Liens de pied de page">
+          <a href="index.html#services">Services</a>
+          <a href="index.html#method" data-en="Method">Méthode</a>
+          <a href="index.html#ethics" data-en="Ethics">Éthique</a>
+          <a href="methodology.html" data-en="Tactics">Tactique</a>
+          <a href="articles.html" data-en="Articles">Articles</a>
+          <a href="index.html#faq">FAQ</a>
+          <a href="index.html#contact">Contact</a>
+          <a href="legal.html" data-en="Legal notice">Mentions légales</a>
+        </nav>
+      </div>
+      <p class="footer-slogan">Strike smarter. Defend stronger.</p>
+      <div class="footer-inner">
+        <p data-en="© &lt;span id=&quot;year&quot;&gt;&lt;/span&gt; UlCed W · Offensive Security &amp; Cyber Intelligence · &lt;a href=&quot;legal.html&quot;&gt;Legal notice &amp; privacy&lt;/a&gt;">© <span id="year"></span> UlCed W · Offensive Security &amp; Cyber Intelligence · <a href="legal.html">Mentions légales &amp; confidentialité</a></p>
+        <a href="index.html" class="footer-top" data-en="← Home">← Accueil</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bouton flottant « haut de page » -->
+  <button class="to-top" id="to-top" aria-label="Remonter en haut" title="Haut de page">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>

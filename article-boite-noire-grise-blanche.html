@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'self' mailto:; base-uri 'self'; object-src 'none'; frame-src 'none'; child-src 'none'; worker-src 'none'; manifest-src 'self'; upgrade-insecure-requests" />
+  <meta name="referrer" content="no-referrer" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#0a0a0c" />
+
+  <title>Boîte noire, grise, blanche : quelle démarche pour un test d'intrusion ? · UlCed W</title>
+  <meta name="description" content="Trois démarches, trois niveaux d'accès, trois budgets différents. Comment je choisis entre boîte noire, boîte grise et boîte blanche pour un test d'intrusion." />
+  <link rel="canonical" href="https://VOTRE-DOMAINE.pages.dev/article-boite-noire-grise-blanche.html" />
+
+  <script src="js/head.js"></script>
+  <link rel="preload" href="css/style.css" as="style" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/png" href="assets/redfox-favicon.png" />
+  <link rel="apple-touch-icon" href="assets/redfox-favicon.png" />
+</head>
+<body>
+  <span id="top" aria-hidden="true"></span>
+  <a class="skip-link" href="#main" data-en="Skip to content">Aller au contenu</a>
+
+  <!-- ============ EN-TÊTE / NAVIGATION ============ -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html#top" class="brand" aria-label="Accueil · RedFox">
+        <img src="assets/redfox-logo.png" alt="RedFox" class="brand-logo-full" width="141" height="36" />
+      </a>
+
+      <nav class="nav" aria-label="Navigation principale">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Ouvrir le menu">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="index.html#about" data-en="Profile">Profil</a></li>
+          <li><a href="index.html#services" data-en="Services">Services</a></li>
+          <li><a href="index.html#method" data-en="Method">Méthode</a></li>
+          <li><a href="index.html#ethics" data-en="Ethics">Éthique</a></li>
+          <li><a href="methodology.html" data-en="Tactics">Tactique</a></li>
+          <li><a href="articles.html" class="active" data-en="Articles">Articles</a></li>
+          <li><a href="index.html#testimonials" data-en="Reviews">Avis</a></li>
+          <li><a href="index.html#contact" class="nav-cta" data-en="Get in touch">Prendre contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="lang-toggle" role="group" aria-label="Langue / Language">
+        <button type="button" class="lang-btn is-active" data-lang="fr">FR</button>
+        <button type="button" class="lang-btn" data-lang="en">EN</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <article class="section">
+      <div class="container article">
+        <p class="section-eyebrow reveal" data-en="// Article">// Article</p>
+        <h1 class="section-title reveal" data-en="Black box, grey box, white box: how I choose a pentest approach">Boîte noire, grise, blanche&nbsp;: comment je choisis la démarche d'un test d'intrusion</h1>
+
+        <p class="article-meta reveal">
+          <span class="article-byline"><span class="article-avatar" aria-hidden="true">UW</span><strong>UlCed&nbsp;W</strong></span>
+          <span data-en="July 20, 2026">20 juillet 2026</span>
+          <span data-en="7 min read">7 min de lecture</span>
+        </p>
+
+        <p class="article-lead reveal" data-en="A good penetration test starts before the first scan: with the choice of approach. Black box, grey box and white box aren't just technical labels, they're three different angles of attack, each with its own strengths, limits and budget. Here's how I decide, mission after mission.">Un bon test d'intrusion commence avant le premier scan&nbsp;: par le choix de la démarche. Boîte noire, boîte grise et boîte blanche ne sont pas de simples étiquettes techniques&nbsp;: ce sont trois angles d'attaque différents, chacun avec ses forces, ses limites et son budget. Voici comment je tranche, mission après mission.</p>
+
+        <h2 class="reveal" data-en="Black box">Boîte noire</h2>
+        <p class="reveal" data-en="Black box simulates an attacker who knows nothing about you: no access, no documentation, only what's publicly visible (a domain name, an IP, an email address). It's the most realistic angle for measuring your exposure exactly as an outside adversary would discover it.">La boîte noire simule un attaquant qui ne sait rien de vous&nbsp;: aucun accès, aucune documentation, seulement ce qui est visible publiquement (un nom de domaine, une IP, une adresse email). C'est l'angle le plus réaliste pour mesurer votre exposition telle qu'un adversaire extérieur la découvrirait.</p>
+        <h3 data-en="Strengths" class="reveal">Avantages</h3>
+        <p class="reveal" data-en="It shows exactly what a total stranger can exploit from the outside, with no shortcuts and no inside knowledge.">Elle montre exactement ce qu'un parfait inconnu peut exploiter depuis l'extérieur, sans raccourci ni connaissance préalable.</p>
+        <h3 data-en="Limits" class="reveal">Limites</h3>
+        <p class="reveal" data-en="Without access to the code or internal configuration, some deep flaws stay invisible, and the work takes longer: I first have to map what you already know about your own system.">Sans accès au code ni à la configuration interne, certaines failles profondes restent invisibles, et le travail prend plus de temps&nbsp;: je dois d'abord cartographier ce que vous connaissez déjà de votre propre système.</p>
+        <h3 data-en="When I recommend it" class="reveal">Quand je la recommande</h3>
+        <p class="reveal" data-en="For quick, regular audits on a lower-risk scope, or when the budget is tight and what you need first is a snapshot of your external exposure.">Pour des audits rapides et réguliers sur un périmètre à risque limité, ou quand le budget est serré et qu'il vous faut d'abord une photo de votre exposition externe.</p>
+
+        <h2 class="reveal" data-en="Grey box">Boîte grise</h2>
+        <p class="reveal" data-en="Grey box is a deliberate middle ground: I get partial access, usually one or two application accounts, sometimes a slice of documentation. It puts me in the position of an attacker who already has a foot in the door, a compromised account, a misused employee access, without knowing the whole system either.">La boîte grise est un compromis assumé&nbsp;: je reçois un accès partiel, en général un ou deux comptes applicatifs, parfois un bout de documentation. Cela me place dans la position d'un attaquant qui a déjà un pied dans la porte, un compte compromis, un accès employé détourné, sans connaître pour autant tout le système.</p>
+        <h3 data-en="Strengths" class="reveal">Avantages</h3>
+        <p class="reveal" data-en="The best balance of depth, time and cost: I can target the risky areas directly instead of spending time discovering them first.">Le meilleur équilibre entre profondeur, temps et coût&nbsp;: je cible directement les zones à risque au lieu de passer du temps à les découvrir.</p>
+        <h3 data-en="Limits" class="reveal">Limites</h3>
+        <p class="reveal" data-en="Less exhaustive than white box on internal flaws, and it assumes I start with a head start a real external attacker wouldn't necessarily have.">Moins exhaustive que la boîte blanche sur les failles internes, et elle suppose que je parte avec une longueur d'avance qu'un véritable attaquant externe n'aurait pas forcément.</p>
+        <h3 data-en="When I recommend it" class="reveal">Quand je la recommande</h3>
+        <p class="reveal" data-en="My default choice for auditing a web application on a set timeline and budget: it's the balance I recommend most often.">Mon choix par défaut pour auditer une application web dans un délai et un budget maîtrisés&nbsp;: c'est l'équilibre que je recommande le plus souvent.</p>
+
+        <h2 class="reveal" data-en="White box">Boîte blanche</h2>
+        <p class="reveal" data-en="White box means full access: source code, architecture, documentation, accounts. The term &quot;white-box penetration test&quot; can be confusing; I prefer to call it a full application security audit.">La boîte blanche, c'est l'accès complet&nbsp;: code source, architecture, documentation, comptes. Le terme « test d'intrusion en boîte blanche » prête parfois à confusion&nbsp;; je préfère parler d'audit de sécurité applicatif complet.</p>
+        <h3 data-en="Strengths" class="reveal">Avantages</h3>
+        <p class="reveal" data-en="Maximum depth: I can trace issues all the way to business logic, secrets management, and design flaws that are invisible from the outside.">La profondeur maximale&nbsp;: je peux remonter jusqu'à la logique métier, la gestion des secrets, des erreurs de conception invisibles depuis l'extérieur.</p>
+        <h3 data-en="Limits" class="reveal">Limites</h3>
+        <p class="reveal" data-en="Demanding in time and expertise, so more expensive: not a format to launch lightly on a small scope.">Exigeante en temps et en expertise, donc plus coûteuse&nbsp;: ce n'est pas un format à lancer à la légère sur un petit périmètre.</p>
+        <h3 data-en="When I recommend it" class="reveal">Quand je la recommande</h3>
+        <p class="reveal" data-en="For a compliance audit, a check before a critical production release, or whenever the security of the code matters as much as the security of the perimeter.">Pour un audit de conformité, une vérification avant une mise en production critique, ou quand la sécurité du code compte autant que celle du périmètre.</p>
+
+        <h2 class="reveal" data-en="Side by side">Vue d'ensemble</h2>
+        <div class="table-wrap reveal">
+          <table class="compare">
+            <thead>
+              <tr>
+                <th scope="col" data-en="Criteria">Critère</th>
+                <th scope="col">Boîte noire</th>
+                <th scope="col">Boîte grise</th>
+                <th scope="col">Boîte blanche</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row" data-en="Prior knowledge">Connaissance préalable</th>
+                <td data-en="None: public information only.">Aucune&nbsp;: informations publiques uniquement.</td>
+                <td data-en="Partial: one or two accounts.">Partielle&nbsp;: un ou deux comptes.</td>
+                <td data-en="Full: source code, architecture, docs.">Complète&nbsp;: code, architecture, documentation.</td>
+              </tr>
+              <tr>
+                <th scope="row" data-en="Strength">Point fort</th>
+                <td data-en="Maximum realism.">Réalisme maximal.</td>
+                <td data-en="Depth-to-cost balance.">Équilibre profondeur / coût.</td>
+                <td data-en="Deepest, most exhaustive analysis.">Analyse la plus profonde et exhaustive.</td>
+              </tr>
+              <tr>
+                <th scope="row" data-en="Main limit">Limite principale</th>
+                <td data-en="Slower, may miss internal flaws.">Plus lente, peut manquer des failles internes.</td>
+                <td data-en="Assumes some starting knowledge.">Suppose une connaissance de départ.</td>
+                <td data-en="Time-consuming and costly.">Chronophage et coûteuse.</td>
+              </tr>
+              <tr>
+                <th scope="row" data-en="Typical duration">Durée indicative</th>
+                <td data-en="A few days.">Quelques jours.</td>
+                <td data-en="About a week.">Environ une semaine.</td>
+                <td data-en="A week or more.">Une semaine et plus.</td>
+              </tr>
+              <tr>
+                <th scope="row" data-en="Simulated attacker">Attaquant simulé</th>
+                <td data-en="External, no prior knowledge.">Externe, sans connaissance préalable.</td>
+                <td data-en="Compromised account or insider access.">Compte compromis ou accès interne détourné.</td>
+                <td data-en="Full code/compliance audit.">Audit complet du code / conformité.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 class="reveal" data-en="What doesn't change">Ce qui ne change pas</h2>
+        <p class="reveal" data-en="Whichever format you choose, the rule stays the same: a scope defined in writing, a signed authorization, nothing starts before that. The right choice isn't the one that looks most thorough on paper, it's the one that fits your budget, your timeline, and what you actually need to find out.">Quel que soit le format choisi, la règle ne change pas&nbsp;: un périmètre défini par écrit, une autorisation signée, rien ne commence avant. Le bon choix n'est pas celui qui semble le plus complet sur le papier, c'est celui qui correspond à votre budget, à votre calendrier et à ce que vous cherchez vraiment à savoir.</p>
+
+        <a href="methodology.html" class="article-back reveal" data-en="← See my full assessment methodology">← Voir ma méthodologie complète d'évaluation</a>
+      </div>
+    </article>
+
+    <!-- ============ CTA ============ -->
+    <section class="cta-band" aria-label="Appel à l'action">
+      <div class="cta-band-media" aria-hidden="true"></div>
+      <div class="container cta-band-inner reveal">
+        <p class="section-eyebrow" data-en="// Go on the offensive">// Passez à l'offensive</p>
+        <h2 class="cta-title" data-en="Want to know where your flaws are?">Envie de savoir où sont vos failles&nbsp;?</h2>
+        <p class="cta-sub" data-en="First conversation is free and confidential.">Premier échange gratuit et confidentiel.</p>
+        <a href="index.html#contact" class="btn btn-primary" data-en="Start a mission">Démarrer une mission</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ PIED DE PAGE ============ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-row">
+        <div class="footer-brand">
+          <img src="assets/redfox-logo-full.png" alt="RedFox · Sahel Cybersecurity" class="footer-full-logo" width="150" height="147" />
+        </div>
+        <nav class="footer-nav" aria-label="Liens de pied de page">
+          <a href="index.html#services">Services</a>
+          <a href="index.html#method" data-en="Method">Méthode</a>
+          <a href="index.html#ethics" data-en="Ethics">Éthique</a>
+          <a href="methodology.html" data-en="Tactics">Tactique</a>
+          <a href="articles.html" data-en="Articles">Articles</a>
+          <a href="index.html#faq">FAQ</a>
+          <a href="index.html#contact">Contact</a>
+          <a href="legal.html" data-en="Legal notice">Mentions légales</a>
+        </nav>
+      </div>
+      <p class="footer-slogan">Strike smarter. Defend stronger.</p>
+      <div class="footer-inner">
+        <p data-en="© &lt;span id=&quot;year&quot;&gt;&lt;/span&gt; UlCed W · Offensive Security &amp; Cyber Intelligence · &lt;a href=&quot;legal.html&quot;&gt;Legal notice &amp; privacy&lt;/a&gt;">© <span id="year"></span> UlCed W · Offensive Security &amp; Cyber Intelligence · <a href="legal.html">Mentions légales &amp; confidentialité</a></p>
+        <a href="index.html" class="footer-top" data-en="← Home">← Accueil</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bouton flottant « haut de page » -->
+  <button class="to-top" id="to-top" aria-label="Remonter en haut" title="Haut de page">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
