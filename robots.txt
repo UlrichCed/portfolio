@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 
-# Remplacez VOTRE-DOMAINE.pages.dev par votre domaine réel après déploiement.
-Sitemap: https://VOTRE-DOMAINE.pages.dev/sitemap.xml
+Sitemap: https://ulced.com/sitemap.xml
