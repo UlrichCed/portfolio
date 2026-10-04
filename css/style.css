@@ -134,7 +134,7 @@ svg { display: block; }
   color: var(--text-soft); font-weight: 600; font-size: .8rem; letter-spacing: .03em; text-transform: uppercase;
   padding: .55rem .6rem; border-radius: var(--radius-sm); transition: color .2s, background .2s;
 }
-.nav-menu a:hover { color: var(--text); background: var(--surface-2); }
+.nav-menu a:hover { color: var(--red); background: var(--red-soft); }
 .nav-menu .nav-cta { color: var(--red); border: 1px solid var(--border-red); margin-left: .5rem; }
 .nav-menu .nav-cta:hover { background: var(--red); color: #fff; border-color: var(--red); }
 
@@ -506,8 +506,8 @@ html.js .reveal.in { opacity: 1; transform: none; }
    ============================================================ */
 
 /* ---- Nav : section active (scrollspy) ---- */
-.nav-menu a.active { color: var(--text); }
-.nav-menu a.active:not(.nav-cta) { background: var(--surface-2); }
+.nav-menu a.active { color: var(--red); }
+.nav-menu a.active:not(.nav-cta) { background: var(--red-soft); }
 
 /* ---- Témoignages ---- */
 .quotes { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.3rem; }
