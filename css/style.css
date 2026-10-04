@@ -217,15 +217,7 @@ svg { display: block; }
 @keyframes glitchA { 0%{opacity:.8; transform:translate(-3px,-2px); clip-path:inset(0 0 62% 0);} 100%{opacity:0; transform:none;} }
 @keyframes glitchB { 0%{opacity:.8; transform:translate(3px,2px); clip-path:inset(58% 0 0 0);} 100%{opacity:0; transform:none;} }
 @media (prefers-reduced-motion: reduce) { .hero-title .hl { animation: none; } }
-.hero-lead { font-size: clamp(1.05rem, 2.2vw, 1.28rem); color: var(--text-soft); max-width: 660px; margin-bottom: 2.2rem; }
-.hero-actions { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 3.2rem; }
-
-.hero-stats { display: flex; flex-wrap: wrap; gap: 0; margin: 0; border-top: 1px solid var(--border); }
-.hero-stats div { display: flex; flex-direction: column; padding: 1.3rem clamp(1.2rem, 3vw, 2.2rem) 0; border-right: 1px solid var(--border); }
-.hero-stats div:first-child { padding-left: 0; }
-.hero-stats div:last-child { border-right: 0; }
-.hero-stats dt { font-size: 1.15rem; font-weight: 800; color: var(--text); letter-spacing: .01em; }
-.hero-stats dd { margin: .15rem 0 0; font-size: .82rem; color: var(--text-faint); }
+.hero-lead { font-size: clamp(1.05rem, 2.2vw, 1.28rem); color: var(--text-soft); max-width: 660px; margin-bottom: 0; }
 
 /* ---------------- Sections ---------------- */
 .section { padding: clamp(4rem, 10vw, 6.5rem) 0; position: relative; }
@@ -358,7 +350,6 @@ html.js .reveal.in { opacity: 1; transform: none; }
   .about-media { position: static; max-width: 380px; }
   .emblem { max-width: 300px; }
   .contact-grid { grid-template-columns: 1fr; }
-  .hero-stats div { padding-top: 1rem; }
 }
 
 /* Le menu desktop (7 liens + logo + sélecteur de langue) a besoin de place :
@@ -386,12 +377,6 @@ html.js .reveal.in { opacity: 1; transform: none; }
   .lang-toggle { margin-left: .5rem; order: 1; }
 }
 
-@media (max-width: 720px) {
-  .hero-stats { flex-direction: column; }
-  .hero-stats div { border-right: 0; border-bottom: 1px solid var(--border); padding: 1rem 0; width: 100%; }
-  .hero-stats div:last-child { border-bottom: 0; }
-}
-
 /* Très petits écrans (téléphones anciens/étroits) : resserrer l'en-tête */
 @media (max-width: 380px) {
   .header-inner { gap: .3rem; }
@@ -407,6 +392,22 @@ html.js .reveal.in { opacity: 1; transform: none; }
    AJOUTS : vie & mouvement, punchlines EN, panneau éthique
    ============================================================ */
 
+/* ---- Bandeau défilant ---- */
+.marquee {
+  border-block: 1px solid var(--border); background: var(--bg-alt);
+  overflow: hidden; white-space: nowrap; padding: .85rem 0;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.marquee-track { display: inline-flex; align-items: center; gap: 1.4rem; animation: marquee 26s linear infinite; }
+.marquee-track span {
+  font-family: var(--font-mono); font-size: .84rem; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--text-soft); font-weight: 600;
+}
+.marquee-track i { color: var(--red); font-style: normal; font-size: .7rem; }
+@keyframes marquee { from{transform:translateX(0);} to{transform:translateX(-50%);} }
+.marquee:hover .marquee-track { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) { .marquee-track { animation: none; } }
 
 /* ---- Punchlines anglaises ---- */
 .pull-en {
