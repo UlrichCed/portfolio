@@ -303,34 +303,8 @@ svg { display: block; }
   content: "▸"; position: absolute; left: 0; top: 0; color: var(--red); font-size: 1.05rem; line-height: 1.55;
 }
 
-/* ---------------- Cartes (opérations / terrain) ---------------- */
-.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 1.3rem; }
-.card, .project {
-  position: relative; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
-  padding: 1.7rem; box-shadow: var(--shadow);
-  transition: transform .25s var(--ease), box-shadow .25s var(--ease), border-color .25s;
-  overflow: hidden;
-}
-.card::before, .project::before { /* liseré rouge supérieur au survol */
-  content: ""; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-  background: linear-gradient(90deg, var(--red), transparent);
-  transform: scaleX(0); transform-origin: left; transition: transform .3s var(--ease);
-}
-.card:hover, .project:hover { transform: translateY(-5px); border-color: var(--border-red); box-shadow: var(--shadow), var(--shadow-red); }
-.card:hover::before, .project:hover::before { transform: scaleX(1); }
-
-.card-icon {
-  width: 48px; height: 48px; border-radius: var(--radius); display: grid; place-items: center; margin-bottom: 1.2rem;
-  background: var(--red-soft); color: var(--red); border: 1px solid var(--border-red);
-}
-.card-icon svg { width: 24px; height: 24px; }
-.card h3, .project h3 { font-size: 1.2rem; margin-bottom: .5rem; }
-.card p, .project p { color: var(--text-soft); font-size: .95rem; margin: 0; }
-
+/* ---------------- Étiquette de cas (Tactique) ---------------- */
 .project-tag { display: inline-block; font-family: var(--font-mono); font-size: .72rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--red); margin-bottom: .9rem; }
-.project-stack { list-style: none; display: flex; flex-wrap: wrap; gap: .4rem; margin: 1.2rem 0 0; padding: 0; }
-.project-stack li { font-family: var(--font-mono); font-size: .74rem; color: var(--text-soft); background: var(--surface-2); border: 1px solid var(--border); padding: .25rem .6rem; border-radius: var(--radius-sm); }
-.projects-note { color: var(--text-faint); font-size: .88rem; margin-top: 1.6rem; font-style: italic; }
 
 /* ---------------- Arsenal ---------------- */
 .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.3rem; }
@@ -487,25 +461,6 @@ html.js .reveal.in { opacity: 1; transform: none; }
 @media (max-width: 880px) {
   .ethics-panel { grid-template-columns: 1fr; }
 }
-
-/* ---- Ligne « Pour qui » ---- */
-.audience {
-  margin: 1rem 0 0; font-size: .9rem; color: var(--text-faint); line-height: 1.7;
-}
-.audience span { color: var(--red); font-weight: 700; font-family: var(--font-mono); }
-
-/* ---- Titres de piliers de services ---- */
-.svc-pillar {
-  display: flex; align-items: center; gap: .8rem; margin: 2.4rem 0 1.3rem;
-  font-size: 1.05rem; letter-spacing: .02em; color: var(--text);
-}
-.svc-pillar:first-of-type { margin-top: 0; }
-.svc-pillar > span:first-child {
-  display: grid; place-items: center; min-width: 30px; height: 30px; padding: 0 .3rem;
-  font-family: var(--font-mono); font-size: .8rem; font-weight: 700; color: var(--red);
-  background: var(--red-soft); border: 1px solid var(--border-red); border-radius: var(--radius-sm);
-}
-.svc-pillar::after { content: ""; flex: 1; height: 1px; background: var(--border); }
 
 /* ---- Section Méthode ---- */
 .method { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.3rem; counter-reset: step; }
