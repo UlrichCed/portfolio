@@ -11,13 +11,55 @@
  *   CONTACT_FROM    (optionnel)       : expéditeur (défaut : onboarding@resend.dev)
  */
 
-const JSON_HEADERS = { "Content-Type": "application/json; charset=utf-8" };
+const JSON_HEADERS = {
+  "Content-Type": "application/json; charset=utf-8",
+  "X-Content-Type-Options": "nosniff",
+  "Referrer-Policy": "no-referrer",
+  "Cache-Control": "no-store",
+};
+const MAX_BODY_BYTES = 20_000; // largement suffisant pour le formulaire, bloque les charges anormales
+const MIN_FILL_MS = 1200; // en dessous, quasi certainement un bot (honeypot temporel)
 
 function json(body, status) {
   return new Response(JSON.stringify(body), { status: status || 200, headers: JSON_HEADERS });
 }
 
+// Champs utilisés dans des en-têtes d'e-mail (nom → sujet, email → reply-to) :
+// on retire TOUT caractère de contrôle, CR/LF compris. Défense en profondeur
+// contre une injection d'en-tête, même si l'appel à Resend se fait via un
+// champ JSON structuré (donc déjà hors d'atteinte d'une telle injection).
+function sanitizeHeaderField(value, maxLen) {
+  return String(value || "")
+    .replace(/[\x00-\x1F\x7F]/g, "")
+    .trim()
+    .slice(0, maxLen);
+}
+
+// Corps du message : les retours à la ligne sont légitimes (mise en forme),
+// seuls les autres caractères de contrôle sont retirés.
+function sanitizeMessage(value, maxLen) {
+  return String(value || "")
+    .replace(/[\x00-\x09\x0B\x0C\x0E-\x1F\x7F]/g, "")
+    .trim()
+    .slice(0, maxLen);
+}
+
 export async function onRequestPost({ request, env }) {
+  // 0. Rejette d'emblée les charges anormalement volumineuses (avant tout parsing)
+  const contentLength = Number(request.headers.get("content-length") || 0);
+  if (contentLength > MAX_BODY_BYTES) {
+    return json({ ok: false, error: "payload_too_large" }, 413);
+  }
+
+  // 0bis. N'accepte que les requêtes same-origin (quand le navigateur envoie
+  // Origin). Bloque les soumissions déclenchées depuis un site tiers
+  // (abus / spam par appel cross-site), sans gêner les clients sans Origin
+  // (tests directs, anciens navigateurs).
+  const origin = request.headers.get("origin");
+  if (origin && origin !== new URL(request.url).origin) {
+    return json({ ok: false, error: "forbidden_origin" }, 403);
+  }
+
   // 1. Lecture de la charge utile (JSON ou formulaire)
   let data;
   try {
@@ -37,10 +79,18 @@ export async function onRequestPost({ request, env }) {
     return json({ ok: true });
   }
 
-  // 3. Nettoyage + validation (bornes strictes)
-  const name = String(data.name || "").trim().slice(0, 120);
-  const email = String(data.email || "").trim().slice(0, 200);
-  const message = String(data.message || "").trim().slice(0, 5000);
+  // 2bis. Anti-spam temporel : un formulaire rempli et envoyé en moins d'une
+  // seconde et demie est presque toujours un bot. "ts" est posé côté client
+  // au chargement de la page (voir js/main.js).
+  const startedAt = Number(data && data.ts);
+  if (!startedAt || !Number.isFinite(startedAt) || Date.now() - startedAt < MIN_FILL_MS) {
+    return json({ ok: true });
+  }
+
+  // 3. Nettoyage + validation (bornes strictes, caractères de contrôle retirés)
+  const name = sanitizeHeaderField(data.name, 120);
+  const email = sanitizeHeaderField(data.email, 200);
+  const message = sanitizeMessage(data.message, 5000);
   const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
   if (name.length < 2 || !emailValid || message.length < 5) {
@@ -56,7 +106,9 @@ export async function onRequestPost({ request, env }) {
   const to = env.CONTACT_TO || "ulc3d@proton.me";
   const from = env.CONTACT_FROM || "Formulaire du site <onboarding@resend.dev>";
 
-  // 5. Envoi via Resend (le corps est en texte : aucune injection d'en-tête possible)
+  // 5. Envoi via Resend (le corps est en JSON structuré : aucune injection
+  //    d'en-tête SMTP possible, et les caractères de contrôle ont déjà été
+  //    retirés par sanitizeHeaderField()/sanitizeMessage() ci-dessus)
   let resp;
   try {
     resp = await fetch("https://api.resend.com/emails", {

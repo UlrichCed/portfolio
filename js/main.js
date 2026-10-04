@@ -123,6 +123,8 @@
   if (form) {
     const statusEl = document.getElementById("form-status");
     const btn = document.getElementById("cf-submit");
+    const tsField = document.getElementById("cf-ts");
+    if (tsField) tsField.value = String(Date.now());
 
     function setStatus(msg, kind) {
       if (!statusEl) return;
@@ -159,7 +161,7 @@
       fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name: name, email: email, message: message, website: "" })
+        body: JSON.stringify({ name: name, email: email, message: message, website: "", ts: tsField ? tsField.value : "" })
       })
         .then(function (res) {
           return res.json().catch(function () { return {}; }).then(function (out) {

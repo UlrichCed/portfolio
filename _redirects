@@ -1,0 +1,5 @@
+# Défense en profondeur : si jamais le dossier .git se retrouvait publié
+# (mauvaise configuration du répertoire de build), on le redirige plutôt que
+# de le laisser servir tel quel. Le vrai correctif reste la configuration du
+# build documentée dans README.md (build output directory = dist/).
+/.git/*  /  301

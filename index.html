@@ -376,6 +376,8 @@
           <div class="hp" aria-hidden="true">
             <label>Ne pas remplir<input type="text" name="website" tabindex="-1" autocomplete="off" /></label>
           </div>
+          <!-- Horodatage posé au chargement : détecte les envois trop rapides (bots) -->
+          <input type="hidden" name="ts" id="cf-ts" value="" />
           <button type="submit" class="btn btn-primary btn-block" id="cf-submit" data-en="Send my request">Envoyer ma demande</button>
           <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
           <p class="form-hint" data-en="Your information is used only to reply to you, never shared with a third party, never stored beyond the email.">Vos informations servent uniquement à vous répondre, aucun partage à un tiers, aucun stockage au-delà de l'email.</p>
