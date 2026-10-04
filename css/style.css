@@ -21,10 +21,10 @@
   --red-bright:    #ff2d3a;
   --red-deep:      #a80f1a;
   --red-soft:      rgba(225, 29, 42, .12);
-  --red-glow:      rgba(225, 29, 42, .45);
+  --red-glow:      rgba(225, 29, 42, .28);
 
   --shadow:        0 2px 6px rgba(0,0,0,.5), 0 16px 40px rgba(0,0,0,.4);
-  --shadow-red:    0 10px 40px -12px var(--red-glow);
+  --shadow-red:    0 8px 24px -10px var(--red-glow);
 
   --radius:        4px;
   --radius-sm:     3px;
@@ -149,19 +149,19 @@ svg { display: block; }
 .hero-bg {
   position: absolute; inset: 0; z-index: 0; pointer-events: none;
   background:
-    radial-gradient(58% 50% at 82% 0%, color-mix(in srgb, var(--red) 30%, transparent), transparent 68%),
-    radial-gradient(50% 50% at 0% 100%, color-mix(in srgb, var(--red-deep) 22%, transparent), transparent 70%);
+    radial-gradient(58% 50% at 82% 0%, color-mix(in srgb, var(--red) 18%, transparent), transparent 68%),
+    radial-gradient(50% 50% at 0% 100%, color-mix(in srgb, var(--red-deep) 14%, transparent), transparent 70%);
 }
 .hero-bg::before {
   content: ""; position: absolute; inset: 0;
   background-image:
-    linear-gradient(color-mix(in srgb, var(--red) 12%, transparent) 1px, transparent 1px),
-    linear-gradient(90deg, color-mix(in srgb, var(--red) 12%, transparent) 1px, transparent 1px);
+    linear-gradient(color-mix(in srgb, var(--red) 8%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--red) 8%, transparent) 1px, transparent 1px);
   background-size: 52px 52px;
   mask-image: radial-gradient(75% 65% at 60% 25%, #000 0%, transparent 78%);
   -webkit-mask-image: radial-gradient(75% 65% at 60% 25%, #000 0%, transparent 78%);
-  opacity: .6;
-  animation: gridpan 22s linear infinite;
+  opacity: .4;
+  animation: gridpan 46s linear infinite;
 }
 @keyframes gridpan { from { background-position: 0 0; } to { background-position: 52px 52px; } }
 @media (prefers-reduced-motion: reduce) { .hero-bg::before { animation: none; } }
@@ -181,10 +181,10 @@ svg { display: block; }
 @media (prefers-reduced-motion: reduce) { .hero-eyebrow .dot { animation: none; } }
 
 .hero-title {
-  font-size: clamp(2.4rem, 8vw, 5.2rem); font-weight: 900; letter-spacing: -.03em;
-  text-transform: uppercase; margin-bottom: 1.4rem;
+  font-size: clamp(2.2rem, 6.4vw, 4rem); font-weight: 800; letter-spacing: -.02em;
+  margin-bottom: 1.4rem;
 }
-.hero-title .hl { color: var(--red); text-shadow: 0 0 30px var(--red-glow); }
+.hero-title .hl { color: var(--red); }
 .hero-lead { font-size: clamp(1.05rem, 2.2vw, 1.28rem); color: var(--text-soft); max-width: 660px; margin-bottom: 2.2rem; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 3.2rem; }
 
@@ -375,42 +375,6 @@ html.js .reveal.in { opacity: 1; transform: none; }
    AJOUTS : vie & mouvement, punchlines EN, panneau éthique
    ============================================================ */
 
-/* ---- Ligne de balayage (scanline) sur le hero ---- */
-.hero-scan {
-  position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; opacity: .5;
-}
-.hero-scan::before {
-  content: ""; position: absolute; left: 0; right: 0; height: 34%;
-  background: linear-gradient(180deg, transparent, color-mix(in srgb, var(--red) 9%, transparent), transparent);
-  animation: scan 7s ease-in-out infinite;
-}
-@keyframes scan { 0%{transform:translateY(-40%);} 50%{transform:translateY(240%);} 100%{transform:translateY(-40%);} }
-
-/* ---- Titre : léger battement lumineux + effet glitch au survol ---- */
-.hero-title .hl { position: relative; animation: hlpulse 3.4s ease-in-out infinite; }
-@keyframes hlpulse { 0%,100%{ text-shadow: 0 0 26px var(--red-glow); } 50%{ text-shadow: 0 0 44px var(--red-glow), 0 0 12px var(--red); } }
-.glitch::before, .glitch::after {
-  content: attr(data-text); position: absolute; left: 0; top: 0; width: 100%;
-  clip-path: inset(0 0 0 0); opacity: 0;
-}
-.hero-title:hover .glitch::before { color: #22d3ee; animation: glitchA .5s steps(2) 1; }
-.hero-title:hover .glitch::after  { color: #ff2d3a; animation: glitchB .5s steps(2) 1; }
-@keyframes glitchA { 0%{opacity:.8; transform:translate(-3px,-2px); clip-path:inset(0 0 62% 0);} 100%{opacity:0; transform:none;} }
-@keyframes glitchB { 0%{opacity:.8; transform:translate(3px,2px); clip-path:inset(58% 0 0 0);} 100%{opacity:0; transform:none;} }
-
-/* ---- Ligne « tapée » type terminal ---- */
-.hero-typed {
-  font-family: var(--font-mono); font-size: clamp(.9rem, 2vw, 1.05rem); color: var(--text-soft);
-  margin: -.6rem 0 1.8rem; min-height: 1.4em;
-}
-.hero-typed .prompt { color: var(--red); font-weight: 700; }
-.hero-typed #typed { color: var(--text); }
-.hero-typed .caret {
-  display: inline-block; width: .6ch; height: 1.05em; margin-left: 2px; vertical-align: -2px;
-  background: var(--red); animation: blink 1.05s steps(1) infinite;
-}
-@keyframes blink { 0%,50%{opacity:1;} 50.01%,100%{opacity:0;} }
-
 /* ---- Bandeau défilant ---- */
 .marquee {
   border-block: 1px solid var(--border); background: var(--bg-alt);
@@ -471,7 +435,7 @@ html.js .reveal.in { opacity: 1; transform: none; }
 .em em, .card p em { color: var(--text); font-style: normal; text-decoration: underline; text-decoration-color: var(--red); text-underline-offset: 3px; }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-scan::before, .hero-title .hl, .marquee-track, .emblem-spin { animation: none; }
+  .marquee-track, .emblem-spin { animation: none; }
 }
 
 @media (max-width: 880px) {
@@ -605,25 +569,17 @@ html.js .reveal.in { opacity: 1; transform: none; }
 /* ---- Ancrages sous le header collant ---- */
 section[id] { scroll-margin-top: 84px; }
 
-/* ---- Fond image du hero (derrière « WE STRIKE FIRST ») ---- */
+/* ---- Fond du hero : dégradé seul (plus de photo de stock "hacker") ---- */
 .hero-photo {
   position: absolute; inset: 0; z-index: 0; pointer-events: none;
-  background:
-    linear-gradient(90deg, var(--bg) 12%, rgba(8,8,10,.55) 42%, rgba(8,8,10,0) 78%),
-    url("../assets/hero-hacker.jpg") right center / cover no-repeat;
-  opacity: .5;
-  -webkit-mask-image: linear-gradient(90deg, transparent 0%, transparent 30%, #000 80%);
-  mask-image: linear-gradient(90deg, transparent 0%, transparent 30%, #000 80%);
+  background: radial-gradient(60% 70% at 85% 10%, color-mix(in srgb, var(--red-deep) 20%, transparent), transparent 70%);
 }
-@media (max-width: 720px) { .hero-photo { opacity: .28; } }
 
-/* ---- Bandeau CTA avec image d'ambiance (voile sombre pour la lisibilité) ---- */
+/* ---- Bandeau CTA : même traitement sobre, sans photo ---- */
 .cta-band { position: relative; overflow: hidden; padding: clamp(3.5rem, 8vw, 5.5rem) 0; border-block: 1px solid var(--border); background: var(--bg-alt); }
 .cta-band-media {
   position: absolute; inset: 0; z-index: 0; pointer-events: none;
-  background:
-    linear-gradient(90deg, var(--bg) 6%, rgba(8,8,10,.74) 46%, rgba(8,8,10,.5) 100%),
-    url("../assets/hero-hacker.jpg") center 30% / cover no-repeat;
+  background: radial-gradient(70% 100% at 100% 50%, color-mix(in srgb, var(--red) 10%, transparent), transparent 70%);
 }
 .cta-band-inner { position: relative; z-index: 1; max-width: 760px; }
 .cta-title { font-size: clamp(1.7rem, 4.5vw, 2.6rem); font-weight: 800; margin: .3rem 0 .8rem; }
@@ -746,14 +702,12 @@ section[id] { scroll-margin-top: 84px; }
   width: 7px; height: 7px; border-radius: 50%; background: var(--red);
   box-shadow: 0 0 0 0 var(--red-glow); animation: pulse 2.4s infinite;
 }
-.method-hero .section-title .hl { position: relative; animation: hlpulse 3.4s ease-in-out infinite; }
-.method-hero .section-title:hover .glitch::before { color: #22d3ee; animation: glitchA .5s steps(2) 1; }
-.method-hero .section-title:hover .glitch::after  { color: #ff2d3a; animation: glitchB .5s steps(2) 1; }
+.method-hero .section-title .hl { color: var(--red); }
 @media (prefers-reduced-motion: reduce) {
-  .method-hero .section-eyebrow .dot, .method-hero .section-title .hl { animation: none; }
+  .method-hero .section-eyebrow .dot { animation: none; }
 }
 
-/* ---- Terminal « en direct » pour les cas pratiques ---- */
+/* ---- Terminal (sorties de commande réelles, cas pratiques) ---- */
 .term { border-radius: var(--radius-sm); overflow: hidden; margin: 0 0 1rem; border: 1px solid var(--border-red); box-shadow: var(--shadow); }
 .term-bar { display: flex; align-items: center; gap: .4rem; padding: .5rem .7rem; background: #0d0d10; border-bottom: 1px solid var(--border-red); }
 .term-bar span:not(.term-title) { width: 10px; height: 10px; border-radius: 50%; background: var(--border); }
@@ -766,14 +720,11 @@ section[id] { scroll-margin-top: 84px; }
   content: ""; display: inline-block; width: .6ch; height: 1em; margin-left: 2px; vertical-align: -3px;
   background: var(--red); animation: blink 1.05s steps(1) infinite;
 }
+@keyframes blink { 0%,50%{opacity:1;} 50.01%,100%{opacity:0;} }
 @media (prefers-reduced-motion: reduce) { .case-code code::after { animation: none; } }
 
-/* ---- Pulsation des numéros d'étape (6 phases) ---- */
-.phases .step-num { animation: stepglow 2.6s ease-in-out infinite; }
-@keyframes stepglow {
-  0%, 100% { box-shadow: 0 0 0 0 var(--red-glow); }
-  50% { box-shadow: 0 0 0 6px transparent, 0 0 16px var(--red-glow); }
-}
+/* ---- Numéros d'étape (6 phases) ---- */
+.phases .step-num { box-shadow: 0 0 0 4px var(--red-soft); }
 
 /* ============================================================
    PAGE ARTICLES
@@ -832,4 +783,3 @@ table.compare tbody td { color: var(--text-soft); }
 table.compare tbody tr:last-child th, table.compare tbody tr:last-child td { border-bottom: none; }
 
 @media (max-width: 640px) { .post-meta { font-size: .72rem; } }
-@media (prefers-reduced-motion: reduce) { .phases .step-num { animation: none; } }

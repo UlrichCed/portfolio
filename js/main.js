@@ -114,44 +114,6 @@
     if (savedLang === "en") setLanguage("en");
   }
 
-  /* ---- Effet « machine à écrire » (terminal) ---- */
-  /* #typed (accroche du hero, homepage) et tout élément [data-phrases]
-     (ex. #typed-method sur la page Tactique) partagent la même animation. */
-  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const defaultPhrases = [
-    "I test your defenses.",
-    "I find the gaps.",
-    "I map the threat.",
-    "I prove the risk.",
-    "I report everything.",
-    "You get stronger."
-  ];
-  const typedTargets = document.querySelectorAll("#typed, [data-phrases]");
-  typedTargets.forEach(function (el) {
-    const phrases = el.dataset.phrases ? el.dataset.phrases.split("|") : defaultPhrases;
-    if (reduceMotion) {
-      el.textContent = phrases[0];
-      return;
-    }
-    let p = 0, c = 0, deleting = false;
-
-    function schedule(ms) { window.setTimeout(tick, ms); }
-    function tick() {
-      const word = phrases[p];
-      el.textContent = word.slice(0, c);
-      if (!deleting) {
-        if (c < word.length) { c++; return schedule(45 + Math.random() * 55); }
-        deleting = true;
-        return schedule(1400); // pause en fin de phrase
-      }
-      if (c > 0) { c--; return schedule(28); }
-      deleting = false;
-      p = (p + 1) % phrases.length;
-      return schedule(260);
-    }
-    schedule(700);
-  });
-
   /* ---- Formulaire de contact ---- */
   /* Envoi vers la fonction Cloudflare /api/contact (email réel dans la boîte
      Proton). Si la fonction est indisponible ou non configurée, repli
