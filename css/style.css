@@ -106,14 +106,10 @@ svg { display: block; }
 .brand { display: flex; align-items: center; gap: .7rem; color: var(--text); font-weight: 800; flex-shrink: 0; }
 .brand:hover { color: var(--text); }
 .brand-logo { display: block; height: 34px; width: auto; }
-.brand-logo-full { display: block; height: 36px; width: auto; }
-.footer-full-logo { display: block; width: 150px; height: auto; }
+.brand-logo-full { display: block; height: 36px; width: auto; filter: drop-shadow(0 0 6px var(--red-glow)); }
+.footer-full-logo { display: block; width: 150px; height: auto; filter: drop-shadow(0 0 8px var(--red-glow)); }
 @media (max-width: 1080px) { .brand-logo-full { height: 30px; } }
 .brand-name { font-size: .95rem; letter-spacing: .04em; }
-
-/* ---- Wordmark texte (en attendant le logo final) ---- */
-.brand-word { font-size: 1.1rem; font-weight: 800; letter-spacing: .01em; color: var(--text); }
-.brand-word span { color: var(--red); }
 
 .nav { display: flex; align-items: center; min-width: 0; }
 .nav-menu { list-style: none; display: flex; align-items: center; gap: .1rem; margin: 0; padding: 0; }
