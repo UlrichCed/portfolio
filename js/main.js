@@ -89,7 +89,7 @@
      Au premier changement de langue, le texte français d'origine est mis
      en cache dans data-fr afin de pouvoir revenir en arrière. Le choix est
      mémorisé (localStorage) et partagé entre les pages du site. */
-  const LANG_KEY = "redfox-lang";
+  const LANG_KEY = "ulced-lang";
 
   function setLanguage(lang) {
     document.querySelectorAll("[data-en]").forEach(function (el) {

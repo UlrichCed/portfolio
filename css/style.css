@@ -105,12 +105,15 @@ svg { display: block; }
 
 .brand { display: flex; align-items: center; gap: .7rem; color: var(--text); font-weight: 800; flex-shrink: 0; }
 .brand:hover { color: var(--text); }
-.brand-mark { color: var(--red); display: inline-flex; filter: drop-shadow(0 0 8px var(--red-glow)); }
 .brand-logo { display: block; height: 34px; width: auto; }
-.brand-logo-full { display: block; height: 36px; width: auto; filter: drop-shadow(0 0 9px var(--red-glow)); }
-.footer-full-logo { display: block; width: 150px; height: auto; filter: drop-shadow(0 0 12px var(--red-glow)); }
+.brand-logo-full { display: block; height: 36px; width: auto; }
+.footer-full-logo { display: block; width: 150px; height: auto; }
 @media (max-width: 1080px) { .brand-logo-full { height: 30px; } }
 .brand-name { font-size: .95rem; letter-spacing: .04em; }
+
+/* ---- Wordmark texte (en attendant le logo final) ---- */
+.brand-word { font-size: 1.1rem; font-weight: 800; letter-spacing: .01em; color: var(--text); }
+.brand-word span { color: var(--red); }
 
 .nav { display: flex; align-items: center; min-width: 0; }
 .nav-menu { list-style: none; display: flex; align-items: center; gap: .1rem; margin: 0; padding: 0; }
@@ -181,10 +184,27 @@ svg { display: block; }
 @media (prefers-reduced-motion: reduce) { .hero-eyebrow .dot { animation: none; } }
 
 .hero-title {
-  font-size: clamp(2.2rem, 6.4vw, 4rem); font-weight: 800; letter-spacing: -.02em;
-  margin-bottom: 1.4rem;
+  font-size: clamp(2.4rem, 8vw, 5.2rem); font-weight: 900; letter-spacing: -.03em;
+  text-transform: uppercase; margin-bottom: 1.4rem;
 }
-.hero-title .hl { color: var(--red); }
+.hero-title .hl {
+  position: relative; color: var(--red);
+  text-shadow: 0 0 10px rgba(225, 29, 42, .55), 0 0 32px rgba(225, 29, 42, .35);
+  animation: hlpulse 3.4s ease-in-out infinite;
+}
+@keyframes hlpulse {
+  0%, 100% { text-shadow: 0 0 10px rgba(225, 29, 42, .55), 0 0 32px rgba(225, 29, 42, .35); }
+  50% { text-shadow: 0 0 14px rgba(225, 29, 42, .7), 0 0 46px rgba(225, 29, 42, .5); }
+}
+.glitch::before, .glitch::after {
+  content: attr(data-text); position: absolute; left: 0; top: 0; width: 100%;
+  clip-path: inset(0 0 0 0); opacity: 0;
+}
+.hero-title:hover .glitch::before { color: #22d3ee; animation: glitchA .5s steps(2) 1; }
+.hero-title:hover .glitch::after  { color: #ff2d3a; animation: glitchB .5s steps(2) 1; }
+@keyframes glitchA { 0%{opacity:.8; transform:translate(-3px,-2px); clip-path:inset(0 0 62% 0);} 100%{opacity:0; transform:none;} }
+@keyframes glitchB { 0%{opacity:.8; transform:translate(3px,2px); clip-path:inset(58% 0 0 0);} 100%{opacity:0; transform:none;} }
+@media (prefers-reduced-motion: reduce) { .hero-title .hl { animation: none; } }
 .hero-lead { font-size: clamp(1.05rem, 2.2vw, 1.28rem); color: var(--text-soft); max-width: 660px; margin-bottom: 2.2rem; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 3.2rem; }
 
@@ -375,21 +395,6 @@ html.js .reveal.in { opacity: 1; transform: none; }
    AJOUTS : vie & mouvement, punchlines EN, panneau éthique
    ============================================================ */
 
-/* ---- Bandeau défilant ---- */
-.marquee {
-  border-block: 1px solid var(--border); background: var(--bg-alt);
-  overflow: hidden; white-space: nowrap; padding: .85rem 0;
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
-  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
-}
-.marquee-track { display: inline-flex; align-items: center; gap: 1.4rem; animation: marquee 26s linear infinite; }
-.marquee-track span {
-  font-family: var(--font-mono); font-size: .84rem; letter-spacing: .12em; text-transform: uppercase;
-  color: var(--text-soft); font-weight: 600;
-}
-.marquee-track i { color: var(--red); font-style: normal; font-size: .7rem; }
-@keyframes marquee { from{transform:translateX(0);} to{transform:translateX(-50%);} }
-.marquee:hover .marquee-track { animation-play-state: paused; }
 
 /* ---- Punchlines anglaises ---- */
 .pull-en {
@@ -405,9 +410,8 @@ html.js .reveal.in { opacity: 1; transform: none; }
   margin: -.6rem 0 1.5rem;
 }
 
-/* ---- Emblème : rotation lente ---- */
-.emblem-spin { transform-origin: 100px 100px; animation: spin 40s linear infinite; }
-@keyframes spin { to { transform: rotate(360deg); } }
+/* ---- Emblème : anneaux statiques (plus de rotation permanente) ---- */
+.emblem-spin { transform-origin: 100px 100px; }
 
 /* ---- Panneau Éthique ---- */
 .ethics-panel {
@@ -433,10 +437,6 @@ html.js .reveal.in { opacity: 1; transform: none; }
   font-family: var(--font-mono); font-size: .92rem; color: var(--red); letter-spacing: .01em;
 }
 .em em, .card p em { color: var(--text); font-style: normal; text-decoration: underline; text-decoration-color: var(--red); text-underline-offset: 3px; }
-
-@media (prefers-reduced-motion: reduce) {
-  .marquee-track, .emblem-spin { animation: none; }
-}
 
 @media (max-width: 880px) {
   .ethics-panel { grid-template-columns: 1fr; }
@@ -702,9 +702,15 @@ section[id] { scroll-margin-top: 84px; }
   width: 7px; height: 7px; border-radius: 50%; background: var(--red);
   box-shadow: 0 0 0 0 var(--red-glow); animation: pulse 2.4s infinite;
 }
-.method-hero .section-title .hl { color: var(--red); }
+.method-hero .section-title .hl {
+  position: relative; color: var(--red);
+  text-shadow: 0 0 10px rgba(225, 29, 42, .55), 0 0 32px rgba(225, 29, 42, .35);
+  animation: hlpulse 3.4s ease-in-out infinite;
+}
+.method-hero .section-title:hover .glitch::before { color: #22d3ee; animation: glitchA .5s steps(2) 1; }
+.method-hero .section-title:hover .glitch::after  { color: #ff2d3a; animation: glitchB .5s steps(2) 1; }
 @media (prefers-reduced-motion: reduce) {
-  .method-hero .section-eyebrow .dot { animation: none; }
+  .method-hero .section-eyebrow .dot, .method-hero .section-title .hl { animation: none; }
 }
 
 /* ---- Terminal (sorties de commande réelles, cas pratiques) ---- */
