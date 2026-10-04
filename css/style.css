@@ -276,37 +276,27 @@ svg { display: block; }
 .section-title { font-size: clamp(1.8rem, 4.5vw, 2.8rem); font-weight: 800; }
 .section-sub { color: var(--text-soft); font-size: 1.05rem; margin: 0; }
 
-/* ---------------- Profil ---------------- */
-.about-grid { display: grid; grid-template-columns: 340px 1fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: start; }
-.about-media { position: sticky; top: 96px; }
-.emblem {
-  aspect-ratio: 1; border: 1px solid var(--border); border-radius: var(--radius);
-  background: radial-gradient(70% 70% at 50% 40%, #16090b 0%, var(--surface) 60%, #0c0c0f 100%);
-  display: grid; place-items: center; position: relative; overflow: hidden;
-  box-shadow: var(--shadow); margin-bottom: 1.3rem; color: var(--red);
-}
-.emblem-grid {
-  position: absolute; inset: 0;
-  background-image:
-    linear-gradient(var(--border-red) 1px, transparent 1px),
-    linear-gradient(90deg, var(--border-red) 1px, transparent 1px);
-  background-size: 26px 26px; opacity: .35;
-  mask-image: radial-gradient(60% 60% at 50% 50%, #000, transparent 75%);
-  -webkit-mask-image: radial-gradient(60% 60% at 50% 50%, #000, transparent 75%);
-}
-.emblem-mark { position: relative; width: 62%; filter: drop-shadow(0 0 14px var(--red-glow)); }
-.emblem-tag {
-  position: absolute; bottom: 14px; left: 50%; transform: translateX(-50%);
-  font-family: var(--font-mono); font-size: .64rem; letter-spacing: .18em; color: var(--red);
-  border: 1px solid var(--border-red); background: rgba(0,0,0,.4); padding: .25rem .6rem; border-radius: 100px; white-space: nowrap;
-}
-.about-facts { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; border: 1px solid var(--border); border-radius: var(--radius); }
-.about-facts li { display: flex; justify-content: space-between; gap: 1rem; padding: .8rem 1rem; border-bottom: 1px solid var(--border); font-size: .88rem; }
-.about-facts li:last-child { border-bottom: 0; }
-.fact-label { color: var(--text-faint); font-family: var(--font-mono); font-size: .78rem; letter-spacing: .04em; }
-.fact-value { color: var(--text); font-weight: 600; text-align: right; }
+/* ---------------- Profil (lecture éditoriale, sans photo) ---------------- */
+.about-single { max-width: 760px; }
+.about-single .section-title { margin-bottom: 1.6rem; }
 
-.about-text p { color: var(--text-soft); }
+.about-prose { display: grid; gap: 1.25rem; margin-bottom: 2.4rem; }
+.about-prose p { margin: 0; color: var(--text-soft); font-size: 1.05rem; line-height: 1.8; }
+.about-prose .about-lede { color: var(--text); font-size: 1.22rem; font-weight: 500; line-height: 1.65; }
+.about-prose strong { color: var(--text); }
+
+.about-facts-row {
+  list-style: none; margin: 0 0 2.2rem; padding: 1.4rem 0; display: flex; flex-wrap: wrap; gap: 1.4rem 0;
+  border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+}
+.about-facts-row li {
+  flex: 1 1 160px; display: flex; flex-direction: column; gap: .3rem;
+  padding-inline: 1.4rem; border-left: 1px solid var(--border);
+}
+.about-facts-row li:first-child { border-left: 0; padding-left: 0; }
+.fact-label { color: var(--text-faint); font-family: var(--font-mono); font-size: .76rem; letter-spacing: .05em; text-transform: uppercase; }
+.fact-value { color: var(--text); font-weight: 700; font-size: 1rem; }
+
 .values { list-style: none; margin: 1.6rem 0 0; padding: 0; display: grid; gap: .7rem; }
 .values li { position: relative; padding-left: 1.9rem; color: var(--text); font-weight: 500; }
 .values li::before {
@@ -395,9 +385,6 @@ html.js .reveal.in { opacity: 1; transform: none; }
 
 /* ---------------- Responsive ---------------- */
 @media (max-width: 880px) {
-  .about-grid { grid-template-columns: 1fr; }
-  .about-media { position: static; max-width: 380px; }
-  .emblem { max-width: 300px; }
   .contact-grid { grid-template-columns: 1fr; }
 }
 
@@ -471,9 +458,6 @@ html.js .reveal.in { opacity: 1; transform: none; }
   font-size: clamp(1rem, 2.6vw, 1.35rem); letter-spacing: .01em;
   margin: -.6rem 0 .9rem;
 }
-
-/* ---- Emblème : anneaux statiques (plus de rotation permanente) ---- */
-.emblem-spin { transform-origin: 100px 100px; }
 
 /* ---- Panneau Éthique ---- */
 .ethics-panel {
@@ -640,15 +624,6 @@ section[id] { scroll-margin-top: 84px; }
 .cta-band-inner { position: relative; z-index: 1; max-width: 760px; }
 .cta-title { font-size: clamp(1.7rem, 4.5vw, 2.6rem); font-weight: 800; margin: .3rem 0 .8rem; }
 .cta-sub { color: var(--text-soft); font-size: 1.05rem; margin: 0 0 1.6rem; max-width: 620px; }
-
-.emblem-photo::after {
-  content: ""; position: absolute; inset: 0; z-index: 2; border-radius: inherit;
-  background:
-    linear-gradient(180deg, transparent 52%, rgba(8,8,10,.6)),
-    url("../assets/profil.jpg") center top / cover no-repeat;
-}
-.emblem-photo .emblem-tag { z-index: 3; }
-.emblem-fallback { z-index: 1; }
 
 /* ---- Page Mentions légales ---- */
 .legal { max-width: 760px; }
