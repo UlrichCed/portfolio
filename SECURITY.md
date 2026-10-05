@@ -42,7 +42,13 @@ disponible. Je m'engage à accuser réception sous 48&nbsp;heures.
   utilisés dans des en-têtes d'e-mail (nom → sujet, email → reply-to) :
   défense en profondeur contre une injection d'en-tête, même si l'appel à
   Resend se fait déjà via un champ JSON structuré.
-- Rejet des charges anormalement volumineuses avant même de les analyser.
+- Rejet des charges anormalement volumineuses avant même de les analyser
+  (`Content-Length` exigé et borné : une requête qui l'omettrait, par
+  exemple via `Transfer-Encoding: chunked`, est rejetée d'emblée plutôt que
+  de contourner la limite).
+- Rejet explicite d'une charge JSON de forme invalide (`null`, tableau,
+  nombre...) avant tout accès aux champs, pour éviter une exception non
+  gérée sur une entrée malformée.
 - Vérification de l'origine de la requête (`Origin`) pour bloquer les
   soumissions déclenchées depuis un site tiers.
 - Double anti-spam : pot de miel (champ invisible) + horodatage côté client

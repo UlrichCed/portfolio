@@ -45,9 +45,13 @@ function sanitizeMessage(value, maxLen) {
 }
 
 export async function onRequestPost({ request, env }) {
-  // 0. Rejette d'emblée les charges anormalement volumineuses (avant tout parsing)
+  // 0. Rejette d'emblée les charges anormalement volumineuses (avant tout parsing).
+  // On exige un Content-Length explicite et borné : un vrai fetch() avec un corps
+  // JSON en envoie toujours un, donc exiger sa présence ferme un contournement
+  // possible via Transfer-Encoding: chunked (pas de Content-Length => lecture non
+  // bornée du corps avant même la validation des champs).
   const contentLength = Number(request.headers.get("content-length") || 0);
-  if (contentLength > MAX_BODY_BYTES) {
+  if (!contentLength || contentLength > MAX_BODY_BYTES) {
     return json({ ok: false, error: "payload_too_large" }, 413);
   }
 
@@ -71,6 +75,13 @@ export async function onRequestPost({ request, env }) {
       data = Object.fromEntries(fd.entries());
     }
   } catch (_) {
+    return json({ ok: false, error: "bad_request" }, 400);
+  }
+
+  // 1bis. Une charge JSON valide mais de mauvaise forme (null, tableau,
+  // nombre...) ferait planter les accès aux champs plus bas avec une
+  // exception non gérée. On l'écarte explicitement ici.
+  if (!data || typeof data !== "object" || Array.isArray(data)) {
     return json({ ok: false, error: "bad_request" }, 400);
   }
 
