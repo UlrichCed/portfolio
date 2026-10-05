@@ -401,7 +401,24 @@ svg { display: block; }
 .form-status.is-err { color: var(--red-bright); }
 
 /* ---------------- Pied de page ---------------- */
-.site-footer { border-top: 1px solid var(--border); padding: 2.2rem 0; background: var(--bg-alt); }
+/* Fond blanc : on redéfinit la palette (comme .site-header) pour que tous
+   les éléments imbriqués (nav, logo, liens, copyright) restent lisibles. */
+.site-footer {
+  --bg: #ffffff;
+  --bg-alt: #ffffff;
+  --surface: #ffffff;
+  --surface-2: #eef0f4;
+  --border: #e1e4ea;
+  --border-red: #f2ccd0;
+  --text: #14161b;
+  --text-soft: #454b57;
+  --text-faint: #6b7180;
+  --red: #cf1225;
+  --red-bright: #e11d2a;
+  --red-soft: #fdeaec;
+
+  border-top: 1px solid var(--border); padding: 2.2rem 0; background: #ffffff; color: var(--text);
+}
 .footer-inner { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; }
 .footer-inner p { margin: 0; color: var(--text-faint); font-size: .88rem; }
 .footer-top { font-size: .85rem; color: var(--text-soft); font-family: var(--font-mono); }
