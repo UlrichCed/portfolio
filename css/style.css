@@ -752,6 +752,33 @@ section[id] { scroll-margin-top: 84px; }
 @keyframes blink { 0%,50%{opacity:1;} 50.01%,100%{opacity:0;} }
 @media (prefers-reduced-motion: reduce) { .case-code code::after { animation: none; } }
 
+/* ---- Page Portfolio : lien GitHub sur une carte réalisation ---- */
+.case-gh-link {
+  display: inline-block; margin-top: 1rem; color: var(--red); font-weight: 600; font-size: .88rem;
+  border-bottom: 1px solid transparent; transition: border-color .2s, color .2s;
+}
+.case-gh-link:hover { color: var(--red-bright); border-bottom-color: currentColor; }
+
+/* ---- Page Portfolio : fond décoratif de la 3e bande + projets GitHub ---- */
+.portfolio-night-wrap { position: relative; z-index: 1; }
+.gh-projects { margin-top: 3rem; padding-top: 2.6rem; border-top: 1px solid var(--border); }
+.gh-projects-title { font-size: 1.3rem; margin: .3rem 0 1.6rem; }
+.gh-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.4rem; }
+.gh-card {
+  display: block; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 1.5rem; box-shadow: var(--shadow); color: var(--text);
+  transition: border-color .2s, box-shadow .2s, transform .2s;
+}
+.gh-card:hover { border-color: var(--border-red); box-shadow: var(--shadow), var(--shadow-red); transform: translateY(-3px); color: var(--text); }
+.gh-card-head { display: flex; align-items: center; gap: .6rem; margin-bottom: .9rem; }
+.gh-name { font-weight: 700; font-size: 1.02rem; }
+.gh-card p { color: var(--text-soft); font-size: .92rem; margin: 0 0 1.1rem; }
+.gh-stats { list-style: none; display: flex; flex-wrap: wrap; gap: .5rem; margin: 0; padding: 0; }
+.gh-stats li {
+  font-size: .76rem; font-family: var(--font-mono); color: var(--text-faint);
+  background: var(--surface-2); border: 1px solid var(--border); padding: .3rem .6rem; border-radius: 100px;
+}
+
 /* ---- Numéros d'étape (6 phases) ---- */
 .phases .step-num { box-shadow: 0 0 0 4px var(--red-soft); }
 
