@@ -321,18 +321,44 @@ svg { display: block; }
 .about-foot { color: var(--text); font-size: 1rem; font-weight: 500; line-height: 1.65; margin: 1.1rem 0 0; }
 
 .about-gallery {
-  display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: .7rem; margin-top: 2.4rem;
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: .9rem; margin-top: 2.4rem;
 }
-.about-gallery img {
-  width: 100%; height: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block;
-  border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow);
-  filter: grayscale(.1) contrast(1.03);
-  transition: transform .25s, box-shadow .25s, border-color .25s, filter .25s;
+
+/* Cadre « cyber » : fond CSS (pas de &lt;img&gt;) + coins en équerre, même
+   langage visuel que le cadre de la photo en en-tête. */
+.about-gallery-item {
+  position: relative; aspect-ratio: 4 / 3; background-size: cover; background-position: center;
+  border: 1px solid var(--border-red); box-shadow: var(--shadow);
+  filter: grayscale(.12) contrast(1.03);
+  transition: filter .25s, box-shadow .25s, border-color .25s, transform .25s;
+  -webkit-user-select: none; user-select: none; -webkit-user-drag: none;
 }
-.about-gallery img:hover {
-  transform: translateY(-3px); border-color: var(--border-red); box-shadow: var(--shadow), var(--shadow-red);
+.about-gallery-item:hover {
+  transform: translateY(-3px); border-color: var(--red); box-shadow: var(--shadow), var(--shadow-red);
   filter: grayscale(0) contrast(1.03);
 }
+.about-gallery-item::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(135deg, transparent 42%, rgba(207,18,37,.16) 50%, transparent 58%);
+  opacity: 0; transition: opacity .3s;
+}
+.about-gallery-item:hover::after { opacity: 1; }
+
+.g-corner { position: absolute; width: 13px; height: 13px; pointer-events: none; opacity: .9; }
+.g-tl { top: 5px; left: 5px; border-top: 2px solid var(--red); border-left: 2px solid var(--red); }
+.g-tr { top: 5px; right: 5px; border-top: 2px solid var(--red); border-right: 2px solid var(--red); }
+.g-bl { bottom: 5px; left: 5px; border-bottom: 2px solid var(--red); border-left: 2px solid var(--red); }
+.g-br { bottom: 5px; right: 5px; border-bottom: 2px solid var(--red); border-right: 2px solid var(--red); }
+
+.gi-prix-h2p-finale        { background-image: url("../assets/profil-prix-h2p-finale.jpg"); }
+.gi-formation-salle        { background-image: url("../assets/profil-formation-salle.jpg"); }
+.gi-evenement-h2p          { background-image: url("../assets/profil-evenement-h2p.jpg"); }
+.gi-portrait-jnc           { background-image: url("../assets/profil-portrait-jnc.jpg"); }
+.gi-formation-certificats  { background-image: url("../assets/profil-formation-certificats.jpg"); }
+.gi-portrait-laptop        { background-image: url("../assets/profil-portrait-laptop.jpg"); background-position: top center; }
+.gi-prix-jnc-ceremonie     { background-image: url("../assets/profil-prix-jnc-ceremonie.jpg"); }
+.gi-remise-diplome         { background-image: url("../assets/profil-remise-diplome.jpg"); background-position: top center; }
+
 @media (max-width: 520px) { .about-gallery { grid-template-columns: repeat(2, 1fr); } }
 
 /* ---------------- Étiquette de cas (Tactique) ---------------- */

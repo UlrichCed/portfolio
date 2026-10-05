@@ -77,6 +77,16 @@
     reveals.forEach(function (el) { el.classList.add("in"); });
   }
 
+  /* ---- Galerie Profil : dissuader l'enregistrement direct des photos ---- */
+  /* Défense de confort, pas une protection absolue : un visiteur déterminé
+     peut toujours capturer une image affichée dans un navigateur (capture
+     d'écran, outils de développement...). Ceci bloque seulement le clic
+     droit / glisser-déposer occasionnels sur la galerie. */
+  document.querySelectorAll(".about-gallery-item").forEach(function (el) {
+    el.addEventListener("contextmenu", function (e) { e.preventDefault(); });
+    el.addEventListener("dragstart", function (e) { e.preventDefault(); });
+  });
+
   /* ---- Année du footer ---- */
   function setFooterYear() {
     const year = document.getElementById("year");
