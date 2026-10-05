@@ -350,14 +350,17 @@ svg { display: block; }
 .g-bl { bottom: 5px; left: 5px; border-bottom: 2px solid var(--red); border-left: 2px solid var(--red); }
 .g-br { bottom: 5px; right: 5px; border-bottom: 2px solid var(--red); border-right: 2px solid var(--red); }
 
-.gi-prix-h2p-finale        { background-image: url("../assets/profil-prix-h2p-finale.jpg"); }
-.gi-formation-salle        { background-image: url("../assets/profil-formation-salle.jpg"); }
-.gi-evenement-h2p          { background-image: url("../assets/profil-evenement-h2p.jpg"); }
-.gi-portrait-jnc           { background-image: url("../assets/profil-portrait-jnc.jpg"); }
-.gi-formation-certificats  { background-image: url("../assets/profil-formation-certificats.jpg"); }
-.gi-portrait-laptop        { background-image: url("../assets/profil-portrait-laptop.jpg"); }
-.gi-prix-jnc-ceremonie     { background-image: url("../assets/profil-prix-jnc-ceremonie.jpg"); }
-.gi-remise-diplome         { background-image: url("../assets/profil-remise-diplome.jpg"); }
+/* ?v=2 : les fichiers portent le cache "immutable" (30 j, voir _headers) ;
+   quand une image change sous le même nom, on incrémente ce paramètre pour
+   forcer les navigateurs à la retélécharger. */
+.gi-prix-h2p-finale        { background-image: url("../assets/profil-prix-h2p-finale.jpg?v=2"); }
+.gi-formation-salle        { background-image: url("../assets/profil-formation-salle.jpg?v=2"); }
+.gi-evenement-h2p          { background-image: url("../assets/profil-evenement-h2p.jpg?v=2"); }
+.gi-portrait-jnc           { background-image: url("../assets/profil-portrait-jnc.jpg?v=2"); }
+.gi-formation-certificats  { background-image: url("../assets/profil-formation-certificats.jpg?v=2"); }
+.gi-portrait-laptop        { background-image: url("../assets/profil-portrait-laptop.jpg?v=2"); }
+.gi-prix-jnc-ceremonie     { background-image: url("../assets/profil-prix-jnc-ceremonie.jpg?v=2"); }
+.gi-remise-diplome         { background-image: url("../assets/profil-remise-diplome.jpg?v=2"); }
 
 @media (max-width: 520px) { .about-gallery { grid-template-columns: repeat(2, 1fr); } }
 
