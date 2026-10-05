@@ -278,7 +278,6 @@ svg { display: block; }
 
 /* ---------------- Profil (lecture éditoriale, sans photo) ---------------- */
 .about-single { max-width: 860px; }
-.about-single .section-title { margin-bottom: 1.6rem; }
 
 .about-prose { display: grid; gap: 1.25rem; margin-bottom: 2.4rem; }
 .about-prose p { margin: 0; color: var(--text-soft); font-size: 1.05rem; line-height: 1.8; }
