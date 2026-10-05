@@ -355,9 +355,9 @@ svg { display: block; }
 .gi-evenement-h2p          { background-image: url("../assets/profil-evenement-h2p.jpg"); }
 .gi-portrait-jnc           { background-image: url("../assets/profil-portrait-jnc.jpg"); }
 .gi-formation-certificats  { background-image: url("../assets/profil-formation-certificats.jpg"); }
-.gi-portrait-laptop        { background-image: url("../assets/profil-portrait-laptop.jpg"); background-position: top center; }
+.gi-portrait-laptop        { background-image: url("../assets/profil-portrait-laptop.jpg"); }
 .gi-prix-jnc-ceremonie     { background-image: url("../assets/profil-prix-jnc-ceremonie.jpg"); }
-.gi-remise-diplome         { background-image: url("../assets/profil-remise-diplome.jpg"); background-position: top center; }
+.gi-remise-diplome         { background-image: url("../assets/profil-remise-diplome.jpg"); }
 
 @media (max-width: 520px) { .about-gallery { grid-template-columns: repeat(2, 1fr); } }
 
