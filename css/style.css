@@ -318,7 +318,7 @@ svg { display: block; }
   content: "▸"; position: absolute; left: 0; top: .02em; color: var(--red); font-size: 1rem; line-height: 1.5;
 }
 .about-skills li strong { color: var(--text); }
-.about-foot { color: var(--text); font-size: 1.15rem; font-weight: 500; line-height: 1.75; margin-top: .6rem; }
+.about-foot { color: var(--text); font-size: 1rem; font-weight: 500; line-height: 1.65; margin: 1.1rem 0 0; }
 
 /* ---------------- Étiquette de cas (Tactique) ---------------- */
 .project-tag { display: inline-block; font-family: var(--font-mono); font-size: .72rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--red); margin-bottom: .9rem; }
