@@ -373,7 +373,7 @@ svg { display: block; }
 .skill-group h3 { display: flex; align-items: center; gap: .6rem; font-size: 1rem; margin-bottom: 1.1rem; color: var(--text); letter-spacing: 0; }
 
 /* ---------------- Contact ---------------- */
-.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: start; }
+.contact-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: start; }
 .contact-intro p { color: var(--text-soft); }
 .contact-links { list-style: none; margin: 1.9rem 0 0; padding: 0; display: grid; gap: 1rem; }
 .contact-links li { display: flex; align-items: center; gap: .85rem; }
@@ -594,6 +594,47 @@ section[id] { scroll-margin-top: 84px; }
 .section-light .method li { border-top-color: var(--red); }
 /* liseré de séparation net entre clair et sombre */
 .section-light + .section, .section + .section-light { position: relative; }
+
+/* Section à fond « bleu nuit cyber » (Contact) : même principe de variables */
+.section-night {
+  --bg:         #050b18;
+  --bg-alt:     #081022;
+  --surface:    #0b1630;
+  --surface-2:  #102145;
+  --border:     #1d3461;
+  --border-red: #2a4a82;
+  --text:       #eef2fb;
+  --text-soft:  #a9b6d6;
+  --text-faint: #7986ab;
+  --shadow:     0 2px 6px rgba(0,0,0,.5), 0 16px 40px rgba(0,0,0,.45);
+  --shadow-red: 0 8px 24px -10px rgba(56,118,224,.35);
+  background: var(--bg);
+  color: var(--text);
+}
+.section-night .section-title { color: var(--text); }
+
+/* Décor : lueur bleue + grille animée, même langage visuel que le hero */
+.contact-bg {
+  position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden;
+}
+.contact-bg::before {
+  content: ""; position: absolute; inset: 0;
+  background:
+    radial-gradient(55% 50% at 85% 0%, rgba(56,118,224,.22), transparent 68%),
+    radial-gradient(50% 50% at 5% 100%, rgba(32,78,168,.2), transparent 70%);
+}
+.contact-bg::after {
+  content: ""; position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(90,150,240,.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(90,150,240,.1) 1px, transparent 1px);
+  background-size: 52px 52px;
+  mask-image: radial-gradient(75% 65% at 70% 30%, #000 0%, transparent 78%);
+  -webkit-mask-image: radial-gradient(75% 65% at 70% 30%, #000 0%, transparent 78%);
+  opacity: .5;
+  animation: gridpan 46s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) { .contact-bg::after { animation: none; } }
 
 /* Harmonisation des espacements (moins de vides) */
 .section { padding: clamp(3.2rem, 7.5vw, 5.2rem) 0; }
