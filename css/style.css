@@ -277,7 +277,7 @@ svg { display: block; }
 .section-sub { color: var(--text-soft); font-size: 1.05rem; margin: 0; }
 
 /* ---------------- Profil (lecture éditoriale, sans photo) ---------------- */
-.about-single { max-width: 760px; }
+.about-single { max-width: 860px; }
 .about-single .section-title { margin-bottom: 1.6rem; }
 
 .about-prose { display: grid; gap: 1.25rem; margin-bottom: 2.4rem; }
@@ -303,17 +303,20 @@ svg { display: block; }
   content: "▸"; position: absolute; left: 0; top: 0; color: var(--red); font-size: 1.05rem; line-height: 1.55;
 }
 
+.about-blocks-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.2rem; margin-bottom: 1rem; }
+@media (max-width: 760px) { .about-blocks-grid { grid-template-columns: 1fr; gap: 0; } }
+
 .about-block { margin-bottom: 2.3rem; }
 .about-block-title {
   font-family: var(--font-mono); font-size: 1rem; font-weight: 700; letter-spacing: .02em;
   color: var(--text); margin-bottom: 1.1rem;
 }
-.about-skills { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; }
+.about-skills { list-style: none; margin: 0; padding: 0; display: grid; gap: .9rem; }
 .about-skills li {
-  position: relative; padding-left: 1.9rem; color: var(--text-soft); font-size: 1.05rem; line-height: 1.75;
+  position: relative; padding-left: 1.7rem; color: var(--text-soft); font-size: .98rem; line-height: 1.6;
 }
 .about-skills li::before {
-  content: "▸"; position: absolute; left: 0; top: .02em; color: var(--red); font-size: 1.05rem; line-height: 1.6;
+  content: "▸"; position: absolute; left: 0; top: .02em; color: var(--red); font-size: 1rem; line-height: 1.5;
 }
 .about-skills li strong { color: var(--text); }
 .about-foot { color: var(--text); font-size: 1.15rem; font-weight: 500; line-height: 1.75; margin-top: .6rem; }
