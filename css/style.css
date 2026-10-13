@@ -319,6 +319,9 @@ svg { display: block; }
 }
 .about-skills li strong { color: var(--text); }
 .about-foot { color: var(--text); font-size: 1rem; font-weight: 500; line-height: 1.65; margin: 1.1rem 0 0; }
+.press-links { margin: .9rem 0 0; font-size: .85rem; color: var(--text-faint); }
+.press-links a { margin-right: .3rem; font-weight: 600; }
+.press-links a:not(:last-child)::after { content: "·"; margin-left: .55rem; color: var(--text-faint); font-weight: 400; }
 
 .about-gallery {
   display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: .9rem; margin-top: 2.4rem;
