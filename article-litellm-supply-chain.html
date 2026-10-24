@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'self' mailto:; base-uri 'self'; object-src 'none'; frame-src 'none'; child-src 'none'; worker-src 'none'; manifest-src 'self'; upgrade-insecure-requests" />
+  <meta name="referrer" content="no-referrer" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#0a0a0c" />
+
+  <title>LiteLLM piraté : une bibliothèque IA qui volait vos identifiants · UlCed W</title>
+  <meta name="description" content="Une version piégée de LiteLLM volait des identifiants cloud et IA dès le lancement de Python, sans même être importée. Ce qui s'est passé et comment réagir." />
+  <link rel="canonical" href="https://ulced.com/article-litellm-supply-chain.html" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://ulced.com/article-litellm-supply-chain.html" />
+  <meta property="og:title" content="LiteLLM piraté : une bibliothèque IA qui volait vos identifiants · UlCed W" />
+  <meta property="og:description" content="Une version piégée de LiteLLM volait des identifiants cloud et IA dès le lancement de Python, sans même être importée. Ce qui s'est passé et comment réagir." />
+  <meta property="og:image" content="https://ulced.com/assets/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:site_name" content="UlCed W" />
+  <meta property="article:published_time" content="2026-10-24" />
+  <meta property="article:author" content="UlCed W" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="LiteLLM piraté : une bibliothèque IA qui volait vos identifiants · UlCed W" />
+  <meta name="twitter:description" content="Une version piégée de LiteLLM volait des identifiants cloud et IA dès le lancement de Python, sans même être importée. Ce qui s'est passé et comment réagir." />
+  <meta name="twitter:image" content="https://ulced.com/assets/og-image.jpg" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "LiteLLM piraté : une bibliothèque IA qui volait vos identifiants",
+    "description": "Une version piégée de LiteLLM volait des identifiants cloud et IA dès le lancement de Python, sans même être importée. Ce qui s'est passé et comment réagir.",
+    "datePublished": "2026-10-24",
+    "author": { "@type": "Person", "name": "UlCed W", "url": "https://ulced.com/" },
+    "publisher": { "@type": "Person", "name": "UlCed W" },
+    "mainEntityOfPage": "https://ulced.com/article-litellm-supply-chain.html",
+    "image": "https://ulced.com/assets/og-image.jpg",
+    "inLanguage": "fr"
+  }
+  </script>
+
+  <script src="js/head.js"></script>
+  <link rel="preload" href="css/style.css" as="style" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/png" href="assets/ulced-favicon.png" />
+  <link rel="apple-touch-icon" href="assets/ulced-favicon.png" />
+</head>
+<body>
+  <span id="top" aria-hidden="true"></span>
+  <a class="skip-link" href="#main" data-en="Skip to content">Aller au contenu</a>
+
+  <!-- ============ EN-TÊTE / NAVIGATION ============ -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html#top" class="brand" aria-label="Accueil">
+        <img src="assets/ulced-logo.png" alt="UlCed" class="brand-logo-full" width="99" height="42" />
+      </a>
+
+      <nav class="nav" aria-label="Navigation principale">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Ouvrir le menu">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="index.html#about" data-en="Profile">Profil</a></li>
+          <li><a href="portfolio.html" data-en="Portfolio">Portfolio</a></li>
+          <li><a href="methodology.html" data-en="Tactics">Tactique</a></li>
+          <li><a href="articles.html" class="active" data-en="Articles">Articles</a></li>
+          <li><a href="index.html#contact" class="nav-cta" data-en="Get in touch">Prendre contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="lang-toggle" role="group" aria-label="Langue / Language">
+        <button type="button" class="lang-btn is-active" data-lang="fr">FR</button>
+        <button type="button" class="lang-btn" data-lang="en">EN</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <article class="section">
+      <div class="container article">
+        <p class="section-eyebrow reveal" data-en="// Cyber news">// Actualité cyber</p>
+        <h1 class="section-title reveal" data-en="LiteLLM hacked: an AI library that stole your credentials">LiteLLM piraté&nbsp;: une bibliothèque IA qui volait vos identifiants</h1>
+
+        <p class="article-meta reveal">
+          <span class="article-byline"><span class="article-avatar" aria-hidden="true">UW</span><strong>UlCed&nbsp;W</strong></span>
+          <span data-en="October 24, 2026">24 octobre 2026</span>
+          <span data-en="6 min read">6 min de lecture</span>
+        </p>
+
+        <p class="article-lead reveal" data-en="No need to even import the library: a trojanized version of LiteLLM, a popular Python package for orchestrating calls to language models, stole cloud and AI credentials the moment Python started. It's the second supply-chain attack this year against this one project.">Pas besoin d'importer la bibliothèque&nbsp;: une version piégée de LiteLLM, un paquet Python très utilisé pour orchestrer des appels à des modèles de langage, volait des identifiants cloud et IA dès le lancement de Python. C'est la deuxième attaque de la chaîne d'approvisionnement en un an contre ce seul projet.</p>
+
+        <h2 class="reveal" data-en="What happened">Que s'est-il passé&nbsp;?</h2>
+        <p class="reveal" data-en="On October 21, 2026, a trojanized release of &lt;strong&gt;LiteLLM 1.107.0&lt;/strong&gt; was published to PyPI and as Docker images. According to Microsoft and several researchers, compromised GitHub credentials belonging to a maintainer were used to redirect the release pipeline to a malicious mirror repository; a second compromised maintainer account then approved the production release.">Le 21 octobre 2026, une version piégée de <strong>LiteLLM 1.107.0</strong> a été publiée sur PyPI et sous forme d'images Docker. Selon Microsoft et plusieurs chercheurs, des identifiants GitHub compromis appartenant à un mainteneur ont permis de rediriger le pipeline de publication vers un dépôt miroir malveillant&nbsp;; un second compte de mainteneur compromis a ensuite validé la mise en production.</p>
+        <p class="reveal" data-en="The exposure window was short but real: the PyPI wheels were live from 11:39 to 13:23 UTC, and the Docker images remained available until roughly 14:20 UTC. Help Net Security notes this is the second such attack against LiteLLM in 2026 — an earlier one in March reportedly affected over 2,500 organizations by one estimate.">La fenêtre d'exposition fut courte mais réelle&nbsp;: les paquets PyPI sont restés en ligne de 11h39 à 13h23 UTC, et les images Docker sont restées disponibles jusqu'à environ 14h20 UTC. Help Net Security note qu'il s'agit de la deuxième attaque de ce type contre LiteLLM en 2026&nbsp;: une précédente, en mars, aurait touché plus de 2&nbsp;500 organisations selon une estimation.</p>
+
+        <h2 class="reveal" data-en="How it works">Comment ça fonctionne</h2>
+        <p class="reveal" data-en="What stands out most: the malicious payload ran at &lt;strong&gt;Python interpreter startup&lt;/strong&gt;, not only when the library was imported. Simply starting Python inside an affected environment could be enough to trigger it. It collected cloud credentials, private keys, browser data and AI tool authentication files, with the ability to fetch and run additional code.">Ce qui frappe le plus&nbsp;: la charge malveillante s'exécutait au <strong>démarrage de l'interpréteur Python</strong>, pas seulement lors de l'import de la bibliothèque. Démarrer Python dans un environnement touché pouvait suffire à la déclencher. Elle collectait des identifiants cloud, des clés privées, des données de navigateur et des fichiers d'authentification d'outils IA, avec la capacité de télécharger et exécuter du code supplémentaire.</p>
+
+        <div class="flow-diagram reveal">
+          <div class="flow-step"><span class="flow-num">1</span><p data-en="Maintainer's GitHub credentials compromised">Identifiants GitHub d'un mainteneur compromis</p></div>
+          <div class="flow-arrow" aria-hidden="true">→</div>
+          <div class="flow-step"><span class="flow-num">2</span><p data-en="Release pipeline redirected to a malicious mirror">Pipeline de publication détourné vers un dépôt miroir piégé</p></div>
+          <div class="flow-arrow" aria-hidden="true">→</div>
+          <div class="flow-step"><span class="flow-num">3</span><p data-en="Trojanized PyPI package and Docker image published">Paquet PyPI et image Docker piégés publiés</p></div>
+          <div class="flow-arrow" aria-hidden="true">→</div>
+          <div class="flow-step flow-step-danger"><span class="flow-num">4</span><p data-en="Credential theft at Python startup — no import needed">Vol d'identifiants au démarrage de Python — sans même l'importer</p></div>
+        </div>
+
+        <h2 class="reveal" data-en="Who is affected">Qui est concerné&nbsp;?</h2>
+        <p class="reveal" data-en="Any organization that installed LiteLLM 1.107.0, or started a Docker image built from it, during the exposure window. Microsoft explicitly warns against running Python or pip inside a suspect environment just to check for the compromise — that itself can trigger the payload.">Toute organisation ayant installé LiteLLM 1.107.0, ou démarré une image Docker construite dessus, pendant la fenêtre d'exposition. Microsoft déconseille explicitement de lancer Python ou pip dans un environnement suspect pour simplement vérifier la compromission&nbsp;: cela peut en soi déclencher la charge malveillante.</p>
+
+        <div class="callout reveal">
+          <span class="callout-icon" aria-hidden="true">⚠</span>
+          <p data-en="LiteLLM's maintainers recommend treating any system that installed 1.107.0 or started the corresponding image during the risk window as compromised. &lt;strong&gt;Isolate it, rebuild it from a clean source, then rotate every credential it could have reached&lt;/strong&gt; — don't just uninstall the package.">
+            Les mainteneurs de LiteLLM recommandent de considérer comme compromis tout système ayant installé la version 1.107.0 ou démarré l'image correspondante durant la fenêtre à risque. <strong>Isolez-le, reconstruisez-le depuis une source saine, puis faites tourner tous les identifiants qu'il aurait pu atteindre</strong> — ne vous contentez pas de désinstaller le paquet.
+          </p>
+        </div>
+
+        <h2 class="reveal" data-en="What to do now">Que faire maintenant&nbsp;?</h2>
+        <ul class="reveal">
+          <li data-en="Check installation and container-pull logs for version 1.107.0 within the October 21 window cited above.">Vérifiez vos journaux d'installation et de récupération de conteneurs pour la version 1.107.0, dans la fenêtre du 21 octobre citée plus haut.</li>
+          <li data-en="Isolate affected hosts rather than just removing the package — the credential-stealing payload may already have run and fetched further code.">Isolez les hôtes concernés plutôt que de simplement retirer le paquet&nbsp;: la charge de vol d'identifiants a pu déjà s'exécuter et télécharger du code additionnel.</li>
+          <li data-en="Rebuild from a known-clean image or environment, then rotate cloud keys, AI provider API keys and Git tokens that were reachable from the affected host.">Reconstruisez depuis une image ou un environnement connu comme sain, puis faites tourner les clés cloud, les clés API des fournisseurs IA et les jetons Git accessibles depuis l'hôte concerné.</li>
+          <li data-en="More broadly: pin exact dependency versions, verify package hashes before deploying to production, and treat maintainer-account compromise as a realistic threat model for any open-source dependency you rely on.">Plus largement&nbsp;: épinglez des versions exactes de dépendances, vérifiez les empreintes (hash) des paquets avant un déploiement en production, et considérez la compromission d'un compte mainteneur comme un scénario de menace réaliste pour toute dépendance open source dont vous dépendez.</li>
+        </ul>
+
+        <p class="article-sources reveal">
+          <span data-en="Sources:">Sources&nbsp;:</span>
+          <a href="https://www.microsoft.com/en-us/security/blog/2026/10/23/inside-the-litellm-1-107-0-supply-chain-compromise-credential-theft-through-python-startup-hooks/" target="_blank" rel="noopener noreferrer">Microsoft Security</a>
+          <a href="https://thehackernews.com/2026/10/litellm-compromised-in-supply-chain.html" target="_blank" rel="noopener noreferrer">The Hacker News</a>
+        </p>
+
+        <a href="articles.html" class="article-back reveal" data-en="← See other articles">← Voir d'autres articles</a>
+      </div>
+    </article>
+  </main>
+
+  <!-- ============ PIED DE PAGE ============ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-row">
+        <div class="footer-brand">
+          <img src="assets/ulced-logo-full.png" alt="UlCed" class="footer-full-logo" width="236" height="100" />
+        </div>
+        <nav class="footer-nav" aria-label="Liens de pied de page">
+          <a href="portfolio.html" data-en="Portfolio">Portfolio</a>
+          <a href="methodology.html" data-en="Tactics">Tactique</a>
+          <a href="articles.html" data-en="Articles">Articles</a>
+          <a href="index.html#contact">Contact</a>
+          <a href="legal.html" data-en="Legal notice">Mentions légales</a>
+        </nav>
+      </div>
+      <div class="footer-inner">
+        <p data-en="© &lt;span id=&quot;year&quot;&gt;&lt;/span&gt; UlCed W · Offensive Security &amp; Cyber Intelligence · &lt;a href=&quot;legal.html&quot;&gt;Legal notice &amp; privacy&lt;/a&gt;">© <span id="year"></span> UlCed W · Offensive Security &amp; Cyber Intelligence · <a href="legal.html">Mentions légales &amp; confidentialité</a></p>
+        <a href="index.html" class="footer-top" data-en="← Home">← Accueil</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bouton flottant « haut de page » -->
+  <button class="to-top" id="to-top" aria-label="Remonter en haut" title="Haut de page">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>

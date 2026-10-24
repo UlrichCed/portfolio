@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'self' mailto:; base-uri 'self'; object-src 'none'; frame-src 'none'; child-src 'none'; worker-src 'none'; manifest-src 'self'; upgrade-insecure-requests" />
+  <meta name="referrer" content="no-referrer" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#0a0a0c" />
+
+  <title>GitLab : une faille vieille de 12 ans, notée 10/10, enfin corrigée · UlCed W</title>
+  <meta name="description" content="CVE-2026-110264 : un dépassement d'entier dans le moteur regex de GitLab permettait une exécution de code à distance sans authentification, depuis 2014. Versions et correctifs." />
+  <link rel="canonical" href="https://ulced.com/article-faille-gitlab-rce.html" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://ulced.com/article-faille-gitlab-rce.html" />
+  <meta property="og:title" content="GitLab : une faille vieille de 12 ans, notée 10/10, enfin corrigée · UlCed W" />
+  <meta property="og:description" content="CVE-2026-110264 : un dépassement d'entier dans le moteur regex de GitLab permettait une exécution de code à distance sans authentification, depuis 2014. Versions et correctifs." />
+  <meta property="og:image" content="https://ulced.com/assets/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:site_name" content="UlCed W" />
+  <meta property="article:published_time" content="2026-10-24" />
+  <meta property="article:author" content="UlCed W" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="GitLab : une faille vieille de 12 ans, notée 10/10, enfin corrigée · UlCed W" />
+  <meta name="twitter:description" content="CVE-2026-110264 : un dépassement d'entier dans le moteur regex de GitLab permettait une exécution de code à distance sans authentification, depuis 2014. Versions et correctifs." />
+  <meta name="twitter:image" content="https://ulced.com/assets/og-image.jpg" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "GitLab : une faille vieille de 12 ans, notée 10/10, enfin corrigée",
+    "description": "CVE-2026-110264 : un dépassement d'entier dans le moteur regex de GitLab permettait une exécution de code à distance sans authentification, depuis 2014. Versions et correctifs.",
+    "datePublished": "2026-10-24",
+    "author": { "@type": "Person", "name": "UlCed W", "url": "https://ulced.com/" },
+    "publisher": { "@type": "Person", "name": "UlCed W" },
+    "mainEntityOfPage": "https://ulced.com/article-faille-gitlab-rce.html",
+    "image": "https://ulced.com/assets/og-image.jpg",
+    "inLanguage": "fr"
+  }
+  </script>
+
+  <script src="js/head.js"></script>
+  <link rel="preload" href="css/style.css" as="style" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/png" href="assets/ulced-favicon.png" />
+  <link rel="apple-touch-icon" href="assets/ulced-favicon.png" />
+</head>
+<body>
+  <span id="top" aria-hidden="true"></span>
+  <a class="skip-link" href="#main" data-en="Skip to content">Aller au contenu</a>
+
+  <!-- ============ EN-TÊTE / NAVIGATION ============ -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html#top" class="brand" aria-label="Accueil">
+        <img src="assets/ulced-logo.png" alt="UlCed" class="brand-logo-full" width="99" height="42" />
+      </a>
+
+      <nav class="nav" aria-label="Navigation principale">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Ouvrir le menu">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="index.html#about" data-en="Profile">Profil</a></li>
+          <li><a href="portfolio.html" data-en="Portfolio">Portfolio</a></li>
+          <li><a href="methodology.html" data-en="Tactics">Tactique</a></li>
+          <li><a href="articles.html" class="active" data-en="Articles">Articles</a></li>
+          <li><a href="index.html#contact" class="nav-cta" data-en="Get in touch">Prendre contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="lang-toggle" role="group" aria-label="Langue / Language">
+        <button type="button" class="lang-btn is-active" data-lang="fr">FR</button>
+        <button type="button" class="lang-btn" data-lang="en">EN</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <article class="section">
+      <div class="container article">
+        <p class="section-eyebrow reveal" data-en="// Cyber news">// Actualité cyber</p>
+        <h1 class="section-title reveal" data-en="GitLab: a 12-year-old flaw, scored 10/10, finally fixed">GitLab&nbsp;: une faille vieille de 12 ans, notée 10/10, enfin corrigée</h1>
+
+        <p class="article-meta reveal">
+          <span class="article-byline"><span class="article-avatar" aria-hidden="true">UW</span><strong>UlCed&nbsp;W</strong></span>
+          <span data-en="October 24, 2026">24 octobre 2026</span>
+          <span data-en="5 min read">5 min de lecture</span>
+        </p>
+
+        <p class="article-lead reveal" data-en="An integer overflow in the regex engine GitLab ships allowed unauthenticated remote code execution, on versions reportedly going back to 2014. If you self-host GitLab, this is the one to check today, not next week.">Un dépassement d'entier dans le moteur d'expressions régulières embarqué par GitLab permettait une exécution de code à distance sans authentification, sur des versions remontant, selon les chercheurs, à 2014. Si vous auto-hébergez GitLab, c'est la faille à vérifier aujourd'hui, pas la semaine prochaine.</p>
+
+        <div class="severity-meter severity-fill-100 reveal">
+          <div class="severity-score">10.0<small data-en="CVSS v4.0">CVSS v4.0</small></div>
+          <div class="severity-bar-wrap">
+            <p class="severity-label"><span data-en="Severity">Sévérité</span><span data-en="Maximum">Maximale</span></p>
+            <div class="severity-bar"><span></span></div>
+          </div>
+        </div>
+
+        <h2 class="reveal" data-en="What happened">Que s'est-il passé&nbsp;?</h2>
+        <p class="reveal" data-en="On October 21, 2026, GitLab shipped a critical patch for &lt;strong&gt;CVE-2026-110264&lt;/strong&gt;, an integer overflow in Onigmo — the regex engine Ruby bundles and that GitLab uses internally. It scores a perfect &lt;strong&gt;10.0 out of 10&lt;/strong&gt; on the CVSS scale, the maximum possible.">Le 21 octobre 2026, GitLab a publié un correctif critique pour <strong>CVE-2026-110264</strong>, un dépassement d'entier dans Onigmo — le moteur d'expressions régulières embarqué par Ruby et utilisé en interne par GitLab. Elle est notée <strong>10,0 sur 10</strong> sur l'échelle CVSS, le score maximal possible.</p>
+        <p class="reveal" data-en="What stands out: the flaw reportedly exists since version 7.0, released in 2014 — twelve years of potential exposure before anyone caught it. GitLab.com and GitLab Dedicated, the versions GitLab itself hosts, were already protected; this concerns self-managed instances.">Ce qui frappe&nbsp;: la faille existerait depuis la version 7.0, sortie en 2014 — douze ans d'exposition potentielle avant d'être repérée. GitLab.com et GitLab Dedicated, les versions hébergées par GitLab lui-même, étaient déjà protégées&nbsp;; ce sont les instances auto-hébergées qui sont concernées.</p>
+
+        <h2 class="reveal" data-en="How it works">Comment ça fonctionne</h2>
+        <p class="reveal" data-en="According to a GitLab merge request excerpt quoted by several researchers, Onigmo stores a repeat identifier in a signed 16-bit slot, while the repeat counter itself uses a regular integer. Push the counter past what the 16-bit slot can hold, and the mismatch corrupts memory.">Selon un extrait de merge request GitLab cité par plusieurs chercheurs, Onigmo stocke un identifiant de répétition dans un espace signé de 16&nbsp;bits, alors que le compteur de répétitions utilise lui un entier classique. Poussez ce compteur au-delà de ce que l'espace 16&nbsp;bits peut contenir, et cet écart corrompt la mémoire.</p>
+
+        <div class="flow-diagram reveal">
+          <div class="flow-step"><span class="flow-num">1</span><p data-en="Request triggers parsing of a crafted regular expression">Requête déclenchant l'analyse d'une expression régulière piégée</p></div>
+          <div class="flow-arrow" aria-hidden="true">→</div>
+          <div class="flow-step"><span class="flow-num">2</span><p data-en="Onigmo's repeat counter overflows its 16-bit slot">Le compteur de répétition d'Onigmo déborde de son espace 16 bits</p></div>
+          <div class="flow-arrow" aria-hidden="true">→</div>
+          <div class="flow-step"><span class="flow-num">3</span><p data-en="Regex engine memory is corrupted">La mémoire du moteur regex est corrompue</p></div>
+          <div class="flow-arrow" aria-hidden="true">→</div>
+          <div class="flow-step flow-step-danger"><span class="flow-num">4</span><p data-en="Remote code execution on the GitLab instance">Exécution de code à distance sur l'instance GitLab</p></div>
+        </div>
+        <p class="reveal" data-en="Exact preconditions are disputed: one write-up says it needs a public project or Org-mode file rendering, but GitLab itself hasn't disclosed the attack preconditions in detail.">Les préconditions exactes font débat&nbsp;: une analyse évoque un projet public ou le rendu d'un fichier au format Org-mode, mais GitLab n'a pas détaillé publiquement les conditions précises d'exploitation.</p>
+
+        <h2 class="reveal" data-en="Who is affected">Qui est concerné&nbsp;?</h2>
+        <div class="table-wrap reveal">
+          <table class="compare">
+            <thead>
+              <tr><th scope="col" data-en="Branch">Branche</th><th scope="col" data-en="Fixed version">Version corrigée</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">19.5</th><td>19.5.1</td></tr>
+              <tr><th scope="row">19.4</th><td>19.4.3</td></tr>
+              <tr><th scope="row">19.3</th><td>19.3.6</td></tr>
+              <tr><th scope="row">19.2</th><td>19.2.9</td></tr>
+              <tr><th scope="row">19.1</th><td>19.1.9</td></tr>
+              <tr><th scope="row">19.0</th><td>19.0.10</td></tr>
+              <tr><th scope="row" data-en="≤ 18.11 (back to 7.0)">≤ 18.11 (jusqu'à 7.0)</th><td>18.11.13</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout reveal">
+          <span class="callout-icon" aria-hidden="true">⚠</span>
+          <p data-en="&lt;strong&gt;No workaround exists.&lt;/strong&gt; The only protection is upgrading to the fixed version for your branch. A public proof-of-concept exploit is already circulating on GitHub — treat that as a reason to patch tonight, not as a resource to experiment with.">
+            <strong>Aucun contournement n'existe.</strong> La seule protection est la mise à jour vers la version corrigée de votre branche. Un code de démonstration (PoC) circule déjà publiquement sur GitHub&nbsp;: une raison de patcher ce soir, pas une ressource à tester soi-même.
+          </p>
+        </div>
+
+        <h2 class="reveal" data-en="What to do now">Que faire maintenant&nbsp;?</h2>
+        <ul class="reveal">
+          <li data-en="Check the exact version of every self-managed GitLab instance you run, including ones that may have been forgotten.">Vérifiez la version exacte de chaque instance GitLab auto-hébergée, y compris celles qu'on a pu oublier.</li>
+          <li data-en="Schedule the upgrade as an emergency, not as routine maintenance.">Planifiez la mise à jour en urgence, pas comme une maintenance de routine.</li>
+          <li data-en="GitLab published two Sigma detection rules for self-managed instances, covering Onigmo native-worker crashes and bursts of Org-mode render errors — worth deploying while you patch.">GitLab a publié deux règles de détection Sigma pour les instances auto-hébergées, couvrant les plantages du worker natif Onigmo et les pics d'erreurs de rendu Org-mode&nbsp;: à déployer pendant que vous patchez.</li>
+          <li data-en="As of this writing there's no sign of active exploitation and the CVE isn't in CISA's KEV catalog — but with a public PoC and a maximum CVSS score, that can change fast.">À l'heure où j'écris ces lignes, rien n'indique une exploitation active et la CVE ne figure pas au catalogue KEV de la CISA — mais avec un PoC public et un score CVSS maximal, cela peut changer vite.</li>
+        </ul>
+
+        <p class="article-sources reveal">
+          <span data-en="Sources:">Sources&nbsp;:</span>
+          <a href="https://www.it-connect.tech/gitlab-patches-critical-cve-2026-110264-affecting-versions-back-to-7-0/" target="_blank" rel="noopener noreferrer">IT-Connect</a>
+          <a href="https://dev.to/alanwest/gitlab-cve-2026-110264-is-a-cvss-10-rce-how-to-patch-self-hosted-gitlab-tonight-24f1" target="_blank" rel="noopener noreferrer">DEV Community</a>
+        </p>
+
+        <a href="articles.html" class="article-back reveal" data-en="← See other articles">← Voir d'autres articles</a>
+      </div>
+    </article>
+  </main>
+
+  <!-- ============ PIED DE PAGE ============ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-row">
+        <div class="footer-brand">
+          <img src="assets/ulced-logo-full.png" alt="UlCed" class="footer-full-logo" width="236" height="100" />
+        </div>
+        <nav class="footer-nav" aria-label="Liens de pied de page">
+          <a href="portfolio.html" data-en="Portfolio">Portfolio</a>
+          <a href="methodology.html" data-en="Tactics">Tactique</a>
+          <a href="articles.html" data-en="Articles">Articles</a>
+          <a href="index.html#contact">Contact</a>
+          <a href="legal.html" data-en="Legal notice">Mentions légales</a>
+        </nav>
+      </div>
+      <div class="footer-inner">
+        <p data-en="© &lt;span id=&quot;year&quot;&gt;&lt;/span&gt; UlCed W · Offensive Security &amp; Cyber Intelligence · &lt;a href=&quot;legal.html&quot;&gt;Legal notice &amp; privacy&lt;/a&gt;">© <span id="year"></span> UlCed W · Offensive Security &amp; Cyber Intelligence · <a href="legal.html">Mentions légales &amp; confidentialité</a></p>
+        <a href="index.html" class="footer-top" data-en="← Home">← Accueil</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bouton flottant « haut de page » -->
+  <button class="to-top" id="to-top" aria-label="Remonter en haut" title="Haut de page">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>

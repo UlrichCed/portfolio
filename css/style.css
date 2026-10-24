@@ -837,4 +837,42 @@ table.compare tbody th { color: var(--text); font-weight: 700; white-space: nowr
 table.compare tbody td { color: var(--text-soft); }
 table.compare tbody tr:last-child th, table.compare tbody tr:last-child td { border-bottom: none; }
 
+/* ---- Jauge de sévérité CVSS (illustration d'article) ---- */
+.severity-meter {
+  display: flex; align-items: center; gap: 1.2rem; background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 1.2rem 1.4rem; margin: 1.8rem 0; box-shadow: var(--shadow);
+}
+.severity-score { font-family: var(--font-mono); font-size: 1.9rem; font-weight: 800; color: var(--red); line-height: 1; flex-shrink: 0; }
+.severity-score small { display: block; font-size: .6rem; font-weight: 600; color: var(--text-faint); letter-spacing: .04em; text-transform: uppercase; margin-top: .35rem; }
+.severity-bar-wrap { flex: 1; min-width: 0; }
+.severity-label { display: flex; justify-content: space-between; gap: .6rem; font-size: .78rem; color: var(--text-soft); margin-bottom: .45rem; }
+.severity-bar { height: 8px; border-radius: 100px; background: var(--surface-2); overflow: hidden; }
+.severity-bar span { display: block; height: 100%; border-radius: 100px; background: linear-gradient(90deg, var(--red-deep), var(--red-bright)); }
+.severity-fill-92 span { width: 92%; }
+.severity-fill-100 span { width: 100%; }
+
+/* ---- Schéma de la chaîne d'attaque (illustration d'article) ---- */
+.flow-diagram { display: flex; flex-wrap: wrap; align-items: stretch; gap: .5rem; margin: 1.8rem 0; }
+.flow-step {
+  flex: 1 1 150px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 1rem .9rem; text-align: center; box-shadow: var(--shadow);
+}
+.flow-step p { margin: .5rem 0 0; font-size: .8rem; color: var(--text-soft); line-height: 1.4; }
+.flow-num {
+  display: inline-grid; place-items: center; width: 26px; height: 26px; border-radius: 50%;
+  background: var(--red-soft); border: 1px solid var(--border-red); color: var(--red);
+  font-family: var(--font-mono); font-weight: 700; font-size: .82rem;
+}
+.flow-step-danger { border-color: var(--border-red); border-top: 2px solid var(--red); }
+.flow-arrow { display: flex; align-items: center; justify-content: center; color: var(--red); font-size: 1.3rem; flex: 0 0 auto; }
+@media (max-width: 640px) {
+  .flow-diagram { flex-direction: column; }
+  .flow-arrow { transform: rotate(90deg); }
+}
+
+/* ---- Sources en fin d'article ---- */
+.article-sources { margin-top: 2.2rem; padding-top: 1.4rem; border-top: 1px solid var(--border); font-size: .85rem; color: var(--text-faint); }
+.article-sources a { font-weight: 600; margin-right: .4rem; }
+.article-sources a:not(:last-child)::after { content: "·"; margin-left: .5rem; color: var(--text-faint); font-weight: 400; }
+
 @media (max-width: 640px) { .post-meta { font-size: .72rem; } }

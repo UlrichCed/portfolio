@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'self' mailto:; base-uri 'self'; object-src 'none'; frame-src 'none'; child-src 'none'; worker-src 'none'; manifest-src 'self'; upgrade-insecure-requests" />
+  <meta name="referrer" content="no-referrer" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#0a0a0c" />
+
+  <title>PHP2Shell : la faille critique qui touche la majorité du web · UlCed W</title>
+  <meta name="description" content="CVE-2026-109618 et CVE-2026-109619 : deux failles critiques dans PHP permettent une exécution de code à distance sans authentification. Versions concernées et précautions." />
+  <link rel="canonical" href="https://ulced.com/article-faille-php2shell.html" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://ulced.com/article-faille-php2shell.html" />
+  <meta property="og:title" content="PHP2Shell : la faille critique qui touche la majorité du web · UlCed W" />
+  <meta property="og:description" content="CVE-2026-109618 et CVE-2026-109619 : deux failles critiques dans PHP permettent une exécution de code à distance sans authentification. Versions concernées et précautions." />
+  <meta property="og:image" content="https://ulced.com/assets/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:site_name" content="UlCed W" />
+  <meta property="article:published_time" content="2026-10-24" />
+  <meta property="article:author" content="UlCed W" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="PHP2Shell : la faille critique qui touche la majorité du web · UlCed W" />
+  <meta name="twitter:description" content="CVE-2026-109618 et CVE-2026-109619 : deux failles critiques dans PHP permettent une exécution de code à distance sans authentification. Versions concernées et précautions." />
+  <meta name="twitter:image" content="https://ulced.com/assets/og-image.jpg" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "PHP2Shell : la faille critique qui touche la majorité du web",
+    "description": "CVE-2026-109618 et CVE-2026-109619 : deux failles critiques dans PHP permettent une exécution de code à distance sans authentification. Versions concernées et précautions.",
+    "datePublished": "2026-10-24",
+    "author": { "@type": "Person", "name": "UlCed W", "url": "https://ulced.com/" },
+    "publisher": { "@type": "Person", "name": "UlCed W" },
+    "mainEntityOfPage": "https://ulced.com/article-faille-php2shell.html",
+    "image": "https://ulced.com/assets/og-image.jpg",
+    "inLanguage": "fr"
+  }
+  </script>
+
+  <script src="js/head.js"></script>
+  <link rel="preload" href="css/style.css" as="style" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/png" href="assets/ulced-favicon.png" />
+  <link rel="apple-touch-icon" href="assets/ulced-favicon.png" />
+</head>
+<body>
+  <span id="top" aria-hidden="true"></span>
+  <a class="skip-link" href="#main" data-en="Skip to content">Aller au contenu</a>
+
+  <!-- ============ EN-TÊTE / NAVIGATION ============ -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html#top" class="brand" aria-label="Accueil">
+        <img src="assets/ulced-logo.png" alt="UlCed" class="brand-logo-full" width="99" height="42" />
+      </a>
+
+      <nav class="nav" aria-label="Navigation principale">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Ouvrir le menu">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="index.html#about" data-en="Profile">Profil</a></li>
+          <li><a href="portfolio.html" data-en="Portfolio">Portfolio</a></li>
+          <li><a href="methodology.html" data-en="Tactics">Tactique</a></li>
+          <li><a href="articles.html" class="active" data-en="Articles">Articles</a></li>
+          <li><a href="index.html#contact" class="nav-cta" data-en="Get in touch">Prendre contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="lang-toggle" role="group" aria-label="Langue / Language">
+        <button type="button" class="lang-btn is-active" data-lang="fr">FR</button>
+        <button type="button" class="lang-btn" data-lang="en">EN</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <article class="section">
+      <div class="container article">
+        <p class="section-eyebrow reveal" data-en="// Actualité cyber">// Actualité cyber</p>
+        <h1 class="section-title reveal" data-en="PHP2Shell: the critical flaw hitting most of the web">PHP2Shell&nbsp;: la faille critique qui touche la majorité du web</h1>
+
+        <p class="article-meta reveal">
+          <span class="article-byline"><span class="article-avatar" aria-hidden="true">UW</span><strong>UlCed&nbsp;W</strong></span>
+          <span data-en="October 24, 2026">24 octobre 2026</span>
+          <span data-en="6 min read">6 min de lecture</span>
+        </p>
+
+        <p class="article-lead reveal" data-en="Two critical flaws in the core of PHP allow unauthenticated remote code execution on a huge share of the world's websites. Here's what's confirmed, what's still disputed between sources, and how to protect yourself right now.">Deux failles critiques dans le cœur de PHP permettent une exécution de code à distance sans la moindre authentification, sur une grande partie des sites web du monde. Voici ce qui est confirmé, ce qui reste débattu entre les sources, et comment vous protéger dès maintenant.</p>
+
+        <div class="severity-meter severity-fill-92 reveal">
+          <div class="severity-score">9.2<small data-en="CVSS v4.0">CVSS v4.0</small></div>
+          <div class="severity-bar-wrap">
+            <p class="severity-label"><span data-en="Severity">Sévérité</span><span data-en="Critical">Critique</span></p>
+            <div class="severity-bar"><span></span></div>
+          </div>
+        </div>
+
+        <h2 class="reveal" data-en="What happened">Que s'est-il passé&nbsp;?</h2>
+        <p class="reveal" data-en="On October 21, 2026, the PHP team rushed out patches for two critical flaws the security community nicknamed &lt;strong&gt;« PHP2Shell »&lt;/strong&gt;: &lt;strong&gt;CVE-2026-109618&lt;/strong&gt; and &lt;strong&gt;CVE-2026-109619&lt;/strong&gt;. Both score 9.2 out of 10 on the CVSS v4.0 scale, and both allow remote code execution with zero authentication required.">Le 21 octobre 2026, l'équipe PHP a publié en urgence des correctifs pour deux failles critiques que la communauté sécurité a surnommées <strong>« PHP2Shell »</strong>&nbsp;: <strong>CVE-2026-109618</strong> et <strong>CVE-2026-109619</strong>. Toutes deux sont notées 9,2 sur 10 sur l'échelle CVSS&nbsp;v4.0, et permettent une exécution de code à distance sans la moindre authentification.</p>
+        <p class="reveal" data-en="According to several researchers (watchTowr), exploitation attempts reportedly began as early as October 17 — four days before the patch shipped. CISA, for its part, said it had not observed exploitation as of its October 21 alert, and as of this writing neither CVE is listed in the KEV catalog yet. Sources disagree on how far exploitation has actually spread: treat it as an active risk by precaution, not as a confirmed mass-exploitation event.">Selon plusieurs chercheurs (watchTowr), des tentatives d'exploitation auraient commencé dès le 17 octobre&nbsp;: quatre jours avant la publication du correctif. De son côté, la CISA affirmait ne pas avoir observé d'exploitation lors de son alerte du 21 octobre, et à l'heure où j'écris ces lignes, aucune des deux CVE ne figure encore dans son catalogue KEV. Les sources divergent sur l'ampleur réelle de l'exploitation&nbsp;: à traiter comme un risque actif par précaution, pas comme un événement de compromission massive confirmé.</p>
+
+        <h2 class="reveal" data-en="How it works">Comment ça fonctionne</h2>
+        <p class="reveal" data-en="The two flaws don't share the exact same root cause. &lt;strong&gt;CVE-2026-109618&lt;/strong&gt; is memory corruption triggered by an out-of-memory condition while PHP parses multipart requests — the mechanism used for file uploads. &lt;strong&gt;CVE-2026-109619&lt;/strong&gt; is a &lt;em&gt;stale global state&lt;/em&gt; issue: PHP keeps a reference to a memory region that has already been freed.">Les deux failles n'ont pas exactement la même origine. <strong>CVE-2026-109618</strong> est une corruption mémoire déclenchée par une condition de dépassement de mémoire (out-of-memory) pendant l'analyse des requêtes multipart&nbsp;: le mécanisme utilisé pour l'upload de fichiers. <strong>CVE-2026-109619</strong> est un problème d'<em>état global obsolète</em>&nbsp;: PHP conserve une référence vers une zone mémoire déjà libérée.</p>
+
+        <div class="flow-diagram reveal">
+          <div class="flow-step"><span class="flow-num">1</span><p data-en="Crafted HTTP request with a multipart file upload">Requête HTTP piégée avec un upload de fichier multipart</p></div>
+          <div class="flow-arrow" aria-hidden="true">→</div>
+          <div class="flow-step"><span class="flow-num">2</span><p data-en="Out-of-memory condition during parsing">Condition de dépassement mémoire pendant l'analyse</p></div>
+          <div class="flow-arrow" aria-hidden="true">→</div>
+          <div class="flow-step"><span class="flow-num">3</span><p data-en="Memory corruption / stale reference">Corruption mémoire / référence obsolète</p></div>
+          <div class="flow-arrow" aria-hidden="true">→</div>
+          <div class="flow-step flow-step-danger"><span class="flow-num">4</span><p data-en="Arbitrary code execution on the server">Exécution de code arbitraire sur le serveur</p></div>
+        </div>
+
+        <h2 class="reveal" data-en="Who is affected">Qui est concerné&nbsp;?</h2>
+        <p class="reveal" data-en="Essentially any site running an unpatched PHP install — WordPress, Drupal, or a custom application. Unsupported end-of-life branches, including PHP 5, are reportedly affected too, but they receive no official fix.">Quasiment tout site qui tourne sur une installation PHP non patchée&nbsp;: WordPress, Drupal, ou une application maison. Les branches en fin de vie non supportées, dont PHP&nbsp;5, seraient également concernées, mais sans correctif officiel.</p>
+
+        <div class="table-wrap reveal">
+          <table class="compare">
+            <thead>
+              <tr><th scope="col" data-en="Branch">Branche</th><th scope="col" data-en="Fixed version">Version corrigée</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">8.5</th><td>8.5.12</td></tr>
+              <tr><th scope="row">8.4</th><td>8.4.27</td></tr>
+              <tr><th scope="row">8.3</th><td>8.3.36</td></tr>
+              <tr><th scope="row">8.2</th><td>8.2.35</td></tr>
+              <tr><th scope="row" data-en="Older / EOL">Antérieures / EOL</th><td data-en="No official fix — see mitigation below">Pas de correctif officiel — voir la mitigation ci-dessous</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout reveal">
+          <span class="callout-icon" aria-hidden="true">⚠</span>
+          <p data-en="&lt;strong&gt;Can't patch immediately?&lt;/strong&gt; Setting &lt;code&gt;session.upload_progress.enabled=0&lt;/code&gt; in your php.ini reduces the risk without eliminating it. It's the main option for end-of-life branches that won't get an official patch. Treat it as a stopgap, not a fix.">
+            <strong>Impossible de patcher dans l'immédiat&nbsp;?</strong> Activer <code>session.upload_progress.enabled=0</code> dans votre php.ini réduit le risque sans l'éliminer. C'est la principale option pour les branches en fin de vie qui ne recevront pas de correctif officiel. À traiter comme un pansement, pas une solution.
+          </p>
+        </div>
+
+        <h2 class="reveal" data-en="What to do now">Que faire maintenant&nbsp;?</h2>
+        <ul class="reveal">
+          <li data-en="Inventory every exposed PHP instance, including ones you may have forgotten (staging, internal tools, old projects).">Faites l'inventaire de toutes les instances PHP exposées, y compris celles qu'on oublie&nbsp;: pré-production, outils internes, vieux projets.</li>
+          <li data-en="Upgrade to a fixed version as a priority. If you manage a fleet of servers, patch internet-facing ones first.">Mettez à jour vers une version corrigée en priorité. Si vous gérez un parc de serveurs, patchez d'abord ceux exposés sur internet.</li>
+          <li data-en="On EOL branches, apply the mitigation above and plan a migration off that branch — it won't get future security fixes either.">Sur les branches EOL, appliquez la mitigation ci-dessus et planifiez une migration&nbsp;: elles ne recevront plus aucun futur correctif de sécurité.</li>
+          <li data-en="Watch logs for unusual upload-related activity. Public proof-of-concept exploit code is already circulating — treat your exposure as real, whatever the confirmed exploitation numbers end up being.">Surveillez vos journaux pour toute activité anormale liée aux uploads. Du code de démonstration (PoC) circule déjà publiquement&nbsp;: considérez votre exposition comme réelle, quel que soit le niveau d'exploitation finalement confirmé.</li>
+        </ul>
+
+        <p class="article-sources reveal">
+          <span data-en="Sources:">Sources&nbsp;:</span>
+          <a href="https://socradar.io/blog/php2shell-cve-2026-109618-cve-2026-109619/" target="_blank" rel="noopener noreferrer">SOCRadar</a>
+          <a href="https://watchtowr.com/intelligence/php-remote-code-execution-php2shell/" target="_blank" rel="noopener noreferrer">watchTowr</a>
+        </p>
+
+        <a href="articles.html" class="article-back reveal" data-en="← See other articles">← Voir d'autres articles</a>
+      </div>
+    </article>
+  </main>
+
+  <!-- ============ PIED DE PAGE ============ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-row">
+        <div class="footer-brand">
+          <img src="assets/ulced-logo-full.png" alt="UlCed" class="footer-full-logo" width="236" height="100" />
+        </div>
+        <nav class="footer-nav" aria-label="Liens de pied de page">
+          <a href="portfolio.html" data-en="Portfolio">Portfolio</a>
+          <a href="methodology.html" data-en="Tactics">Tactique</a>
+          <a href="articles.html" data-en="Articles">Articles</a>
+          <a href="index.html#contact">Contact</a>
+          <a href="legal.html" data-en="Legal notice">Mentions légales</a>
+        </nav>
+      </div>
+      <div class="footer-inner">
+        <p data-en="© &lt;span id=&quot;year&quot;&gt;&lt;/span&gt; UlCed W · Offensive Security &amp; Cyber Intelligence · &lt;a href=&quot;legal.html&quot;&gt;Legal notice &amp; privacy&lt;/a&gt;">© <span id="year"></span> UlCed W · Offensive Security &amp; Cyber Intelligence · <a href="legal.html">Mentions légales &amp; confidentialité</a></p>
+        <a href="index.html" class="footer-top" data-en="← Home">← Accueil</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bouton flottant « haut de page » -->
+  <button class="to-top" id="to-top" aria-label="Remonter en haut" title="Haut de page">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
