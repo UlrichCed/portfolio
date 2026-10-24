@@ -811,6 +811,10 @@ section[id] { scroll-margin-top: 84px; }
 .article-byline strong { color: var(--text); font-family: var(--font); font-size: .88rem; }
 .article h1 { margin-bottom: .8rem; }
 .article-lead { font-size: 1.1rem; color: var(--text); }
+.article-hero-img {
+  width: 100%; height: auto; display: block; margin: 0 0 1.8rem;
+  border-radius: var(--radius); border: 1px solid var(--border-red); box-shadow: var(--shadow), var(--shadow-red);
+}
 .article h2 { font-size: 1.4rem; margin: 2.4rem 0 .8rem; color: var(--text); }
 .article h2:first-of-type { margin-top: 1.6rem; }
 .article h3 { font-size: 1.05rem; margin: 1.6rem 0 .5rem; color: var(--red); font-family: var(--font-mono); letter-spacing: .01em; }
